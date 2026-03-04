@@ -64,6 +64,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(26,26,26,.97);border-botto
 /* SECTION BANNER IMAGES */
 .section-banner{width:100%;height:300px;object-fit:cover;border-radius:8px;margin-bottom:2rem;border:1px solid #333}
 
+/* SECTION VIDEO HERO */
+.section-video-hero{position:relative;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.section-video-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.section-video-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.45) 0%,rgba(26,26,26,.78) 100%)}
+.section-video-content{position:relative;text-align:center;padding:2rem;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.section-video-content .sv-num{font-family:'Oswald',sans-serif;font-size:1rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.section-video-content .sv-title{font-family:'Oswald',sans-serif;font-size:3rem;text-transform:uppercase;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.8)}
+.section-video-content .sv-title span{color:var(--gold)}
+.section-video-content .sv-sub{font-size:1rem;color:rgba(255,255,255,.75);max-width:500px}
+
 /* FACT BOX */
 .fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
 .fact-card{background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:1rem 1.25rem}
@@ -533,11 +543,19 @@ footer .foot-links a:hover{color:var(--gold)}
 </div>
 
 <!-- ===== SECTION 2: WEATHER ===== -->
-<div id="weather" class="section">
-  <div class="section-header">
-    <div class="section-num">02</div>
-    <div><h2 class="section-title">Weather <span>Theory</span></h2><p style="color:var(--gray);font-size:.9rem">PHAK Chapter 12 — understand the sky before you fly</p></div>
+<div id="weather" class="section-video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772665371/fpv-drone-flying-through-weather_zgh3dl.mp4" type="video/mp4">
+  </video>
+  <div class="section-video-overlay"></div>
+  <div class="section-video-content">
+    <div class="sv-num">Section 02</div>
+    <h2 class="sv-title">Weather <span>Theory</span></h2>
+    <p class="sv-sub">PHAK Chapter 12 — understand the sky before you fly</p>
   </div>
+</div>
+
+<div class="section" style="padding-top:2.5rem">
   <div class="section-divider"></div>
 
   <img src="generated_imgs/generated-2026-03-04T20-33-03-624Z-qrnwzh.png" alt="Weather Fronts Diagram" class="section-banner">
