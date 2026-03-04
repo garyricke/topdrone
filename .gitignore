@@ -1,0 +1,10 @@
+# Exclude all files by default
+*
+
+# Allow the site files
+!index.html
+!.gitignore
+!top-drone-school-logo-20aug25-b.png
+!generated_imgs/
+!generated_imgs/*.png
+!generated_imgs/*.jpg
