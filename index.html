@@ -272,6 +272,43 @@ footer .foot-links a:hover{color:var(--gold)}
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 </div>
 
+<!-- AUDIO PLAYER -->
+<div style="max-width:1100px;margin:0 auto;padding:2rem 2rem 0">
+  <div class="audio-player" id="audioPlayer">
+    <audio id="mainAudio" preload="metadata">
+      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772658416/Runway_Signs__Wake_Turbulence__and_Drone_Rules_yizb3d.mp4" type="video/mp4">
+    </audio>
+    <div class="ap-header">
+      <div class="ap-icon">🎙</div>
+      <div class="ap-meta">
+        <div class="ap-title">Deep Dive Audio Overview</div>
+        <div class="ap-subtitle">Runway Signs, Wake Turbulence &amp; Drone Rules · Top Drone School</div>
+      </div>
+    </div>
+    <div class="ap-waveform" id="apWaveform" title="Click to seek"></div>
+    <div class="ap-controls">
+      <button class="ap-play" id="apPlayBtn" onclick="togglePlay()" title="Play / Pause">▶</button>
+      <div class="ap-time-wrap">
+        <div class="ap-progress-track" id="apTrack" onclick="seek(event)">
+          <div class="ap-progress-fill" id="apFill"></div>
+          <div class="ap-progress-thumb" id="apThumb"></div>
+        </div>
+        <div class="ap-times">
+          <span id="apCurrent">0:00</span>
+          <span id="apDuration">--:--</span>
+        </div>
+      </div>
+      <div class="ap-right">
+        <button class="ap-speed" id="apSpeed" onclick="cycleSpeed()" title="Playback speed">1×</button>
+        <input class="ap-vol" id="apVol" type="range" min="0" max="1" step="0.05" value="1" oninput="setVol(this.value)" title="Volume">
+      </div>
+    </div>
+    <div>
+      <span class="ap-badge">🎧 Listen while you study</span>
+    </div>
+  </div>
+</div>
+
 <!-- ===== SECTION 1: REGULATIONS ===== -->
 <div id="regulations" class="section">
   <div class="section-header">
@@ -940,41 +977,6 @@ footer .foot-links a:hover{color:var(--gold)}
     <div><h2 class="section-title">Runway Signs, Wake Turbulence <span>&amp; Drone Rules</span></h2><p style="color:var(--gray);font-size:.9rem">The physical language of the airfield — and how drones fit in</p></div>
   </div>
   <div class="section-divider"></div>
-
-  <!-- AUDIO PLAYER -->
-  <div class="audio-player" id="audioPlayer">
-    <audio id="mainAudio" preload="metadata">
-      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772658416/Runway_Signs__Wake_Turbulence__and_Drone_Rules_yizb3d.mp4" type="video/mp4">
-    </audio>
-    <div class="ap-header">
-      <div class="ap-icon">🎙</div>
-      <div class="ap-meta">
-        <div class="ap-title">Deep Dive Audio Overview</div>
-        <div class="ap-subtitle">Runway Signs, Wake Turbulence &amp; Drone Rules · Top Drone School</div>
-      </div>
-    </div>
-    <div class="ap-waveform" id="apWaveform" title="Click to seek"></div>
-    <div class="ap-controls">
-      <button class="ap-play" id="apPlayBtn" onclick="togglePlay()" title="Play / Pause">▶</button>
-      <div class="ap-time-wrap">
-        <div class="ap-progress-track" id="apTrack" onclick="seek(event)">
-          <div class="ap-progress-fill" id="apFill"></div>
-          <div class="ap-progress-thumb" id="apThumb"></div>
-        </div>
-        <div class="ap-times">
-          <span id="apCurrent">0:00</span>
-          <span id="apDuration">--:--</span>
-        </div>
-      </div>
-      <div class="ap-right">
-        <button class="ap-speed" id="apSpeed" onclick="cycleSpeed()" title="Playback speed">1×</button>
-        <input class="ap-vol" id="apVol" type="range" min="0" max="1" step="0.05" value="1" oninput="setVol(this.value)" title="Volume">
-      </div>
-    </div>
-    <div>
-      <span class="ap-badge">🎧 Listen while you study</span>
-    </div>
-  </div>
 
   <img src="generated_imgs/generated-2026-03-04T20-33-35-801Z-kw36ze.png" alt="Airport Runway Signs Diagram" class="section-banner">
 
