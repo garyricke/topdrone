@@ -240,6 +240,7 @@ footer .foot-links a:hover{color:var(--gold)}
     <a href="#airspace">Airspace</a>
     <a href="#runway">Runway &amp; Wakes</a>
     <a href="#exam">Final Exam</a>
+    <a href="#glossary">Glossary</a>
   </div>
   <div class="score-badge" id="nav-score">Score: 0/0</div>
 </nav>
@@ -1310,6 +1311,26 @@ footer .foot-links a:hover{color:var(--gold)}
   </div>
 </div>
 
+<!-- ===== SECTION: GLOSSARY ===== -->
+<div id="glossary" class="section">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div><h2 class="section-title">Abbreviations <span>&amp; Terms</span></h2><p style="color:var(--gray);font-size:.9rem">Every acronym you'll encounter on the Part 107 test</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <div style="position:relative;margin-bottom:1.5rem">
+    <input id="glossSearch" type="text" placeholder="Search abbreviations or definitions…" oninput="filterGloss(this.value)"
+      style="width:100%;background:var(--charcoal2);border:1px solid #444;border-radius:6px;padding:.8rem 1rem .8rem 2.75rem;color:var(--white);font-size:.95rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s"
+      onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='#444'">
+    <span style="position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--gray);font-size:1rem;pointer-events:none">🔍</span>
+    <span id="glossCount" style="position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--gray);font-size:.78rem;font-family:'Oswald',sans-serif"></span>
+  </div>
+
+  <div id="glossGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.6rem"></div>
+  <p id="glossEmpty" style="display:none;text-align:center;color:var(--gray);padding:2rem;font-size:.9rem">No matches found.</p>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School">
@@ -1510,6 +1531,118 @@ function cycleSpeed() {
 function setVol(v) { audio.volume = parseFloat(v); }
 
 // ---- END AUDIO PLAYER ----
+
+// ---- GLOSSARY ----
+const glossaryData = [
+  // Regulatory / Certification
+  { abbr: 'FAA',      def: 'Federal Aviation Administration — the U.S. government agency that regulates civil aviation.' },
+  { abbr: 'CFR',      def: 'Code of Federal Regulations — the codification of U.S. federal rules. Part 107 lives in Title 14 CFR.' },
+  { abbr: 'Part 107', def: '14 CFR Part 107 — the FAA regulation governing civil small unmanned aircraft systems (sUAS).' },
+  { abbr: 'RPIC',     def: 'Remote Pilot in Command — the person directly responsible and final authority for a small UAS operation.' },
+  { abbr: 'PIC',      def: 'Pilot in Command — the person responsible for the safe operation of an aircraft.' },
+  { abbr: 'VO',       def: 'Visual Observer — a crew member designated by the RPIC to help maintain visual contact with the UAS.' },
+  { abbr: 'NTSB',     def: 'National Transportation Safety Board — independent federal agency that investigates aviation accidents.' },
+  { abbr: 'TSA',      def: 'Transportation Security Administration — federal agency with authority to inspect drone operators for compliance.' },
+  { abbr: 'COA',      def: 'Certificate of Waiver or Authorization — legacy FAA authorization (largely replaced by LAANC for drones).' },
+  { abbr: 'ICAO',     def: 'International Civil Aviation Organization — UN body that sets global aviation standards.' },
+  // Aircraft / Systems
+  { abbr: 'UAS',      def: 'Unmanned Aircraft System — the aircraft and all associated elements required for safe operation.' },
+  { abbr: 'sUAS',     def: 'Small Unmanned Aircraft System — a UAS weighing less than 55 pounds at takeoff.' },
+  { abbr: 'UA',       def: 'Unmanned Aircraft — the aircraft component of a UAS, operated without a pilot on board.' },
+  { abbr: 'FPV',      def: 'First Person View — flying a drone via a live video feed, typically through goggles.' },
+  { abbr: 'GPS',      def: 'Global Positioning System — satellite-based navigation system used by most drones for positioning.' },
+  { abbr: 'ADS-B',    def: 'Automatic Dependent Surveillance-Broadcast — technology that broadcasts an aircraft\'s position; prohibited on small UAS unless required.' },
+  { abbr: 'Remote ID', def: 'Remote Identification — FAA-mandated system that broadcasts a drone\'s identity and location; the "digital license plate."' },
+  { abbr: 'EMAS',     def: 'Engineered Materials Arresting System — crushable concrete bed at runway ends that safely stops overrunning aircraft.' },
+  // Airspace
+  { abbr: 'ATC',      def: 'Air Traffic Control — the service that directs aircraft in controlled airspace.' },
+  { abbr: 'Class B',  def: 'Controlled airspace around the nation\'s busiest airports; shaped like an inverted wedding cake. Requires ATC authorization for drones.' },
+  { abbr: 'Class C',  def: 'Controlled airspace around medium-hub airports; typically two concentric rings. Requires ATC authorization for drones.' },
+  { abbr: 'Class D',  def: 'Controlled airspace around airports with operating control towers; typically ~5 nm radius. Requires ATC authorization for drones.' },
+  { abbr: 'Class E',  def: 'Controlled airspace not classified as B, C, or D. Surface areas require ATC authorization for drones.' },
+  { abbr: 'Class G',  def: 'Uncontrolled airspace — no ATC control, but all Part 107 rules still apply. Most accessible for drone ops.' },
+  { abbr: 'MOA',      def: 'Military Operations Area — special use airspace where military training occurs. Drones should avoid or use caution.' },
+  { abbr: 'SUA',      def: 'Special Use Airspace — airspace with defined activities that may be hazardous (Prohibited, Restricted, Warning, MOA, Alert areas).' },
+  { abbr: 'TFR',      def: 'Temporary Flight Restriction — a temporary airspace restriction issued via NOTAM for events, emergencies, VIP movement, etc.' },
+  { abbr: 'TRSA',     def: 'Terminal Radar Service Area — airspace where ATC provides radar service to participating VFR aircraft.' },
+  { abbr: 'LAANC',    def: 'Low Altitude Authorization and Notification Capability — automated system for drone pilots to get near-real-time ATC authorization.' },
+  // Navigation / Altitude
+  { abbr: 'AGL',      def: 'Above Ground Level — altitude measured from the surface directly below the aircraft. Part 107 max altitude: 400 ft AGL.' },
+  { abbr: 'MSL',      def: 'Mean Sea Level — altitude measured from average sea level. Used in aeronautical charts.' },
+  { abbr: 'PA',       def: 'Pressure Altitude — altitude indicated when altimeter is set to standard sea level pressure (29.92 inHg).' },
+  { abbr: 'DA',       def: 'Density Altitude — pressure altitude corrected for non-standard temperature. High DA = degraded aircraft performance.' },
+  // Flight rules / conditions
+  { abbr: 'VFR',      def: 'Visual Flight Rules — flight conducted with visual reference to the ground and in VMC conditions.' },
+  { abbr: 'IFR',      def: 'Instrument Flight Rules — flight conducted by reference to instruments only, in IMC or clouds.' },
+  { abbr: 'VMC',      def: 'Visual Meteorological Conditions — weather conditions that allow VFR flight (adequate visibility and cloud clearance).' },
+  { abbr: 'IMC',      def: 'Instrument Meteorological Conditions — weather below VFR minimums; clouds, fog, or low visibility.' },
+  { abbr: 'VLOS',     def: 'Visual Line of Sight — requirement that the RPIC or VO can see the UAS with unaided vision at all times.' },
+  { abbr: 'BVLOS',    def: 'Beyond Visual Line of Sight — drone operations outside unaided visual range; requires FAA waiver under §107.31.' },
+  // Weather reports
+  { abbr: 'METAR',    def: 'Meteorological Aerodrome Report — routine weather observation at an airport (wind, visibility, clouds, temp, dew point, altimeter).' },
+  { abbr: 'TAF',      def: 'Terminal Aerodrome Forecast — weather forecast for a specific airport area, valid 24–30 hours.' },
+  { abbr: 'PIREP',    def: 'Pilot Report — real-time weather conditions reported by pilots in flight (turbulence, icing, cloud tops, winds).' },
+  { abbr: 'SIGMET',   def: 'Significant Meteorological Information — advisory for severe weather hazards: severe turbulence, icing, hail, volcanic ash, microbursts.' },
+  { abbr: 'AIRMET',   def: 'Airmen\'s Meteorological Information — advisory for moderate hazards: moderate turbulence/icing, mountain obscuration, strong surface winds.' },
+  { abbr: 'ASOS',     def: 'Automated Surface Observing System — automated weather station that generates METARs continuously.' },
+  { abbr: 'AWOS',     def: 'Automated Weather Observing System — similar to ASOS; automated weather observations at smaller airports.' },
+  // Weather phenomena
+  { abbr: 'OAT',      def: 'Outside Air Temperature — the ambient air temperature at a given altitude.' },
+  { abbr: 'ISA',      def: 'International Standard Atmosphere — standard model where sea level temp is 15°C (59°F) and pressure is 29.92 inHg.' },
+  { abbr: 'inHg',     def: 'Inches of Mercury — unit for barometric pressure. Standard sea level: 29.92 inHg.' },
+  { abbr: 'mb',       def: 'Millibars — metric unit for atmospheric pressure. Standard sea level: 1,013.2 mb.' },
+  { abbr: 'CB',       def: 'Cumulonimbus — the thunderstorm cloud. Most dangerous cloud type to aviation. Avoid at all costs.' },
+  { abbr: 'TCU',      def: 'Towering Cumulus — rapidly building cumulus cloud indicating atmospheric instability; precursor to cumulonimbus.' },
+  // Airport comms
+  { abbr: 'CTAF',     def: 'Common Traffic Advisory Frequency — the designated frequency for self-announcing at non-towered airports.' },
+  { abbr: 'UNICOM',   def: 'Universal Integrated Community — non-government aeronautical advisory radio station at non-towered airports.' },
+  { abbr: 'ATIS',     def: 'Automated Terminal Information Service — continuous recorded broadcast of airport weather, active runways, and NOTAMs at towered airports.' },
+  { abbr: 'FSS',      def: 'Flight Service Station — FAA facility providing weather briefings, flight plans, NOTAMs, and other pilot services.' },
+  { abbr: 'NOTAM',    def: 'Notice to Air Missions (formerly Notice to Airmen) — time-critical information on hazards, closures, TFRs, or changes affecting flight.' },
+  // Units / measurements
+  { abbr: 'kts',      def: 'Knots — nautical miles per hour. Part 107 max groundspeed: 87 knots (100 mph).' },
+  { abbr: 'mph',      def: 'Miles Per Hour — statute miles per hour. Part 107 max groundspeed: 100 mph (87 kts).' },
+  { abbr: 'nm',       def: 'Nautical Mile — unit of distance equal to 1,852 meters or ~1.15 statute miles.' },
+  { abbr: 'sm',       def: 'Statute Mile — standard land mile (5,280 ft). Part 107 visibility minimum: 3 sm.' },
+  // References
+  { abbr: 'PHAK',     def: 'Pilot\'s Handbook of Aeronautical Knowledge — FAA publication covering foundational aviation knowledge; Chapters 12 & 14 are Part 107 test sources.' },
+  { abbr: 'AIM',      def: 'Aeronautical Information Manual — official FAA guide to U.S. air navigation and procedures.' },
+  { abbr: 'AFM',      def: 'Approved Flight Manual — manufacturer\'s FAA-approved document specifying aircraft operating limitations; required for Category 4 ops.' },
+  { abbr: 'AWC',      def: 'Aviation Weather Center — FAA/NOAA facility that produces aviation weather forecasts, SIGMETs, and AIRMETs.' },
+  { abbr: 'NWS',      def: 'National Weather Service — federal agency that provides weather forecasts and warnings.' },
+];
+
+function renderGloss(data) {
+  const grid = document.getElementById('glossGrid');
+  const empty = document.getElementById('glossEmpty');
+  const count = document.getElementById('glossCount');
+  grid.innerHTML = '';
+  if (data.length === 0) {
+    empty.style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+  empty.style.display = 'none';
+  count.textContent = data.length + ' terms';
+  data.forEach(item => {
+    const card = document.createElement('div');
+    card.style.cssText = 'background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem';
+    card.innerHTML = `<span style="font-family:\'Oswald\',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.5">${item.def}</span>`;
+    grid.appendChild(card);
+  });
+}
+
+function filterGloss(q) {
+  const lower = q.toLowerCase();
+  const filtered = glossaryData.filter(i =>
+    i.abbr.toLowerCase().includes(lower) || i.def.toLowerCase().includes(lower)
+  );
+  renderGloss(filtered);
+}
+
+// Initial render
+renderGloss(glossaryData);
+// ---- END GLOSSARY ----
 
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
