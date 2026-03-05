@@ -1627,7 +1627,11 @@ function renderGloss(data) {
   data.forEach(item => {
     const card = document.createElement('div');
     card.style.cssText = 'background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem';
-    card.innerHTML = `<span style="font-family:\'Oswald\',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.5">${item.def}</span>`;
+    const parts = item.def.split(' — ');
+    const defHTML = parts.length > 1
+      ? `<span style="color:#fff;font-weight:500">${parts[0]}</span><span style="color:rgba(255,255,255,.45)"> — </span><span style="color:rgba(255,255,255,.65)">${parts.slice(1).join(' — ')}</span>`
+      : `<span style="color:rgba(255,255,255,.65)">${item.def}</span>`;
+    card.innerHTML = `<span style="font-family:'Oswald',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;line-height:1.5">${defHTML}</span>`;
     grid.appendChild(card);
   });
 }
