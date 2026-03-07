@@ -3,6 +3,8 @@
 
 # Allow the site files
 !index.html
+!training-course.html
+!part107-study-guide.html
 !.gitignore
 !top-drone-school-logo-20aug25-b.png
 !generated_imgs/
