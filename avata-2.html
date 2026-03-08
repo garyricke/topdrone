@@ -496,6 +496,193 @@
       color: rgba(255,255,255,0.55);
     }
 
+    /* ── COMPONENT GRID ─────────────────────────────────── */
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    .comp-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .comp-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(155,27,43,0.5);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 1.4rem;
+    }
+
+    .comp-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .comp-desc {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.5;
+    }
+
+    /* ── STICK CARDS ─────────────────────────────────────── */
+    .stick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .stick-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .stick-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .stick-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .stick-axes { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .stick-axis {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .axis-dir {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      min-width: 38px;
+    }
+
+    /* ── MODE SWITCH CARDS ───────────────────────────────── */
+    .mode-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .mode-card {
+      border-radius: 4px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .mode-card.normal { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+    .mode-card.sport  { background: rgba(245,197,0,0.06);  border: 1px solid rgba(245,197,0,0.2); }
+    .mode-card.manual { background: rgba(155,27,43,0.08);  border: 1px solid rgba(155,27,43,0.3); }
+
+    .mode-letter {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .mode-card.normal .mode-letter { color: rgba(255,255,255,0.8); }
+    .mode-card.sport  .mode-letter { color: var(--gold); }
+    .mode-card.manual .mode-letter { color: var(--crimson); }
+
+    .mode-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .mode-card.normal .mode-name { color: rgba(255,255,255,0.6); }
+    .mode-card.sport  .mode-name { color: var(--gold); }
+    .mode-card.manual .mode-name { color: var(--crimson); }
+
+    .mode-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
+
+    /* ── STEP LIST ───────────────────────────────────────── */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .step-row {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.55;
+    }
+
+    .step-badge {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--crimson);
+      color: var(--white);
+      border-radius: 2px;
+      padding: 1px 7px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── CONTROLS SUBSECTION HEADER ──────────────────────── */
+    .sub-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      margin-top: 3rem;
+      margin-bottom: 0.3rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .sub-heading span { color: var(--gold); }
+
     /* ── CALLOUT ─────────────────────────────────────────── */
     .callout-gold {
       background: rgba(245,197,0,0.07);
@@ -816,35 +1003,283 @@
     <div class="divider"></div>
     <p class="section-intro">Your experience is shaped entirely by which controller you pick up. One lowers the barrier to entry. The other removes it entirely &mdash; and hands all responsibility to you.</p>
 
-    <div class="split" style="margin-top:2.5rem;">
+    <!-- Controller Comparison Table -->
+    <table class="compare-table" style="margin-top:2.5rem;">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>RC Motion 3</th>
+          <th>FPV Remote Controller 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Complexity</td><td>Low &mdash; intuitive point-to-fly</td><td>High &mdash; full manual control</td></tr>
+        <tr><td>Special Features</td><td>Easy ACRO; AR Cursor in goggles</td><td>Manual Mode; Simulator support</td></tr>
+        <tr><td>Best For</td><td>Casual flying; simple cine shots</td><td>Freestyle; racing; advanced cine</td></tr>
+        <tr><td>Safety</td><td>Emergency Brake / Hover button</td><td>Requires skilled manual recovery</td></tr>
+        <tr><td>Acro Capable</td><td>Easy ACRO (assisted)</td><td>Full unassisted Manual Mode</td></tr>
+        <tr><td>Weight</td><td>259 g</td><td>240 g</td></tr>
+        <tr><td>Battery Life</td><td>~6 hours</td><td>~10 hours</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── FPV REMOTE CONTROLLER 3 DEEP DIVE ─────────────── -->
+    <h3 class="sub-heading">FPV Remote Controller 3 &mdash; <span>Full Deep Dive</span></h3>
+
+    <div class="split">
       <div>
         <div class="split-img">
-          <img src="avata 2/rc-motion-3-gesture-control.jpg" alt="DJI RC Motion 3 gesture controller — single-handed wrist-motion control of Avata 2" />
+          <img src="avata 2/fpv-remote-controller-3-in-hands.webp" alt="DJI FPV Remote Controller 3 being held — ergonomic grip with dual thumbsticks" />
         </div>
-        <div class="img-caption">RC Motion 3 &mdash; point-to-fly gesture control. Wrist tilt maps directly to flight direction.</div>
+        <div class="img-caption">RC3 in the field &mdash; 240g, dual thumbsticks, up to 10 hours of operating time on a single charge.</div>
       </div>
       <div>
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>RC Motion 3</th>
-              <th>FPV Remote Controller 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Complexity</td><td>Low &mdash; intuitive point-to-fly</td><td>High &mdash; full manual control</td></tr>
-            <tr><td>Special Features</td><td>Easy ACRO; AR Cursor in goggles</td><td>Manual Mode; Simulator support</td></tr>
-            <tr><td>Best For</td><td>Casual flying; simple cine shots</td><td>Freestyle; racing; advanced cine</td></tr>
-            <tr><td>Safety</td><td>Emergency Brake / Hover button</td><td>Requires skilled manual recovery</td></tr>
-            <tr><td>Acro Capable</td><td>Easy ACRO (assisted)</td><td>Full unassisted Manual Mode</td></tr>
-          </tbody>
-        </table>
-        <div class="callout-gold">
-          <strong>Which Should You Start With?</strong>
-          Begin on the RC Motion 3. Its "Easy ACRO" button performs cinematic flips and 180&deg; drifts automatically. Once you've built spatial awareness and comfort, graduate to the RC3 for full Manual/Acro mode &mdash; the gateway to the training course.
+        <div class="split-img">
+          <img src="avata 2/fpv-remote-controller-3-front-view.webp" alt="DJI FPV Remote Controller 3 front view — showing flight mode switch, dual sticks, C1/C2 buttons, power, and battery LEDs" />
+        </div>
+        <div class="img-caption">Front view &mdash; flight mode switch (M/S/N), Start/Stop, C1/C2 customizable buttons, Gimbal Dial, and Shutter/Record.</div>
+      </div>
+    </div>
+
+    <!-- Component Reference -->
+    <h3 class="sub-heading" style="margin-top:2.5rem;">Hardware <span>Reference</span></h3>
+    <p style="font-size:0.87rem;color:rgba(255,255,255,0.55);margin-bottom:0.5rem;">13 labeled components on the FPV Remote Controller 3:</p>
+    <div class="component-grid">
+      <div class="comp-card">
+        <div class="comp-num">1</div>
+        <div>
+          <div class="comp-name">RTH / Flight Pause</div>
+          <div class="comp-desc">Press once to brake and hover (GNSS/Vision required). Hold until beep to activate Return to Home.</div>
         </div>
       </div>
+      <div class="comp-card">
+        <div class="comp-num">2</div>
+        <div>
+          <div class="comp-name">Power Button</div>
+          <div class="comp-desc">Press once to check battery. Hold 2s to power on/off. Shows charge level via LED bar.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">3</div>
+        <div>
+          <div class="comp-name">Left Stick</div>
+          <div class="comp-desc">Throttle (up/down) and Yaw (left/right). In Manual mode, throttle has no center &mdash; it holds its position.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">4</div>
+        <div>
+          <div class="comp-name">Flight Mode Switch</div>
+          <div class="comp-desc">3-position toggle: N (Normal), S (Sport), M (Manual/Custom). Toggle up = M, center = S, down = N.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">5</div>
+        <div>
+          <div class="comp-name">Start / Stop</div>
+          <div class="comp-desc">Press twice rapidly to start or stop motors. Required for Manual mode motor start (CSC procedure).</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">6</div>
+        <div>
+          <div class="comp-name">5D Button</div>
+          <div class="comp-desc">Navigates the goggles menu. Tilt to move, press to select. Used to configure RC3 settings in the goggles.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">7</div>
+        <div>
+          <div class="comp-name">C1 Button (Custom)</div>
+          <div class="comp-desc">Configurable via Goggles menu. Default options: ESC Beeping or Turtle Mode (flip to recover from crash).</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">8</div>
+        <div>
+          <div class="comp-name">C2 Switch (Custom)</div>
+          <div class="comp-desc">3-position switch. Default: gimbal tilt up / recenter / tilt down. Fully remappable in goggles settings.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">9</div>
+        <div>
+          <div class="comp-name">Right Stick</div>
+          <div class="comp-desc">Pitch (forward/backward) and Roll (left/right). Determines drone direction and banking in Normal and Sport modes.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">10</div>
+        <div>
+          <div class="comp-name">Gimbal Dial</div>
+          <div class="comp-desc">Scroll wheel on right shoulder. Adjusts gimbal tilt angle in real time during flight.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">11</div>
+        <div>
+          <div class="comp-name">Shutter / Record</div>
+          <div class="comp-desc">Press to take a photo or start/stop recording. Press and hold to switch between photo and video mode.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">12</div>
+        <div>
+          <div class="comp-name">Battery Level LEDs</div>
+          <div class="comp-desc">4-bar LED indicator. Controller sounds low-battery alert at 6–10%. Critical alert below 5% cannot be cancelled.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">13</div>
+        <div>
+          <div class="comp-name">USB-C Port</div>
+          <div class="comp-desc">Charging input (5V/2A). Also used for firmware update via DJI Assistant 2. Full charge takes approx. 2 hours.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stick Layout -->
+    <h3 class="sub-heading">Stick Layout <span>(Mode 2 Default)</span></h3>
+    <p style="font-size:0.87rem;color:rgba(255,255,255,0.55);margin-bottom:0;">Mode 2 is the default. Control stick mode can be changed in the goggles (Mode 1, 2, or 3 supported).</p>
+    <div class="stick-grid">
+      <div class="stick-card">
+        <div class="stick-label">Left Stick</div>
+        <div class="stick-name">Throttle &amp; Yaw</div>
+        <div class="stick-axes">
+          <div class="stick-axis"><span class="axis-dir">Up</span>Ascend &mdash; aircraft climbs</div>
+          <div class="stick-axis"><span class="axis-dir">Down</span>Descend &mdash; aircraft drops</div>
+          <div class="stick-axis"><span class="axis-dir">Left</span>Yaw left &mdash; nose rotates left</div>
+          <div class="stick-axis"><span class="axis-dir">Right</span>Yaw right &mdash; nose rotates right</div>
+        </div>
+        <div style="margin-top:0.75rem;font-size:0.76rem;color:rgba(245,197,0,0.7);font-style:italic;">In Manual mode, throttle has no spring return &mdash; it holds its last position.</div>
+      </div>
+      <div class="stick-card">
+        <div class="stick-label">Right Stick</div>
+        <div class="stick-name">Pitch &amp; Roll</div>
+        <div class="stick-axes">
+          <div class="stick-axis"><span class="axis-dir">Up</span>Pitch forward &mdash; drone moves forward</div>
+          <div class="stick-axis"><span class="axis-dir">Down</span>Pitch back &mdash; drone moves backward</div>
+          <div class="stick-axis"><span class="axis-dir">Left</span>Roll left &mdash; drone banks and strafes left</div>
+          <div class="stick-axis"><span class="axis-dir">Right</span>Roll right &mdash; drone banks and strafes right</div>
+        </div>
+        <div style="margin-top:0.75rem;font-size:0.76rem;color:rgba(255,255,255,0.35);font-style:italic;">Stick input sensitivity scales with flight mode &mdash; Sport is significantly more aggressive.</div>
+      </div>
+    </div>
+
+    <!-- Flight Mode Switch -->
+    <h3 class="sub-heading">Flight Mode <span>Switch</span></h3>
+    <div class="mode-cards">
+      <div class="mode-card normal">
+        <div class="mode-letter">N</div>
+        <div class="mode-name">Normal</div>
+        <div class="mode-desc">GNSS-assisted stabilization. GPS holds position. Safe for new pilots. Recommended starting point.</div>
+      </div>
+      <div class="mode-card sport">
+        <div class="mode-letter">S</div>
+        <div class="mode-name">Sport</div>
+        <div class="mode-desc">Faster, more responsive. Obstacle avoidance disabled. GNSS still active. Requires confident stick control.</div>
+      </div>
+      <div class="mode-card manual">
+        <div class="mode-letter">M</div>
+        <div class="mode-name">Manual</div>
+        <div class="mode-desc">Full FPV Acro control. Zero stabilization. Throttle holds position. Must be enabled in goggles first.</div>
+      </div>
+    </div>
+
+    <!-- Manual Mode -->
+    <h3 class="sub-heading">Using <span>Manual Mode</span></h3>
+    <div class="callout-red" style="margin-top:1rem;">
+      <strong>Safety Warning</strong>
+      Manual mode disables all flight assistance. The aircraft has no automatic stabilization and can reach any attitude. Failure to operate properly is a safety risk and may cause the aircraft to crash. Manual mode is disabled by default and requires explicit activation in the Goggles 3 menu. Only experienced pilots should use Manual mode. Practice extensively in a flight simulator before flying real hardware.
+    </div>
+    <p style="font-size:0.87rem;color:rgba(255,255,255,0.6);line-height:1.65;margin-top:1.2rem;">The RC3 supports flight simulators including Liftoff, Uncrashed, Drone Racing League (DRL), and Drone Champions League (DCL). Spend at minimum several weeks in simulator before attempting Manual mode outdoors.</p>
+
+    <p class="sub-heading" style="margin-top:2rem;font-size:0.9rem;">Enabling Manual Mode &mdash; Step by Step:</p>
+    <div class="step-list">
+      <div class="step-row"><span class="step-badge">1</span>Turn the RC3 over. Open the rubber grip behind the throttle stick.</div>
+      <div class="step-row"><span class="step-badge">2</span>Using the included 1.5mm hex key, tighten F1 (resistance) and F2 (spring) adjustment screws on the left stick so the throttle stick no longer auto-recenters.</div>
+      <div class="step-row"><span class="step-badge">3</span>Power on the aircraft, Goggles 3, and RC3. Make sure all devices are linked.</div>
+      <div class="step-row"><span class="step-badge">4</span>In the goggles, press the 5D button and open the menu. Go to Settings &rarr; Control &rarr; Remote Controller &rarr; Button Customization &rarr; Custom Mode &rarr; Set to Manual Mode.</div>
+      <div class="step-row"><span class="step-badge">5</span>Flip the flight mode switch to <strong>M</strong>. Note: first-time Manual mode has an attitude restriction enabled. Once comfortable, this can be disabled in the goggles, and Gain and Expo can be adjusted.</div>
+    </div>
+
+    <p class="sub-heading" style="margin-top:2rem;font-size:0.9rem;">Starting Motors in Manual Mode (CSC):</p>
+    <div class="step-list">
+      <div class="step-row"><span class="step-badge">1</span>Hold the throttle stick in the lowest position.</div>
+      <div class="step-row"><span class="step-badge">2</span>Press the Start/Stop button twice rapidly. Motors will spin up.</div>
+      <div class="step-row"><span class="step-badge">3</span>Push the throttle stick up slowly and smoothly to take off.</div>
+      <div class="step-row"><span class="step-badge">4</span>To stop motors after landing, press the Start/Stop button twice again.</div>
+    </div>
+    <div class="callout-gold" style="margin-top:1rem;">
+      <strong>Tip</strong>
+      When in Manual mode, pressing the RTH/Flight Pause button once makes the aircraft brake and hover, and automatically switches the flight mode back to Normal mode. It is recommended to switch to Normal mode before landing.
+    </div>
+
+    <!-- ── RC MOTION 3 ─────────────────────────────────────── -->
+    <h3 class="sub-heading">RC Motion 3 &mdash; <span>Gesture Controller</span></h3>
+    <div class="split" style="margin-top:1.4rem;">
+      <div>
+        <div class="split-img">
+          <img src="avata 2/rc-motion-3-controls-diagram.jpg" alt="RC Motion 3 labeled controls diagram — showing Emergency Brake, attitude control, accelerator, FN dial, and shutter button" />
+        </div>
+        <div class="img-caption">RC Motion 3 labeled diagram &mdash; six primary control zones mapped to flight and camera functions.</div>
+      </div>
+      <div>
+        <div class="split-img">
+          <img src="avata 2/rc-motion-3-gesture-control.jpg" alt="DJI RC Motion 3 gesture controller in hand — single-handed wrist-motion control of Avata 2" />
+        </div>
+        <div class="img-caption">RC Motion 3 in use &mdash; wrist tilt drives pitch and yaw. Point the controller where you want the drone to go.</div>
+      </div>
+    </div>
+
+    <div class="component-grid" style="margin-top:1.4rem;">
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#9650;</div>
+        <div>
+          <div class="comp-name">Emergency Brake &amp; Hover</div>
+          <div class="comp-desc">Instantly stops the aircraft and holds position. The most important button &mdash; always know where it is before flying.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#8635;</div>
+        <div>
+          <div class="comp-name">Attitude Control</div>
+          <div class="comp-desc">Tilt the controller forward/back/left/right to move the aircraft. Wrist pitch maps directly to drone pitch and yaw.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#9654;</div>
+        <div>
+          <div class="comp-name">Accelerator</div>
+          <div class="comp-desc">Trigger on the underside controls speed/throttle. Pull to accelerate. Release returns to hover.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#8645;</div>
+        <div>
+          <div class="comp-name">Flight Mode Switch</div>
+          <div class="comp-desc">Toggle between Normal mode and Sport mode. Easy ACRO automated maneuvers available in supported modes.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#9881;</div>
+        <div>
+          <div class="comp-name">FN Dial</div>
+          <div class="comp-desc">Scroll to navigate goggles menus and adjust settings like gimbal angle without removing the goggles.</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num" style="color:rgba(245,197,0,0.5);">&#9679;</div>
+        <div>
+          <div class="comp-name">Shutter / Record</div>
+          <div class="comp-desc">One-button camera control. Press to start/stop recording. Easy ACRO button for automated cinematic maneuvers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-gold" style="margin-top:1.4rem;">
+      <strong>Which Controller Should You Start With?</strong>
+      Begin on the RC Motion 3. Its point-to-fly gesture system and Easy ACRO mode (automated flips and 180&deg; drifts) build spatial awareness without overwhelming you with stick coordination. Once you're consistently comfortable &mdash; typically after several weeks &mdash; graduate to the RC3 for full Manual/Acro mode, which unlocks the full power of the FPV training course.
     </div>
   </div>
 </section>
