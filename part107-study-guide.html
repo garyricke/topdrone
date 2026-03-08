@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Drone School | FAA Part 107 Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #9B1B2B;
+  --red-dark: #6e1220;
+  --gold: #F5C500;
+  --charcoal: #1A1A1A;
+  --charcoal2: #252525;
+  --charcoal3: #2f2f2f;
+  --gray: #6B7280;
+  --light: #F9F9F9;
+  --white: #ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--charcoal);color:var(--white);line-height:1.6}
+h1,h2,h3,h4,h5{font-family:'Oswald',sans-serif;letter-spacing:.02em}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(26,26,26,.97);border-bottom:3px solid var(--red);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center;gap:.75rem}
+.nav-logo img{height:52px}
+.nav-logo span{font-family:'Oswald',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:.1em}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-family:'Oswald',sans-serif;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-pill{color:#F5C500 !important;border:1px solid rgba(245,197,0,0.4);padding:5px 14px;border-radius:3px;letter-spacing:.08em}
+.score-badge{background:var(--red);color:var(--white);padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-family:'Oswald',sans-serif;letter-spacing:.05em}
+
+/* HERO */
+.hero{position:relative;height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.3) 0%,rgba(26,26,26,.85) 100%)}
+.hero-content{position:relative;text-align:center;padding:2rem}
+.hero-badge{display:inline-block;background:var(--gold);color:var(--charcoal);font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.15em;padding:.4rem 1.2rem;border-radius:3px;margin-bottom:1rem}
+.hero h1{font-size:3.5rem;line-height:1.1;text-transform:uppercase;text-shadow:0 2px 20px rgba(0,0,0,.8)}
+.hero h1 span{color:var(--gold)}
+.hero p{margin-top:1rem;font-size:1.1rem;color:rgba(255,255,255,.85);max-width:600px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Oswald',sans-serif;font-size:2rem;color:var(--gold)}
+.hero-stat .lbl{font-size:.75rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.1em}
+.cta-btn{display:inline-block;margin-top:1.5rem;background:var(--red);color:var(--white);font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 2rem;border-radius:4px;text-decoration:none;transition:background .2s}
+.cta-btn:hover{background:var(--red-dark)}
+
+/* PROGRESS BAR */
+.progress-wrap{background:var(--charcoal2);padding:1rem 2rem;border-bottom:1px solid #333}
+.progress-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--gray);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.08em}
+.progress-bar{height:6px;background:#333;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;width:0%;transition:width .5s ease}
+
+/* SECTION LAYOUT */
+.section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.section-num{font-family:'Oswald',sans-serif;font-size:3rem;color:var(--red);opacity:.4;line-height:1}
+.section-title{font-size:2rem;text-transform:uppercase}
+.section-title span{color:var(--gold)}
+.section-divider{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin-bottom:2.5rem}
+
+/* SECTION BANNER IMAGES */
+.section-banner{width:100%;height:300px;object-fit:cover;border-radius:8px;margin-bottom:2rem;border:1px solid #333}
+
+/* SECTION VIDEO HERO */
+.section-video-hero{position:relative;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.section-video-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.section-video-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.45) 0%,rgba(26,26,26,.78) 100%)}
+.section-video-content{position:relative;text-align:center;padding:2rem;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.section-video-content .sv-num{font-family:'Oswald',sans-serif;font-size:1rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.section-video-content .sv-title{font-family:'Oswald',sans-serif;font-size:3rem;text-transform:uppercase;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.8)}
+.section-video-content .sv-title span{color:var(--gold)}
+.section-video-content .sv-sub{font-size:1rem;color:rgba(255,255,255,.75);max-width:500px}
+
+/* FACT BOX */
+.fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
+.fact-card{background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:1rem 1.25rem}
+.fact-card.gold{border-left-color:var(--gold)}
+.fact-card .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-bottom:.3rem}
+.fact-card .value{font-family:'Oswald',sans-serif;font-size:1.6rem;color:var(--white)}
+.fact-card .value span{color:var(--gold)}
+.fact-card .note{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.25rem}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+thead{background:var(--red)}
+thead th{padding:.75rem 1rem;text-align:left;font-family:'Oswald',sans-serif;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem}
+tbody tr{border-bottom:1px solid #333}
+tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+tbody tr:hover{background:rgba(245,197,0,.05)}
+td,th{padding:.65rem 1rem;vertical-align:top}
+td:first-child{color:var(--gold);font-weight:600}
+
+/* ACCORDION */
+.accordion{margin:1rem 0}
+.acc-item{background:var(--charcoal2);border:1px solid #333;border-radius:6px;margin-bottom:.5rem;overflow:hidden}
+.acc-trigger{width:100%;background:none;border:none;color:var(--white);text-align:left;padding:1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;transition:background .2s}
+.acc-trigger:hover{background:rgba(255,255,255,.05)}
+.acc-trigger.active{background:rgba(155,27,43,.15);border-bottom:1px solid #333}
+.acc-arrow{transition:transform .3s;color:var(--gold);font-size:1.2rem}
+.acc-trigger.active .acc-arrow{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-body.open{max-height:2000px}
+.acc-content{padding:1.25rem;color:rgba(255,255,255,.85);font-size:.92rem;line-height:1.7}
+.acc-content ul{padding-left:1.5rem;margin:.5rem 0}
+.acc-content li{margin-bottom:.4rem}
+.acc-content strong{color:var(--gold)}
+
+/* QUIZ */
+.quiz-block{background:var(--charcoal2);border:1px solid #444;border-radius:8px;padding:1.5rem;margin:2rem 0}
+.quiz-block h4{font-family:'Oswald',sans-serif;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem;font-size:1rem}
+.quiz-block .q-text{font-size:1rem;margin-bottom:1rem;color:var(--white);line-height:1.5}
+.q-options{display:flex;flex-direction:column;gap:.5rem}
+.q-opt{background:var(--charcoal3);border:1px solid #444;border-radius:4px;padding:.7rem 1rem;cursor:pointer;font-size:.9rem;text-align:left;color:var(--white);transition:all .2s;display:flex;align-items:center;gap:.75rem}
+.q-opt:hover{border-color:var(--gold);background:rgba(245,197,0,.05)}
+.q-opt.correct{background:rgba(34,197,94,.15);border-color:#22c55e;color:#86efac}
+.q-opt.wrong{background:rgba(239,68,68,.15);border-color:#ef4444;color:#fca5a5}
+.q-opt.disabled{cursor:default}
+.q-opt .opt-letter{font-family:'Oswald',sans-serif;color:var(--gold);min-width:20px}
+.q-opt.correct .opt-letter{color:#22c55e}
+.q-opt.wrong .opt-letter{color:#ef4444}
+.q-explanation{margin-top:1rem;padding:.75rem 1rem;background:rgba(245,197,0,.08);border-left:3px solid var(--gold);border-radius:3px;font-size:.85rem;color:rgba(255,255,255,.8);display:none}
+.q-explanation.show{display:block}
+
+/* ALERT BOXES */
+.alert{border-radius:6px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.alert-red{background:rgba(155,27,43,.15);border-left:4px solid var(--red)}
+.alert-gold{background:rgba(245,197,0,.1);border-left:4px solid var(--gold)}
+.alert-blue{background:rgba(59,130,246,.1);border-left:4px solid #3b82f6}
+.alert strong{display:block;font-family:'Oswald',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+
+/* MNEMONIC */
+.mnemonic{background:linear-gradient(135deg,rgba(155,27,43,.2),rgba(245,197,0,.1));border:1px solid rgba(245,197,0,.3);border-radius:8px;padding:1.25rem;margin:1.25rem 0;text-align:center}
+.mnemonic .mnem-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gray);margin-bottom:.5rem}
+.mnemonic .mnem-text{font-family:'Oswald',sans-serif;font-size:1.6rem;color:var(--gold)}
+.mnemonic .mnem-sub{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:.3rem}
+
+/* SIGN CARDS */
+.sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.sign-card{border-radius:6px;padding:1rem;text-align:center;border:2px solid transparent}
+.sign-red{background:#8B0000;border-color:#c0392b}
+.sign-red .sign-text{font-family:'Oswald',sans-serif;font-size:1.5rem;color:white;font-weight:700}
+.sign-black{background:#1a1a1a;border-color:#333}
+.sign-black .sign-text{font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--gold);font-weight:700}
+.sign-yellow{background:var(--gold);border-color:#e6b800}
+.sign-yellow .sign-text{font-family:'Oswald',sans-serif;font-size:1.5rem;color:#1a1a1a;font-weight:700}
+.sign-meaning{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:.5rem;text-transform:uppercase;letter-spacing:.08em}
+.sign-red .sign-meaning,.sign-yellow .sign-meaning{color:rgba(0,0,0,.6)}
+.sign-subtitle{font-size:.85rem;margin-top:.25rem;font-weight:500}
+
+/* FINAL EXAM */
+.exam-header{background:linear-gradient(135deg,var(--red-dark),var(--charcoal2));border:2px solid var(--red);border-radius:10px;padding:2rem;text-align:center;margin-bottom:2rem}
+.exam-header h2{font-size:2.5rem;text-transform:uppercase}
+.exam-header p{color:rgba(255,255,255,.7);margin-top:.5rem}
+.exam-score{background:var(--charcoal2);border:2px solid var(--gold);border-radius:8px;padding:1.5rem;text-align:center;margin-top:2rem;display:none}
+.exam-score h3{font-family:'Oswald',sans-serif;font-size:2rem;color:var(--gold)}
+.exam-score .pct{font-size:3rem;font-family:'Oswald',sans-serif}
+.pct.perfect{color:#22c55e}
+.pct.passing{color:var(--gold)}
+.pct.failing{color:var(--red)}
+.exam-btn{background:var(--red);color:var(--white);border:none;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;padding:.8rem 2rem;border-radius:4px;cursor:pointer;margin-top:1rem;transition:background .2s}
+.exam-btn:hover{background:var(--red-dark)}
+
+/* FOOTER */
+footer{background:var(--charcoal2);border-top:3px solid var(--red);padding:3rem 2rem;text-align:center;margin-top:4rem}
+footer img{height:160px;margin-bottom:1rem}
+footer p{color:var(--gray);font-size:.85rem}
+footer .foot-links{display:flex;gap:1.5rem;justify-content:center;margin:1rem 0}
+footer .foot-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.85rem;transition:color .2s}
+footer .foot-links a:hover{color:var(--gold)}
+
+/* CLOUD CARD */
+.cloud-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.75rem;margin:1.25rem 0}
+.cloud-card{background:var(--charcoal3);border:1px solid #444;border-radius:6px;padding:.9rem;font-size:.85rem}
+.cloud-card .cloud-name{font-family:'Oswald',sans-serif;color:var(--gold);font-size:1rem;margin-bottom:.25rem}
+.cloud-card .cloud-alt{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.cloud-card .cloud-desc{color:rgba(255,255,255,.7);line-height:1.5}
+
+/* AUDIO PLAYER */
+.audio-player{background:linear-gradient(135deg,#1e0a0f,var(--charcoal2));border:1px solid rgba(155,27,43,.5);border-radius:10px;padding:1.5rem;margin:1.5rem 0;position:relative;overflow:hidden}
+.audio-player::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(155,27,43,.03) 8px,rgba(155,27,43,.03) 16px);pointer-events:none}
+.ap-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+.ap-icon{width:52px;height:52px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;box-shadow:0 0 20px rgba(155,27,43,.5)}
+.ap-meta .ap-title{font-family:'Oswald',sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--white)}
+.ap-meta .ap-subtitle{font-size:.78rem;color:var(--gray);margin-top:.15rem}
+.ap-waveform{height:48px;display:flex;align-items:center;gap:2px;margin-bottom:1rem;overflow:hidden;cursor:pointer;position:relative}
+.ap-bar{flex:1;background:rgba(155,27,43,.35);border-radius:2px;transition:background .15s;min-width:2px}
+.ap-bar.played{background:var(--red)}
+.ap-bar.active{background:var(--gold)}
+.ap-waveform:hover .ap-bar{background:rgba(155,27,43,.5)}
+.ap-controls{display:flex;align-items:center;gap:1rem}
+.ap-play{width:44px;height:44px;background:var(--red);border:none;border-radius:50%;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .1s;box-shadow:0 2px 12px rgba(155,27,43,.4)}
+.ap-play:hover{background:var(--red-dark);transform:scale(1.05)}
+.ap-play:active{transform:scale(.97)}
+.ap-time-wrap{flex:1;display:flex;flex-direction:column;gap:.4rem}
+.ap-progress-track{height:5px;background:#333;border-radius:3px;cursor:pointer;position:relative}
+.ap-progress-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;width:0%;pointer-events:none;transition:width .1s linear}
+.ap-progress-thumb{position:absolute;top:50%;right:-6px;transform:translateY(-50%);width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;display:none}
+.ap-progress-track:hover .ap-progress-thumb{display:block}
+.ap-times{display:flex;justify-content:space-between;font-size:.75rem;color:var(--gray);font-family:'Oswald',sans-serif}
+.ap-right{display:flex;gap:.5rem;align-items:center;flex-shrink:0}
+.ap-speed{background:var(--charcoal3);border:1px solid #444;color:var(--gold);font-family:'Oswald',sans-serif;font-size:.78rem;padding:.3rem .5rem;border-radius:4px;cursor:pointer;transition:border-color .2s}
+.ap-speed:hover{border-color:var(--gold)}
+.ap-vol{width:70px;accent-color:var(--red);cursor:pointer}
+.ap-badge{display:inline-block;background:rgba(245,197,0,.12);border:1px solid rgba(245,197,0,.3);color:var(--gold);font-size:.7rem;font-family:'Oswald',sans-serif;letter-spacing:.1em;padding:.2rem .6rem;border-radius:3px;text-transform:uppercase;margin-top:.75rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem}
+  .hero-stats{gap:1rem}
+  .nav-links{display:none}
+  .fact-grid{grid-template-columns:1fr 1fr}
+  .section{padding:2.5rem 1rem}
+}
+@media(max-width:480px){
+  .fact-grid{grid-template-columns:1fr}
+  .sign-grid{grid-template-columns:1fr 1fr}
+  .cloud-grid{grid-template-columns:1fr 1fr}
+}
+
+/* STICKY SCORE */
+#sticky-score{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--red);color:white;border-radius:50px;padding:.6rem 1.2rem;font-family:'Oswald',sans-serif;font-size:.9rem;letter-spacing:.05em;box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:99;display:flex;gap:.5rem;align-items:center;transition:all .3s}
+#sticky-score .ss-num{font-size:1.1rem;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School">
+    <span>Part 107 Study Guide</span>
+  </div>
+  <div class="nav-links">
+    <a href="#regulations">Regulations</a>
+    <a href="#weather">Weather</a>
+    <a href="#airspace">Airspace</a>
+    <a href="#runway">Runway &amp; Wakes</a>
+    <a href="#exam">Final Exam</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#faq">FAQ</a>
+    <a href="index.html" class="nav-pill">Home</a>
+    <a href="avata-2.html" class="nav-pill">Avata 2 Guide</a>
+    <a href="training-course.html" class="nav-pill">Training Course</a>
+  </div>
+  <div class="score-badge" id="nav-score">Score: 0/0</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <video autoplay muted loop playsinline poster="generated_imgs/generated-2026-03-04T20-31-57-360Z-ecxgo3.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+    <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772664718/fpv-drone-flying-over-fox-river_hflszw.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">FAA Part 107 Remote Pilot Certificate</div>
+    <h1>Fly Legal.<br><span>Fly Smart.</span></h1>
+    <p>The complete study guide to ace the Part 107 knowledge test — regulations, weather, airspace, and airport operations.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">4</div><div class="lbl">Subject Areas</div></div>
+      <div class="hero-stat"><div class="num">30+</div><div class="lbl">Practice Q&amp;A</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="lbl">Goal</div></div>
+    </div>
+    <a href="#regulations" class="cta-btn">Start Studying ↓</a>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span>Study Progress</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<!-- AUDIO PLAYER -->
+<div style="max-width:1100px;margin:0 auto;padding:2rem 2rem 0">
+  <div class="audio-player" id="audioPlayer">
+    <audio id="mainAudio" preload="metadata">
+      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772658416/Runway_Signs__Wake_Turbulence__and_Drone_Rules_yizb3d.mp4" type="video/mp4">
+    </audio>
+    <div class="ap-header">
+      <div class="ap-icon">🎙</div>
+      <div class="ap-meta">
+        <div class="ap-title">Deep Dive Audio Overview</div>
+        <div class="ap-subtitle">Runway Signs, Wake Turbulence &amp; Drone Rules · Top Drone School</div>
+      </div>
+    </div>
+    <div class="ap-waveform" id="apWaveform" title="Click to seek"></div>
+    <div class="ap-controls">
+      <button class="ap-play" id="apPlayBtn" onclick="togglePlay()" title="Play / Pause">▶</button>
+      <div class="ap-time-wrap">
+        <div class="ap-progress-track" id="apTrack" onclick="seek(event)">
+          <div class="ap-progress-fill" id="apFill"></div>
+          <div class="ap-progress-thumb" id="apThumb"></div>
+        </div>
+        <div class="ap-times">
+          <span id="apCurrent">0:00</span>
+          <span id="apDuration">--:--</span>
+        </div>
+      </div>
+      <div class="ap-right">
+        <button class="ap-speed" id="apSpeed" onclick="cycleSpeed()" title="Playback speed">1×</button>
+        <input class="ap-vol" id="apVol" type="range" min="0" max="1" step="0.05" value="1" oninput="setVol(this.value)" title="Volume">
+      </div>
+    </div>
+    <div>
+      <span class="ap-badge">🎧 Listen while you study</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: REGULATIONS ===== -->
+<div id="regulations" class="section">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div><h2 class="section-title">14 CFR Part 107 <span>Regulations</span></h2><p style="color:var(--gray);font-size:.9rem">The law — know every number cold</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="alert alert-gold">
+    <strong>The Big Picture</strong>
+    14 CFR Part 107 governs ALL commercial and recreational drone operations in the US that aren't under special exemptions. It covers registration, pilot certification, operating rules, and operations over human beings.
+  </div>
+
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Critical Numbers — Memorize These</h3>
+  <div class="fact-grid">
+    <div class="fact-card gold"><div class="label">Max Weight</div><div class="value">&lt;<span>55</span> lbs</div><div class="note">at takeoff, including payload</div></div>
+    <div class="fact-card"><div class="label">Max Altitude</div><div class="value"><span>400</span> ft AGL</div><div class="note">or 400 ft above structure within 400 ft radius</div></div>
+    <div class="fact-card gold"><div class="label">Max Groundspeed</div><div class="value"><span>87</span> kts</div><div class="note">100 mph — groundspeed, not airspeed</div></div>
+    <div class="fact-card"><div class="label">Min Visibility</div><div class="value"><span>3</span> sm</div><div class="note">statute miles from control station</div></div>
+    <div class="fact-card gold"><div class="label">Cloud Clearance (Below)</div><div class="value"><span>500</span> ft</div><div class="note">minimum below clouds</div></div>
+    <div class="fact-card"><div class="label">Cloud Clearance (Horiz)</div><div class="value"><span>2,000</span> ft</div><div class="note">minimum horizontal from clouds</div></div>
+    <div class="fact-card gold"><div class="label">Incident Reporting</div><div class="value"><span>10</span> days</div><div class="note">calendar days to report to FAA</div></div>
+    <div class="fact-card"><div class="label">Property Damage Threshold</div><div class="value">&gt;<span>$500</span></div><div class="note">repair cost triggers required report</div></div>
+    <div class="fact-card gold"><div class="label">Min Pilot Age</div><div class="value"><span>16</span> yrs</div><div class="note">for remote pilot certificate</div></div>
+    <div class="fact-card"><div class="label">Knowledge Recency</div><div class="value"><span>24</span> mo</div><div class="note">retake/training required every 24 months</div></div>
+    <div class="fact-card gold"><div class="label">Anti-Collision Light Visibility</div><div class="value"><span>3</span> sm</div><div class="note">required for night/civil twilight ops</div></div>
+    <div class="fact-card"><div class="label">Retest After Failure</div><div class="value"><span>14</span> days</div><div class="note">calendar days before you can retake</div></div>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mnem-label">Mnemonic — Operating Limits</div>
+    <div class="mnem-text">"55 lbs · 400 ft · 87 kts · 3 sm · 500/2000"</div>
+    <div class="mnem-sub">Weight · Altitude · Speed · Visibility · Cloud clearance (below / horizontal)</div>
+  </div>
+
+  <!-- ACCORDION: Operating Rules -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2rem 0 .75rem">Operating Rules — Subpart B</h3>
+  <div class="accordion">
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.19 Remote Pilot in Command (RPIC)<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>Must be <strong>designated before or during flight</strong></li>
+          <li>Is <strong>directly responsible and final authority</strong> for the operation</li>
+          <li>Must ensure UAS poses <strong>no undue hazard</strong> to people, aircraft, or property</li>
+          <li>Must have ability to direct small UAS to ensure compliance</li>
+          <li>Cannot serve as RPIC, person manipulating controls, or visual observer for <strong>more than one UAS at a time</strong> (§107.35)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.27 Alcohol &amp; Drugs — Zero Tolerance<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <div class="alert alert-red" style="margin-top:0">
+          <strong>Zero Tolerance Rule</strong>
+          Part 107 is MORE strict than the "8 hours bottle to throttle" rule. Cannot operate while under the influence of ANY alcohol or drug affecting faculties.
+        </div>
+        <ul>
+          <li>Must comply with §§91.17 and 91.19 (same standard as manned aircraft)</li>
+          <li><strong>Refusing an alcohol test</strong> = grounds for certificate denial/suspension/revocation for up to 1 year</li>
+          <li>Entirely <strong>self-policing</strong> — honor system with serious legal teeth</li>
+          <li>If migraine, vertigo, or blurred vision from even bad sleep → <strong>ground yourself</strong></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.29 Night Operations<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>Night ops require completing initial knowledge test or training <strong>after April 6, 2021</strong></li>
+          <li>Aircraft must have <strong>anti-collision lighting visible for 3 sm</strong> with sufficient flash rate</li>
+          <li>Civil twilight = <strong>30 min before sunrise</strong> to <strong>30 min after sunset</strong> (except Alaska)</li>
+          <li>RPIC may reduce light intensity if determined safe based on operating conditions</li>
+          <li>Anti-collision lighting also required during civil twilight (not just full night)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.31 Visual Line of Sight (VLOS)<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>RPIC and/or visual observer must <strong>see the aircraft throughout entire flight</strong></li>
+          <li>Purpose: know location, determine attitude/altitude/direction, observe airspace, assess hazards</li>
+          <li>Cannot use binoculars, FPV goggles, or cameras as substitute for unaided vision</li>
+          <li>Visual observer (§107.33): must maintain effective communication with RPIC at all times</li>
+          <li>Waivable — can apply to FAA for BVLOS waiver under §107.200/205</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.39 Operation Over Human Beings<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <p>Cannot operate over a human being UNLESS:</p>
+        <ul>
+          <li>The person is <strong>directly participating</strong> in the operation, OR</li>
+          <li>The person is <strong>under a covered structure or inside a stationary vehicle</strong> offering reasonable protection, OR</li>
+          <li>The operation meets <strong>Category 1, 2, 3, or 4</strong> requirements under Subpart D</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.49 Preflight Requirements<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <p>Before each flight, RPIC must:</p>
+        <ul>
+          <li>Assess operating environment: <strong>weather, airspace, flight restrictions, persons/property on surface</strong></li>
+          <li>Ensure all participants are briefed on: operating conditions, emergency procedures, contingency procedures, roles, hazards</li>
+          <li>Ensure all <strong>control links are working properly</strong></li>
+          <li>If powered UAS: ensure <strong>enough power</strong> for intended operational time</li>
+          <li>Verify aircraft is <strong>in condition for safe operation</strong> (§107.15)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.21 In-Flight Emergency &amp; §107.9 Reporting<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>In-flight emergency:</strong> may deviate from rules to extent necessary for safety; must submit written report to FAA if requested</li>
+          <li><strong>Report within 10 calendar days</strong> if operation involves: serious injury, loss of consciousness, property damage exceeding $500</li>
+          <li>Must report to FAA in manner acceptable to Administrator</li>
+          <li>No need to report if property damage is $500 or less AND no injury</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.25 Moving Vehicle &amp; §107.36 Hazardous Material<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Cannot operate from a moving aircraft — ever</strong></li>
+          <li>CAN operate from a moving land/water vehicle IF: flying over sparsely populated area AND NOT transporting property for compensation</li>
+          <li><strong>Cannot carry hazardous material</strong> (as defined in 49 CFR 171.8)</li>
+          <li>§107.23 Hazardous operation: cannot operate in careless/reckless manner; cannot drop objects creating hazard</li>
+        </ul>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- CERTIFICATION TABLE -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2rem 0 .75rem">Certification Rules — Subpart C</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Minimum Age</td><td>16 years old</td></tr>
+        <tr><td>Language</td><td>Must read, speak, write, and understand English</td></tr>
+        <tr><td>Medical</td><td>No physical/mental condition interfering with safe operation (self-certified)</td></tr>
+        <tr><td>Passing Grade</td><td>Specified by Administrator (typically 70%)</td></tr>
+        <tr><td>ID at Test</td><td>Photo ID + signature + date of birth + permanent address</td></tr>
+        <tr><td>Retest after fail</td><td>Must wait 14 calendar days</td></tr>
+        <tr><td>Knowledge Recency</td><td>Must pass test or complete recurrent training within 24 calendar months</td></tr>
+        <tr><td>Cheating Penalty</td><td>Barred from ANY Part 107 cert/rating/authorization for 1 year</td></tr>
+        <tr><td>Temporary Certificate</td><td>Valid up to 120 calendar days</td></tr>
+        <tr><td>Certificate Change</td><td>Must notify FAA within 30 days of name/address change (§107.77)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SUBPART D TABLE -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2rem 0 .75rem">Operations Over People — Subpart D Categories</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Weight</th><th>Impact Limit</th><th>Key Restriction</th><th>Airworthiness Cert?</th></tr></thead>
+      <tbody>
+        <tr><td>Cat 1</td><td>≤ 0.55 lbs</td><td>Minimal (by weight)</td><td>No exposed rotating parts that lacerate; no sustained flight over open-air assembly</td><td>No</td></tr>
+        <tr><td>Cat 2</td><td>Any (&lt;55 lbs)</td><td>≤ 11 ft-lbs kinetic energy</td><td>FAA-accepted declaration of compliance required; label required; no sustained flight over open-air assembly</td><td>No</td></tr>
+        <tr><td>Cat 3</td><td>Any (&lt;55 lbs)</td><td>≤ 25 ft-lbs kinetic energy</td><td>Declaration required; NO flight over open-air assembly at all; restricted access site or no sustained overflight</td><td>No</td></tr>
+        <tr><td>Cat 4</td><td>Any (&lt;55 lbs)</td><td>By design (airworthy)</td><td>Must have FAA airworthiness cert under Part 21; follow approved Flight Manual; no flight manual prohibition on overflight</td><td>YES</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WAIVERS -->
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">§107.200–205 Waivers — What Can Be Waived?<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <p style="margin-bottom:.75rem">The FAA may issue a waiver if the operation can be conducted <strong>safely</strong>. Regulations subject to waiver:</p>
+        <ul>
+          <li>§107.25 — Moving vehicle (except no waiver for cargo-for-hire)</li>
+          <li>§107.29 — Anti-collision lighting for night/twilight</li>
+          <li>§107.31 — VLOS (except no waiver for cargo-for-hire)</li>
+          <li>§107.33 — Visual observer requirement</li>
+          <li>§107.35 — Multiple UAS at once</li>
+          <li>§107.37(a) — Right of way</li>
+          <li>§107.39 — Operations over people</li>
+          <li>§107.41 — Operation in certain airspace</li>
+          <li>§107.51 — Operating limitations (altitude, speed, visibility, clouds)</li>
+          <li>§107.145 — Operations over moving vehicles</li>
+        </ul>
+        <div class="alert alert-gold" style="margin-top:.75rem">
+          <strong>Can NOT Be Waived</strong>
+          §107.36 (hazardous material) and §107.23 (careless/reckless operation) cannot be waived.
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- QUIZ Q1-Q5 -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2.5rem 0 .75rem">✈ Practice Questions — Regulations</h3>
+
+  <div class="quiz-block" data-q="1">
+    <h4>Question 1 of 30</h4>
+    <p class="q-text">A small UAS pilot checks groundspeed and sees 102 mph in a 15-knot tailwind. What must the pilot do?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Nothing — airspeed limits, not groundspeed</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>Reduce speed — groundspeed cannot exceed 87 knots (100 mph)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Reduce altitude to lower groundspeed</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Request ATC clearance for higher speed</button>
+    </div>
+    <div class="q-explanation">§107.51(a): groundspeed may not exceed 87 knots (100 mph). Groundspeed — speed over the ground — is what matters, not airspeed. The pilot must slow down.</div>
+  </div>
+
+  <div class="quiz-block" data-q="2">
+    <h4>Question 2 of 30</h4>
+    <p class="q-text">What is the minimum cloud clearance required under Part 107?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>500 ft below, 1,000 ft horizontally</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>500 ft below, 2,000 ft horizontally</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>1,000 ft below, 1,000 ft horizontally</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>1,000 ft below, 2,000 ft horizontally</button>
+    </div>
+    <div class="q-explanation">§107.51(d): minimum 500 feet below clouds and 2,000 feet horizontally from clouds. These are Part 107-specific requirements for Class G airspace — not the same as manned VFR minimums.</div>
+  </div>
+
+  <div class="quiz-block" data-q="3">
+    <h4>Question 3 of 30</h4>
+    <p class="q-text">A small UAS damages a neighbor's fence during a flight. Repair estimate is $750. Must the RPIC report to the FAA?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>No — only injury to people triggers a report</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>No — property damage to fences is not covered</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Yes — damage exceeds $500 and must be reported within 10 calendar days</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Only if the neighbor files a formal complaint</button>
+    </div>
+    <div class="q-explanation">§107.9: Report required within 10 calendar days if property damage cost exceeds $500. The exception only applies if cost is $500 or less. At $750, reporting is required.</div>
+  </div>
+
+  <div class="quiz-block" data-q="4">
+    <h4>Question 4 of 30</h4>
+    <p class="q-text">A pilot's remote pilot certificate knowledge was last verified 25 months ago. Can they fly today?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Yes — 25 months is close enough to 24</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>No — must pass recurrent test or training within the previous 24 calendar months</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Yes — can fly for 30 more days before retest</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Yes — recency requirement only applies to night operations</button>
+    </div>
+    <div class="q-explanation">§107.65: A person may not exercise remote pilot privileges unless they've accomplished the recency requirement (test or training) within the previous 24 calendar months. 25 months = expired.</div>
+  </div>
+
+  <div class="quiz-block" data-q="5">
+    <h4>Question 5 of 30</h4>
+    <p class="q-text">Under Category 2 operations, what is the impact energy threshold that must NOT be exceeded?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>0.55 pounds weight limit</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>11 foot-pounds kinetic energy</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>25 foot-pounds kinetic energy</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>No limit — just requires an airworthiness certificate</button>
+    </div>
+    <div class="q-explanation">§107.120(a)(1): Category 2 aircraft must not cause injury equivalent to transfer of more than 11 foot-pounds of kinetic energy. Category 3 limit is 25 ft-lbs. Category 4 requires an actual FAA airworthiness certificate.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: WEATHER ===== -->
+<div id="weather" class="section-video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1772665371/fpv-drone-flying-through-weather_zgh3dl.mp4" type="video/mp4">
+  </video>
+  <div class="section-video-overlay"></div>
+  <div class="section-video-content">
+    <div class="sv-num">Section 02</div>
+    <h2 class="sv-title">Weather <span>Theory</span></h2>
+    <p class="sv-sub">PHAK Chapter 12 — understand the sky before you fly</p>
+  </div>
+</div>
+
+<div class="section" style="padding-top:2.5rem">
+  <div class="section-divider"></div>
+
+  <div class="fact-grid">
+    <div class="fact-card gold"><div class="label">Standard Sea Level Pressure</div><div class="value"><span>29.92</span> inHg</div><div class="note">or 1,013.2 mb</div></div>
+    <div class="fact-card"><div class="label">Pressure Drop Rate</div><div class="value"><span>1 in</span></div><div class="note">per 1,000 ft altitude gain</div></div>
+    <div class="fact-card gold"><div class="label">Standard Lapse Rate</div><div class="value"><span>3°C</span></div><div class="note">per 1,000 ft (5.4°F)</div></div>
+    <div class="fact-card"><div class="label">Cold Front Speed</div><div class="value"><span>25–30</span> mph</div><div class="note">warm fronts: 10–15 mph</div></div>
+  </div>
+
+  <!-- CLOUD BASE FORMULA -->
+  <div class="alert alert-gold">
+    <strong>Cloud Base Formula — Memorize It</strong>
+    (Surface Temp °F − Dew Point °F) ÷ 4.4 × 1,000 = Cloud Base AGL in feet<br>
+    <em>Example: Temp 68°F, Dew Point 50°F → (68−50) ÷ 4.4 × 1000 = 4,090 ft AGL</em>
+  </div>
+
+  <!-- ATMOSPHERE LAYERS -->
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Atmosphere Layers &amp; Composition<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Troposphere</strong> (0–~20,000 ft): where all weather happens; temperature DECREASES with altitude</li>
+          <li><strong>Stratosphere</strong> (~20,000–160,000 ft): temperature INCREASES; ozone layer; stable</li>
+          <li><strong>Mesosphere</strong> (~160,000–280,000 ft): temperature decreases again</li>
+          <li><strong>Thermosphere</strong> (~280,000+ ft): temperature increases dramatically</li>
+        </ul>
+        <p style="margin-top:.75rem"><strong>Atmosphere composition:</strong> Nitrogen ~78%, Oxygen ~21%, Other ~1% (Argon, CO₂, etc.), plus variable water vapor (0–4%)</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Pressure, Density &amp; Density Altitude<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>High pressure</strong> = fair weather, descending dry air</li>
+          <li><strong>Low pressure</strong> = bad weather, rising moist air, clouds and precipitation</li>
+          <li><strong>Rapidly falling pressure</strong> = bad weather / severe storms approaching</li>
+          <li><strong>Density altitude</strong>: as pressure decreases, density altitude increases → less air = worse performance (longer takeoff, less climb)</li>
+          <li>Hypoxia (impaired judgment from low oxygen): can occur at 5,000 ft for some; typically ~10,000 ft for most</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Wind — Generation, Shear &amp; Microbursts<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>Wind flows from <strong>high pressure to low pressure</strong></li>
+          <li>Deflected by <strong>Coriolis effect</strong> to the right in Northern Hemisphere</li>
+          <li>High pressure = clockwise circulation (anticyclone); Low = counterclockwise (cyclone)</li>
+          <li><strong>Wind direction convention</strong>: direction the wind is coming FROM (e.g., a "northwest wind" blows from NW toward SE)</li>
+          <li><strong>Wind shear</strong>: sudden, drastic change in speed/direction; can occur at any altitude; most hazardous near surface; associated with fronts, thunderstorms, temperature inversions, strong upper winds (&gt;25 kts)</li>
+          <li><strong>Microburst</strong>: most severe wind shear; intense downdraft; headwind losses of 30–90 knots; indicated by intense rain shaft at surface with virga at cloud base</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Weather Fronts — Cold, Warm, Stationary, Occluded<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <div class="tbl-wrap" style="margin:0">
+        <table>
+          <thead><tr><th>Front Type</th><th>Speed</th><th>Weather Timing</th><th>Key Hazards</th></tr></thead>
+          <tbody>
+            <tr><td>Warm</td><td>10–15 mph</td><td>Precedes passage (ahead of front)</td><td>Low ceilings, poor visibility, steady rain, stratus clouds</td></tr>
+            <tr><td>Cold</td><td>25–30 mph</td><td>Along/behind frontal boundary</td><td>Towering cu, cumulonimbus, heavy rain, gusty winds, tornadoes, hail</td></tr>
+            <tr><td>Stationary</td><td>0–5 mph</td><td>Along boundary</td><td>Combined warm+cold front weather; prolonged poor conditions</td></tr>
+            <tr><td>Occluded</td><td>Varies</td><td>Warm front wx then cold front wx</td><td>Complex weather; warm front occlusion = warm front aloft</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="alert alert-blue" style="margin-top:.75rem">
+          <strong>Squall Line</strong>
+          Narrow band of active thunderstorms that develops ON OR AHEAD of a cold front in moist, unstable air. Extremely hazardous — intense and fast-moving.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Fog Types — Radiation, Advection, Upslope, Ice<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Radiation fog</strong>: forms on clear, calm nights; ground cools, air cools to dew point; disperses during day into low stratus; requires NO wind</li>
+          <li><strong>Advection fog</strong>: REQUIRES wind; moist air moves over cooler surface; can persist during day; common on coasts/water</li>
+          <li><strong>Upslope fog</strong>: moist air forced up terrain; most hazardous for aviation; cools as it rises until saturated</li>
+          <li><strong>Ice fog</strong>: very cold conditions; water vapor freezes directly to ice crystals; severe visibility reduction</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Thunderstorm Life Cycle &amp; Hazards<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Cumulus stage</strong>: updrafts develop, cumulus clouds form, no precipitation yet</li>
+          <li><strong>Mature stage (most dangerous)</strong>: strong updrafts AND downdrafts, cumulonimbus, precipitation, lightning, hail, microbursts, turbulence</li>
+          <li><strong>Dissipating stage</strong>: downdrafts predominate, rain continues, clouds break up to cumulus</li>
+        </ul>
+        <p style="margin-top:.75rem"><strong>Key hazards:</strong> severe turbulence, hail (&gt;0.5 in), lightning, microbursts, tornadoes (with cold fronts), icing</p>
+        <div class="alert alert-red" style="margin-top:.75rem">
+          <strong>NEVER fly near a thunderstorm.</strong>
+          Give wide berth. Even under "clear" sides. The cumulonimbus is the most dangerous cloud type — can extend from surface to stratosphere.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Aviation Weather Reports — METAR, TAF, PIREP, SIGMET, AIRMET<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <div class="tbl-wrap" style="margin:0">
+        <table>
+          <thead><tr><th>Report</th><th>Type</th><th>Content</th></tr></thead>
+          <tbody>
+            <tr><td>METAR</td><td>Actual (observation)</td><td>Current conditions at an airport: wind, visibility, weather, clouds, temp/dew point, altimeter</td></tr>
+            <tr><td>TAF</td><td>Forecast (24–30 hr)</td><td>Terminal area forecast: wind, visibility, weather, clouds expected</td></tr>
+            <tr><td>PIREP</td><td>Real-time (pilot report)</td><td>Actual conditions aloft: turbulence, icing, cloud tops, winds</td></tr>
+            <tr><td>SIGMET</td><td>Warning — severe</td><td>Severe turbulence, severe icing, hail, tornadoes, microbursts, volcanic ash</td></tr>
+            <tr><td>AIRMET</td><td>Advisory — moderate</td><td>Moderate turbulence/icing, mountain obscuration, strong surface winds, IFR conditions</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- CLOUD TYPES -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2rem 0 .75rem">Cloud Types by Altitude</h3>
+  <div class="cloud-grid">
+    <div class="cloud-card"><div class="cloud-name">Cirrus</div><div class="cloud-alt">High (&gt;20,000 ft)</div><div class="cloud-desc">Feathery, ice crystals. Often indicates approaching weather system.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Cirrostratus</div><div class="cloud-alt">High (&gt;20,000 ft)</div><div class="cloud-desc">Thin sheet; sun visible; creates halos. Warm front indicator.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Altocumulus</div><div class="cloud-alt">Mid (6,500–20,000 ft)</div><div class="cloud-desc">White/gray pattern; may produce turbulence and moderate icing.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Altostratus</div><div class="cloud-alt">Mid (6,500–20,000 ft)</div><div class="cloud-desc">Gray/white uniform sheet; sun barely visible; moderate icing.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Stratus</div><div class="cloud-alt">Low (surface–6,500 ft)</div><div class="cloud-desc">Uniform gray, low ceiling. Associated with drizzle.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Nimbostratus</div><div class="cloud-alt">Low (surface–6,500 ft)</div><div class="cloud-desc">Dark gray, continuous precipitation. Low ceilings.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Cumulus</div><div class="cloud-alt">Low bases, variable</div><div class="cloud-desc">Puffy, flat bases. Fair weather = shallow. Build = unstable air.</div></div>
+    <div class="cloud-card"><div class="cloud-name">Cumulonimbus</div><div class="cloud-alt">Surface to stratosphere</div><div class="cloud-desc">Thunderstorm cloud. Most dangerous. Avoid at all costs.</div></div>
+  </div>
+
+  <!-- QUIZ Q6-Q10 -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2.5rem 0 .75rem">✈ Practice Questions — Weather</h3>
+
+  <div class="quiz-block" data-q="6">
+    <h4>Question 6 of 30</h4>
+    <p class="q-text">Surface temperature is 77°F, dew point is 59°F. What is the approximate cloud base AGL?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>1,800 ft</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>3,200 ft</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>4,090 ft</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>5,500 ft</button>
+    </div>
+    <div class="q-explanation">(77 − 59) ÷ 4.4 × 1,000 = 18 ÷ 4.4 × 1,000 = 4,090 ft AGL. Always subtract dew point from temp, divide by 4.4°F per 1,000 ft lapse rate.</div>
+  </div>
+
+  <div class="quiz-block" data-q="7">
+    <h4>Question 7 of 30</h4>
+    <p class="q-text">Which type of fog requires wind to form and persist?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Radiation fog</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>Advection fog</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Ice fog</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Steam fog</button>
+    </div>
+    <div class="q-explanation">Advection fog forms when moist air moves (advects) over a cooler surface — it requires wind for both formation AND continued existence. Radiation fog forms on calm, clear nights — wind actually disperses it.</div>
+  </div>
+
+  <div class="quiz-block" data-q="8">
+    <h4>Question 8 of 30</h4>
+    <p class="q-text">A pilot notices cirrus clouds thickening and lowering, pressure falling steadily. What is most likely approaching?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">A</span>A warm front</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>A cold front</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>A high-pressure system</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>A microburst</button>
+    </div>
+    <div class="q-explanation">Warm fronts approach with classic sequence: cirrus → cirrostratus → altostratus → nimbostratus, with falling pressure. Weather occurs AHEAD of the warm front (unlike cold fronts where weather is at/behind the boundary).</div>
+  </div>
+
+  <div class="quiz-block" data-q="9">
+    <h4>Question 9 of 30</h4>
+    <p class="q-text">Which cloud type is the most dangerous to aircraft and should always be avoided?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Nimbostratus</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Altocumulus</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Cumulonimbus</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Cirrostratus</button>
+    </div>
+    <div class="q-explanation">Cumulonimbus (thunderstorm cloud) is the most hazardous cloud to pilots. It produces severe turbulence, icing, hail, lightning, microbursts, and tornadoes. It can extend from surface to the stratosphere — avoid it entirely.</div>
+  </div>
+
+  <div class="quiz-block" data-q="10">
+    <h4>Question 10 of 30</h4>
+    <p class="q-text">What does a SIGMET alert pilots about?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Moderate icing and turbulence</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Current airport surface conditions</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Significant weather hazards: severe turbulence, severe icing, hail, microbursts, volcanic ash</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>The current METAR observation</button>
+    </div>
+    <div class="q-explanation">SIGMET = Significant Meteorological Information. It warns of severe hazards like severe turbulence, severe icing, hail, tornadoes, microbursts. AIRMET covers moderate hazards. METAR is actual observed conditions.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: AIRSPACE ===== -->
+<div id="airspace" class="section">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div><h2 class="section-title">Airspace &amp; <span>Airport Ops</span></h2><p style="color:var(--gray);font-size:.9rem">PHAK Chapter 14 — know where you can and can't fly</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <img src="generated_imgs/generated-2026-03-04T20-32-30-641Z-09vhtm.png" alt="Airspace Classes Diagram" class="section-banner">
+
+  <div class="alert alert-red">
+    <strong>§107.41 Key Rule</strong>
+    Cannot operate in Class B, C, or D airspace, or within the lateral boundaries of a Class E surface area, WITHOUT prior ATC authorization. Use LAANC or DroneZone to get clearance.
+  </div>
+
+  <!-- AIRSPACE TABLE -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:1.5rem 0 .75rem">Airspace Classes — Drone Quick Reference</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Typical Location</th><th>Altitude</th><th>Part 107 Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Above 18,000 ft MSL</td><td>18,000–60,000 ft</td><td>Not applicable for drones (above max altitude)</td></tr>
+        <tr><td>B</td><td>Major airports (LAX, ORD, JFK)</td><td>Surface to ~10,000 ft (inverted wedding cake)</td><td>Prior ATC authorization REQUIRED</td></tr>
+        <tr><td>C</td><td>Medium-hub airports</td><td>Surface to 4,000 ft AGL (5 nm / 10 nm rings)</td><td>Prior ATC authorization REQUIRED</td></tr>
+        <tr><td>D</td><td>Airports with control tower</td><td>Surface to ~2,500 ft AGL (~5 nm radius)</td><td>Prior ATC authorization REQUIRED</td></tr>
+        <tr><td>E (surface)</td><td>Airports without tower (often)</td><td>Surface upward</td><td>Prior ATC authorization REQUIRED</td></tr>
+        <tr><td>E (700/1200 ft)</td><td>Transitions, instrument approach areas</td><td>700 or 1,200 ft AGL to 18,000 ft</td><td>No authorization required below 400 ft AGL typically</td></tr>
+        <tr><td>G</td><td>Uncontrolled — most rural/remote</td><td>Surface to 700 or 1,200 ft AGL</td><td>No authorization required — but all Part 107 limits still apply</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mnem-label">Airspace Authorization Memory Aid</div>
+    <div class="mnem-text">B · C · D · E(surface) = ASK</div>
+    <div class="mnem-sub">All controlled airspace touching the surface requires prior ATC authorization. Class G = free (but rules still apply)</div>
+  </div>
+
+  <!-- AIRPORT OPS ACCORDION -->
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Airport Types &amp; Categories<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Commercial Service</strong>: publicly owned, 2,500+ passenger boardings/yr, scheduled service</li>
+          <li><strong>Cargo Service</strong>: serves air cargo with &gt;100 million lb annual landed weight</li>
+          <li><strong>Reliever</strong>: designated by FAA to relieve congestion at commercial airports; public or private</li>
+          <li><strong>General Aviation</strong>: all remaining airports; largest category in US</li>
+          <li><strong>Towered</strong>: has operating control tower; two-way radio REQUIRED</li>
+          <li><strong>Non-towered</strong>: no control tower; radio not required but strongly recommended; use CTAF</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">CTAF, UNICOM &amp; ATIS<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>CTAF</strong> (Common Traffic Advisory Frequency): at non-towered airports; pilots self-announce position/intentions; no ATC control</li>
+          <li><strong>UNICOM</strong>: non-government radio frequency providing airport info; commonly 122.8, 122.7, 122.9 MHz</li>
+          <li><strong>ATIS</strong> (Automated Terminal Information Service): recorded info at towered airports; includes weather, active runway, altimeter, NOTAMs; updated regularly; code letter changes each update (Alpha, Bravo, Charlie…)</li>
+          <li>Pilots expected to have ATIS info before calling tower — reduces radio congestion</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Traffic Pattern — Left Turns, Legs, Altitude<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Standard turns</strong>: ALL left (why? pilot in left seat has better view of runway)</li>
+          <li><strong>Pattern altitude</strong>: standard 1,000 ft AGL (1,500 ft AGL for large aircraft)</li>
+          <li><strong>Entry</strong>: 45° to downwind leg; descend to pattern altitude</li>
+        </ul>
+        <p style="margin-top:.75rem"><strong>Pattern legs in order:</strong></p>
+        <ul>
+          <li><strong>Crosswind</strong>: 90° turn from runway direction after takeoff</li>
+          <li><strong>Downwind</strong>: parallel to runway, opposite landing direction</li>
+          <li><strong>Base</strong>: perpendicular to runway, begins descent</li>
+          <li><strong>Final</strong>: aligned with runway, landing direction</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Wind Indicators — Windsock, Tetrahedron<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Windsock</strong>: points DOWNWIND (in direction wind blows toward); fully inflated = strong wind; partially = moderate; drooping = calm/light</li>
+          <li><strong>Tetrahedron</strong>: points INTO the wind (upwind); shows recommended runway direction</li>
+          <li>Both are visual aids for uncontrolled airports to determine active runway</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Runway Numbering &amp; Runway Markings<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li><strong>Runway numbers</strong> = magnetic heading ÷ 10 (e.g., Runway 27 = 270° magnetic)</li>
+          <li>Opposite end number differs by 18 (e.g., 09 and 27 = same runway)</li>
+          <li><strong>Centerline</strong>: solid yellow stripe down middle of taxiway; dashed white on runway</li>
+          <li><strong>Threshold markings</strong>: white rectangles at approach end of runway</li>
+          <li><strong>Displaced threshold</strong>: available for taxi/takeoff but not landing</li>
+          <li><strong>Runway distance remaining</strong>: black background, white numbers = thousands of feet remaining</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- QUIZ Q11-Q15 -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2.5rem 0 .75rem">✈ Practice Questions — Airspace &amp; Airport Ops</h3>
+
+  <div class="quiz-block" data-q="11">
+    <h4>Question 11 of 30</h4>
+    <p class="q-text">A drone pilot wants to fly at 200 ft AGL near an airport with an operating control tower and Class D airspace. What must the pilot do FIRST?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Nothing — 200 ft is well below the Class D ceiling</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>File a flight plan with the FAA</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Obtain prior ATC authorization via LAANC or DroneZone</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Notify the airport manager</button>
+    </div>
+    <div class="q-explanation">§107.41: Prior ATC authorization required for Class B, C, D, and Class E surface areas — regardless of altitude. Flying 1 ft in Class D without clearance violates Part 107. Use LAANC (automatic) or FAA DroneZone for authorization.</div>
+  </div>
+
+  <div class="quiz-block" data-q="12">
+    <h4>Question 12 of 30</h4>
+    <p class="q-text">What class of airspace is uncontrolled and generally requires NO prior authorization for drone operations?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Class D</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Class E surface area</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Class G</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Class C</button>
+    </div>
+    <div class="q-explanation">Class G is uncontrolled airspace — no ATC control, no authorization needed. However, ALL Part 107 operating rules still apply (altitude limits, visibility, cloud clearance, etc.). Most rural areas are Class G near the surface.</div>
+  </div>
+
+  <div class="quiz-block" data-q="13">
+    <h4>Question 13 of 30</h4>
+    <p class="q-text">The standard traffic pattern altitude at most airports for VFR operations is:</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>500 ft AGL</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>1,000 ft AGL</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>1,500 ft AGL</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>2,000 ft AGL</button>
+    </div>
+    <div class="q-explanation">Standard traffic pattern altitude is 1,000 ft AGL. Some airports use 1,500 ft AGL for large aircraft or military turbojets. Check NOTAMs and airport information for specific airports.</div>
+  </div>
+
+  <div class="quiz-block" data-q="14">
+    <h4>Question 14 of 30</h4>
+    <p class="q-text">At a non-towered airport, pilots use which frequency to announce their position and intentions?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>ATIS frequency</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>CTAF (Common Traffic Advisory Frequency)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Emergency frequency 121.5</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Ground control frequency</button>
+    </div>
+    <div class="q-explanation">CTAF is the frequency for self-announcing at non-towered airports. Pilots broadcast their position and intentions so other traffic knows where they are. It may be a UNICOM, FSS, or other designated frequency.</div>
+  </div>
+
+  <div class="quiz-block" data-q="15">
+    <h4>Question 15 of 30</h4>
+    <p class="q-text">Runway 36 has what approximate magnetic heading?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>036°</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>180°</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>360° (north)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>306°</button>
+    </div>
+    <div class="q-explanation">Runway numbers = magnetic heading ÷ 10. So Runway 36 = 360° (due north). The opposite end would be Runway 18 (180°, due south). Runway 09 = 090° (east), Runway 27 = 270° (west).</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: RUNWAY SIGNS + WAKE TURBULENCE ===== -->
+<div id="runway" class="section">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div><h2 class="section-title">Runway Signs, Wake Turbulence <span>&amp; Drone Rules</span></h2><p style="color:var(--gray);font-size:.9rem">The physical language of the airfield — and how drones fit in</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <img src="generated_imgs/generated-2026-03-04T20-33-35-801Z-kw36ze.png" alt="Airport Runway Signs Diagram" class="section-banner">
+
+  <!-- SIGN CARDS -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Airport Sign Color Code</h3>
+
+  <div class="sign-grid">
+    <div class="sign-card sign-red">
+      <div class="sign-text">4-22</div>
+      <div class="sign-meaning">Red + White</div>
+      <div class="sign-subtitle" style="color:rgba(255,255,255,.85)">MANDATORY — STOP</div>
+      <p style="font-size:.78rem;margin-top:.5rem;color:rgba(255,255,255,.7)">Runway holding position. Do NOT cross without clearance. Non-negotiable.</p>
+    </div>
+    <div class="sign-card sign-black">
+      <div class="sign-text" style="color:var(--gold)">A</div>
+      <div class="sign-meaning">Black + Yellow</div>
+      <div class="sign-subtitle" style="color:rgba(255,255,255,.85)">LOCATION — You Are Here</div>
+      <p style="font-size:.78rem;margin-top:.5rem;color:rgba(255,255,255,.7)">"Black square, you're there." Shows which taxiway you're currently on.</p>
+    </div>
+    <div class="sign-card sign-yellow">
+      <div class="sign-text" style="color:#1a1a1a">→B</div>
+      <div class="sign-meaning" style="color:rgba(0,0,0,.6)">Yellow + Black</div>
+      <div class="sign-subtitle" style="color:rgba(0,0,0,.75)">DIRECTION — Where To Go</div>
+      <p style="font-size:.78rem;margin-top:.5rem;color:rgba(0,0,0,.6)">"Yellow array points away." Directional signs with arrows to taxiways/destinations.</p>
+    </div>
+    <div class="sign-card" style="background:#f0f0f0;border-color:#ccc">
+      <div class="sign-text" style="color:#333;font-family:'Oswald',sans-serif;font-size:1.5rem">3</div>
+      <div class="sign-meaning" style="color:#555">White + Black</div>
+      <div class="sign-subtitle" style="color:#333">INFORMATION</div>
+      <p style="font-size:.78rem;margin-top:.5rem;color:#555">Distance remaining (thousands of feet). "3" = 3,000 ft of runway remaining.</p>
+    </div>
+  </div>
+
+  <div class="mnemonic" style="margin-top:1.5rem">
+    <div class="mnem-label">Sign Memory Trick</div>
+    <div class="mnem-text">RED = STOP · BLACK = HERE · YELLOW = GO</div>
+    <div class="mnem-sub">"Black square, you're there · Yellow array points away"</div>
+  </div>
+
+  <!-- ENHANCED CENTERLINE -->
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Enhanced Taxiway Centerline — The "Zipper"<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>About <strong>150 feet before a runway intersection</strong>, the solid yellow centerline changes</li>
+          <li>It adds dashed yellow lines on either side — creates a <strong>"zipper" pattern</strong></li>
+          <li>Purpose: <strong>break hypnosis</strong> from following the solid line in tunnel vision (especially tired, distracted, or bad weather)</li>
+          <li>Forces the brain to recognize "pattern changed → I'm approaching a runway"</li>
+          <li>Brilliant human factors engineering — saves lives without any technology</li>
+        </ul>
+        <div class="alert alert-blue" style="margin-top:.75rem">
+          <strong>EMAS — Engineered Materials Arresting System</strong>
+          Crushable cellular concrete at runway ends (e.g., Boston Logan, where runway meets harbor). Acts like a runaway truck ramp — aircraft wheels sink in, concrete crushes, creates drag that stops aircraft safely without lethal G-forces.
+        </div>
+      </div></div>
+    </div>
+
+    <!-- WAKE TURBULENCE -->
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Wake Turbulence — What It Is &amp; Why Drones Must Respect It<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <img src="generated_imgs/generated-2026-03-04T20-34-14-226Z-ijl7d6.png" alt="Wake Turbulence Diagram" style="width:100%;border-radius:6px;margin-bottom:1rem">
+        <ul>
+          <li>Two <strong>counter-rotating vortices</strong> trail behind each wingtip of a large aircraft</li>
+          <li>Can create <strong>rolling moments exceeding the control authority</strong> of small aircraft — physics > controls</li>
+          <li>Vortices are <strong>invisible</strong> — no visual warning</li>
+          <li>Slowly <strong>sink and drift</strong> with wind; can linger over runway for several minutes</li>
+          <li>Strength depends on weight, speed, and configuration of generating aircraft</li>
+        </ul>
+        <div class="alert alert-red" style="margin-top:.75rem">
+          <strong>Drone Rule — Wait 2+ Minutes</strong>
+          After a large aircraft lands or takes off, wait at least 2 minutes before operating a small UAS. Sometimes longer depending on wind. This is not a courtesy rule — it is a physics rule.
+        </div>
+      </div></div>
+    </div>
+
+    <!-- REMOTE ID -->
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">Remote ID — The Digital License Plate<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>Broadcasts <strong>drone identity and location</strong> to local airspace and ground authorities</li>
+          <li>Accountability: FAA and law enforcement need to know who is flying and where the pilot is standing</li>
+          <li><strong>Consumer drones</strong> (DJI, etc.): Remote ID built in</li>
+          <li><strong>FPV / home-built drones</strong>: must attach a separate FAA-approved broadcast module</li>
+          <li>Must be <strong>verified functional</strong> — do a self-test before flight</li>
+          <li>Cannot just Velcro on without confirming it's operating</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <!-- FPV CATEGORY RULES -->
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">FPV Drones &amp; Category Operations — The Hard Part<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>FPV drones typically have <strong>open-prop designs with carbon fiber blades at ~30,000 RPM</strong> = "flying blenders"</li>
+          <li>To operate over people (Cat 2 or 3), must prove impact energy is below FAA thresholds</li>
+          <li>Engineering requirements: <strong>structural prop guards</strong> + testing + impact energy below threshold</li>
+          <li>Must <strong>label the aircraft</strong> with a legible English label (CAT 2 or CAT 3) permanently affixed</li>
+          <li>Cannot just tell an inspector it's safe — must certify, test, and label</li>
+          <li>FAA philosophy: "You can play in this airspace — but play by professional aviation-grade rules"</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <!-- SEE AND AVOID -->
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggle(this)">See and Avoid — The Unbreakable Golden Rule<span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><div class="acc-content">
+        <ul>
+          <li>The <strong>golden rule of VFR flight</strong>: you are the last line of defense in the sky</li>
+          <li>If physical senses are compromised (fatigue, illness, medication, alcohol) → the whole safety grid fails</li>
+          <li>§107.17: Cannot operate if you know or have reason to know of <strong>physical or mental condition that would interfere with safe operation</strong></li>
+          <li>This includes: bad night's sleep + blurred vision, migraine, vertigo, allergy medication</li>
+          <li>Entirely self-policing — honor system with serious legal teeth</li>
+          <li>If in doubt → <strong>ground yourself</strong></li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- QUIZ Q16-Q20 -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin:2.5rem 0 .75rem">✈ Practice Questions — Runway Signs &amp; Wake Turbulence</h3>
+
+  <div class="quiz-block" data-q="16">
+    <h4>Question 16 of 30</h4>
+    <p class="q-text">You see a sign with a RED background and WHITE text "9-27" on the taxiway. What does this mean?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>You are currently on taxiway 9-27</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>STOP — you are at the holding position for runway 9-27 and must not cross without clearance</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Runway 9-27 is 900 feet away</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Turn toward runway 27</button>
+    </div>
+    <div class="q-explanation">Red background + white text = MANDATORY INSTRUCTION. This is the runway holding position sign at the taxiway-runway intersection. It is an absolute stop — do NOT cross without ATC clearance (or verifying clear at non-towered airports).</div>
+  </div>
+
+  <div class="quiz-block" data-q="17">
+    <h4>Question 17 of 30</h4>
+    <p class="q-text">What is the purpose of the "zipper" pattern on taxiway centerlines approximately 150 feet before a runway?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>To slow aircraft wheel speed</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>To indicate wet pavement</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>To break tunnel-vision hypnosis and signal a runway intersection is ahead</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>To show aircraft parking positions</button>
+    </div>
+    <div class="q-explanation">The enhanced taxiway centerline (dashed "zipper" pattern) is human factors engineering. Tired or distracted pilots follow the solid line without looking up. The pattern change forces the brain to wake up: "something changed — runway ahead."</div>
+  </div>
+
+  <div class="quiz-block" data-q="18">
+    <h4>Question 18 of 30</h4>
+    <p class="q-text">A large commercial Boeing 777 just landed on a runway adjacent to your drone launch site. When can you safely operate your small UAS?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Immediately — the jet has landed and is no longer a hazard</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>After the jet clears the runway</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>At least 2 minutes after the jet lands — wake vortices linger over the runway</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Only after receiving ATC clearance</button>
+    </div>
+    <div class="q-explanation">Wake vortices from large aircraft can linger for several minutes. The standard rule is to wait at least 2 minutes — sometimes longer depending on wind. A small drone caught in a wingtip vortex can be flipped with forces beyond its control authority.</div>
+  </div>
+
+  <div class="quiz-block" data-q="19">
+    <h4>Question 19 of 30</h4>
+    <p class="q-text">An FPV pilot wants to shoot footage over people at a concert. The drone has no prop guards. Under what category can this operation legally occur?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Category 1 — FPV drones are light enough</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Category 2 — just need a declaration of compliance</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Category 3 — concerts are not open-air assemblies</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">D</span>None — open prop FPV drones cannot legally operate over open-air assemblies without engineering modifications and testing</button>
+    </div>
+    <div class="q-explanation">FPV drones with exposed carbon fiber props at 30,000 RPM fail the "no laceration upon impact" requirement for Cat 1-3. To operate over people, must add prop guards AND prove impact energy below thresholds via testing AND apply for declaration of compliance AND label the aircraft. A concert is an open-air assembly — Cat 3 prohibits sustained flight there entirely.</div>
+  </div>
+
+  <div class="quiz-block" data-q="20">
+    <h4>Question 20 of 30</h4>
+    <p class="q-text">A remote pilot wakes with a severe migraine and blurred vision. What should they do regarding scheduled drone operations that day?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Operate if someone else is nearby to help</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Take pain medication and wait 1 hour before flying</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Ground themselves — physical condition would interfere with safe operation and see-and-avoid capability</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Use FPV goggles to compensate for blurred vision</button>
+    </div>
+    <div class="q-explanation">§107.17: Cannot operate if you know or have reason to know of a physical/mental condition interfering with safe operation. Blurred vision = cannot see and avoid. "See and avoid" is the unbreakable rule of VFR flight. Ground yourself. FPV goggles do not satisfy VLOS requirements either.</div>
+  </div>
+</div>
+
+<!-- ===== FINAL EXAM ===== -->
+<div id="exam" class="section">
+  <div class="exam-header">
+    <div class="hero-badge">Final Assessment</div>
+    <h2>Full Practice Exam</h2>
+    <p>30 questions — mixed topics — FAA test format. Aim for 100%.</p>
+  </div>
+
+  <div class="alert alert-gold">
+    <strong>Instructions</strong>
+    Answer all 30 questions below. Your final score will appear at the bottom. The actual FAA Part 107 test requires a passing score (typically 70%), but our goal here is 100%.
+  </div>
+
+  <!-- Q21-Q30 (new questions for the final) -->
+  <div class="quiz-block" data-q="21">
+    <h4>Question 21 of 30</h4>
+    <p class="q-text">What is the maximum altitude a small UAS may be flown if operating within 400 feet of a 600-foot tall communications tower?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>400 ft AGL</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>1,000 ft AGL (400 ft above the 600 ft structure)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>600 ft AGL (top of the structure only)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>No altitude exception exists near structures</button>
+    </div>
+    <div class="q-explanation">§107.51(b): Can exceed 400 ft AGL if within a 400-foot radius of a structure — up to 400 feet ABOVE the structure's immediate uppermost limit. So a 600 ft tower + 400 ft = 1,000 ft AGL is permitted within that 400 ft radius.</div>
+  </div>
+
+  <div class="quiz-block" data-q="22">
+    <h4>Question 22 of 30</h4>
+    <p class="q-text">Civil twilight ends at what time relative to sunset?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>At official sunset</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>15 minutes after sunset</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>30 minutes after official sunset</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>60 minutes after official sunset</button>
+    </div>
+    <div class="q-explanation">§107.29: Civil twilight begins 30 minutes before official sunrise and ends 30 minutes after official sunset (except Alaska, which uses the Air Almanac definition). Anti-collision lighting is required during civil twilight and at night.</div>
+  </div>
+
+  <div class="quiz-block" data-q="23">
+    <h4>Question 23 of 30</h4>
+    <p class="q-text">Which regulation governs operations in prohibited or restricted areas?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>§107.41</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>§107.45</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>§107.43</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>§107.47</button>
+    </div>
+    <div class="q-explanation">§107.45 covers prohibited and restricted areas — cannot operate there without permission from the using or controlling agency. §107.41 covers Class B/C/D/E airspace. §107.43 covers operations near airports (must not interfere with traffic). §107.47 covers TFRs (NOTAMs).</div>
+  </div>
+
+  <div class="quiz-block" data-q="24">
+    <h4>Question 24 of 30</h4>
+    <p class="q-text">What type of front typically produces sudden, severe weather including tornadoes, gusty winds, and heavy showers?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Warm front</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>Cold front</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Stationary front</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Occluded front</button>
+    </div>
+    <div class="q-explanation">Cold fronts move fast (25-30 mph), lifting warm unstable air rapidly. This produces towering cumulus, cumulonimbus, heavy rain, gusty winds, hail, and tornadoes. Weather occurs AT and BEHIND the front. Warm fronts bring steady rain and low ceilings but are less suddenly dangerous.</div>
+  </div>
+
+  <div class="quiz-block" data-q="25">
+    <h4>Question 25 of 30</h4>
+    <p class="q-text">What is a "squall line"?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>A line of stratiform clouds bringing steady rain</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>A narrow band of intense thunderstorms that often develops on or ahead of a cold front</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>The boundary between two air masses</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>A forecast boundary on a weather map</button>
+    </div>
+    <div class="q-explanation">A squall line is a narrow band of active thunderstorms that often develops on or ahead of a cold front in moist, unstable air. It moves quickly and is particularly hazardous because it produces squall-type thunderstorms — intense and fast-moving.</div>
+  </div>
+
+  <div class="quiz-block" data-q="26">
+    <h4>Question 26 of 30</h4>
+    <p class="q-text">A PIREP is most useful to a drone pilot because it provides:</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>A 24-hour weather forecast</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Current airport weather at surface level</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Real-time actual conditions at altitude reported by pilots currently flying</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Wind forecast for next 6 hours</button>
+    </div>
+    <div class="q-explanation">PIREP (Pilot Report) provides real-time actual conditions aloft reported by pilots in flight — turbulence, icing, cloud tops, winds. This is invaluable because it's actual conditions, not a forecast. METARs give surface conditions; TAFs give forecasts; PIREPs give what's actually happening aloft right now.</div>
+  </div>
+
+  <div class="quiz-block" data-q="27">
+    <h4>Question 27 of 30</h4>
+    <p class="q-text">Under §107.35, a remote pilot in command may simultaneously serve as visual observer for how many UAS operations?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Two, with a proper flight plan</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>As many as physically possible with visual observers</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Only one — may not simultaneously serve as RPIC, person manipulating controls, or VO for more than one UAS</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Two, if both aircraft have autonomous collision-avoidance</button>
+    </div>
+    <div class="q-explanation">§107.35: No person may simultaneously manipulate the flight controls of more than one small unmanned aircraft, or act as RPIC or visual observer for more than one UAS in the same operation. One person = one UAS. This is waivable under §107.205.</div>
+  </div>
+
+  <div class="quiz-block" data-q="28">
+    <h4>Question 28 of 30</h4>
+    <p class="q-text">A small UAS pilot is operating from a boat moving at 5 knots on a lake over a sparsely populated area. The pilot is NOT being compensated. Is this legal?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>No — cannot operate from any moving vehicle</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>Yes — over sparsely populated area and not transporting property for compensation</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Only if operating from a registered vessel</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>No — water-borne vehicles are never permitted</button>
+    </div>
+    <div class="q-explanation">§107.25: Cannot operate from a moving AIRCRAFT ever. But can operate from a moving land or water-borne vehicle IF (1) flying over sparsely populated area AND (2) NOT transporting another person's property for compensation or hire. A non-compensated operation over a sparsely populated lake is legal.</div>
+  </div>
+
+  <div class="quiz-block" data-q="29">
+    <h4>Question 29 of 30</h4>
+    <p class="q-text">What is the correct action if a remote pilot in command cannot comply with an ATC instruction during an authorized airspace operation?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Land immediately without notifying ATC</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">B</span>Continue the operation and notify ATC after landing</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">C</span>Advise ATC that compliance is not possible and request amended instructions</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Deviate from the instruction without notifying ATC</button>
+    </div>
+    <div class="q-explanation">Per PHAK Chapter 14 (towered airport procedures): pilots must advise ATC if they cannot comply with issued instructions and request amended instructions. A pilot may deviate only in an emergency (§107.21), and then must report to ATC as soon as possible. Always communicate — never just deviate silently.</div>
+  </div>
+
+  <div class="quiz-block" data-q="30">
+    <h4>Question 30 of 30</h4>
+    <p class="q-text">When approaching an airport, a pilot sees a windsock fully extended pointing southeast. What does this indicate?</p>
+    <div class="q-options">
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">A</span>Wind is blowing toward the northwest (light wind)</button>
+      <button class="q-opt" onclick="answer(this,'correct')"><span class="opt-letter">B</span>Wind is blowing FROM the northwest and is strong (fully extended)</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">C</span>Wind is blowing from the southeast</button>
+      <button class="q-opt" onclick="answer(this,'wrong')"><span class="opt-letter">D</span>Wind is calm — fully extended means no airflow</button>
+    </div>
+    <div class="q-explanation">A windsock points DOWNWIND — in the direction the wind is blowing toward. So a windsock pointing southeast means the wind is coming FROM the northwest (a northwest wind). Fully extended = strong wind. Aviation convention: wind direction is always reported as the direction FROM which it blows.</div>
+  </div>
+
+  <!-- FINAL SCORE -->
+  <button class="exam-btn" onclick="showFinalScore()" style="display:block;margin:2rem auto;font-size:1.1rem;padding:1rem 3rem">Calculate My Score →</button>
+
+  <div class="exam-score" id="exam-score">
+    <h3>Your Final Score</h3>
+    <div class="pct" id="score-pct">--%</div>
+    <p id="score-detail" style="color:rgba(255,255,255,.7);margin:.5rem 0"></p>
+    <p id="score-msg" style="font-family:'Oswald',sans-serif;font-size:1.2rem;margin-top:.5rem"></p>
+    <button class="exam-btn" onclick="resetAll()" style="margin-top:1rem">Reset &amp; Retake</button>
+  </div>
+</div>
+
+<!-- ===== SECTION: GLOSSARY ===== -->
+<div id="glossary" class="section">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div><h2 class="section-title">Abbreviations <span>&amp; Terms</span></h2><p style="color:var(--gray);font-size:.9rem">Every acronym you'll encounter on the Part 107 test</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <div style="position:relative;margin-bottom:1.5rem">
+    <input id="glossSearch" type="text" placeholder="Search abbreviations or definitions…" oninput="filterGloss(this.value)"
+      style="width:100%;background:var(--charcoal2);border:1px solid #444;border-radius:6px;padding:.8rem 1rem .8rem 2.75rem;color:var(--white);font-size:.95rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s"
+      onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='#444'">
+    <span style="position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--gray);font-size:1rem;pointer-events:none">🔍</span>
+    <span id="glossCount" style="position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--gray);font-size:.78rem;font-family:'Oswald',sans-serif"></span>
+  </div>
+
+  <div id="glossGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.6rem"></div>
+  <p id="glossEmpty" style="display:none;text-align:center;color:var(--gray);padding:2rem;font-size:.9rem">No matches found.</p>
+</div>
+
+<!-- FAQ -->
+<div id="faq" class="section">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div><h2 class="section-title">Frequently Asked <span>Questions</span></h2><p style="color:var(--gray);font-size:.9rem">Real questions pilots ask before (and after) their first flight</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- FAQ Item -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>When do I need a Part 107 license?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <p class="faq-summary">The FAA makes it simple: your license requirement is based on <strong>intent, not money</strong>. If you're using your Avata 2 for anything other than "pure fun," you need Part 107.</p>
+      <p style="margin-bottom:.8rem;color:rgba(255,255,255,.65);font-size:.9rem">In 2026, the distinction is sharper than ever because registration and Remote ID are now standard across the board.</p>
+
+      <h4 class="faq-subhead faq-subhead--red">When You NEED a Part 107 License</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">You need the license the moment the flight is <em>"in furtherance of a business."</em> This is a broad term that catches people off guard.</p>
+      <ul class="faq-list">
+        <li><strong>Direct Commercial Work</strong> &mdash; Getting paid to take real estate photos, inspect a roof, or film a wedding.</li>
+        <li><strong>Indirect Business Use</strong> &mdash; Flying a drone to check your own gutters (replaces a ladder, which is a business "tool") or filming a local charity event for free to help their marketing.</li>
+        <li><strong>Content Creation</strong> &mdash; Uploading a video to a monetized YouTube channel. Even if that specific video doesn't make money, if the channel is a business, the flight is commercial.</li>
+        <li><strong>Non-Profit / Volunteer</strong> &mdash; Flying for your church, a school, or a government agency. The FAA views "volunteering" for an organization as a commercial-style operation.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--gold">When You CAN Fly Without a License</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">You do not need a Part 107 license if you are flying under the <strong style="color:var(--gold)">"Exception for Limited Recreational Operations" (Section 44809)</strong>.</p>
+      <ul class="faq-list">
+        <li><strong>Strictly for Fun</strong> &mdash; You are flying at the park because you enjoy the sensation of FPV flight.</li>
+        <li><strong>Educational Use</strong> &mdash; Students flying as part of a classroom setting (though the instructor may sometimes need a 107).</li>
+      </ul>
+
+      <div class="alert alert-gold" style="margin-top:1.2rem">
+        <strong>Even without a license, you must still:</strong>
+        <ul style="margin-top:.6rem;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem">
+          <li>Pass the <strong>TRUST</strong> (The Recreational UAS Safety Test) &mdash; free, online, no failing grade.</li>
+          <li><strong>Register your drone</strong> ($5 for 3 years) if it weighs more than 250g. The Avata 2 is ~377g &mdash; you must register.</li>
+          <li>Follow a set of <strong>Community Based Organization (CBO)</strong> safety guidelines.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Item 2 -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>How do I register my drone?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <p class="faq-summary">Registering your Avata 2 is a quick process, but since you're studying for your Part 107, you need to make a specific choice during setup. The only official place to do this is <a href="https://faadronezone-access.faa.gov" target="_blank" rel="noopener" style="color:var(--gold)">FAA DroneZone</a>. Avoid any third-party sites that charge more than the standard fee.</p>
+
+      <h4 class="faq-subhead faq-subhead--gold">Step 1 &mdash; Choose Your Account Type</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">When you create an account, you'll have two options:</p>
+      <ul class="faq-list">
+        <li><strong>Recreational (Section 44809)</strong> &mdash; If you want to fly today just for fun. $5 for 3 years, covers all the drones you own.</li>
+        <li><strong>Part 107 (Commercial)</strong> &mdash; If you plan to use the drone for work once you pass your test. $5 per drone for 3 years.</li>
+      </ul>
+      <div style="margin-top:.9rem;background:rgba(245,197,0,.07);border-left:3px solid var(--gold);padding:.8rem 1rem;border-radius:0 3px 3px 0;font-size:.87rem;color:rgba(255,255,255,.72);line-height:1.6">
+        <strong style="color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase">Pro Tip</strong><br />
+        You can start as a Recreational flyer and "Add a Service" later to register it under Part 107 once you have your certificate.
+      </div>
+
+      <h4 class="faq-subhead faq-subhead--red" style="margin-top:1.4rem">Step 2 &mdash; Locate Your Serial Number</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">You'll need the <strong style="color:var(--white)">Remote ID Serial Number</strong> for the Avata 2 &mdash; usually 20 characters long. Find it in three places:</p>
+      <ul class="faq-list">
+        <li><strong>Battery Compartment</strong> &mdash; On the side wall inside the drone where the battery slides in.</li>
+        <li><strong>The Box</strong> &mdash; On the white barcode sticker labeled S/N.</li>
+        <li><strong>The Goggles</strong> &mdash; Power everything on, go to <em>Settings &gt; About</em>, scroll to "Flight Controller SN" or "Remote ID SN."</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--gold" style="margin-top:1.4rem">Step 3 &mdash; Register in the Portal</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">Once logged into <a href="https://faadronezone-access.faa.gov" target="_blank" rel="noopener" style="color:var(--gold)">FAA DroneZone</a>:</p>
+      <ul class="faq-list">
+        <li>Click <strong>"Manage Device Inventory"</strong> then <strong>"Add Device."</strong></li>
+        <li>Does your drone broadcast FAA Remote ID? &rarr; Select <strong>Yes</strong>.</li>
+        <li>Device Type &rarr; <strong>Standard Remote ID</strong> (Avata 2 has this built-in).</li>
+        <li>Manufacturer: <strong>DJI</strong> &nbsp;|&nbsp; Model: <strong>Avata 2</strong></li>
+        <li>Serial Number &rarr; Enter the 20-digit SN you found in Step 2.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--red" style="margin-top:1.4rem">Step 4 &mdash; Mark Your Drone</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">After paying $5, the FAA issues you a Registration Number (e.g., <strong style="color:var(--white)">FA12345678</strong>).</p>
+      <ul class="faq-list">
+        <li><strong>Legal Requirement</strong> &mdash; You must mark this number on the <em>outside</em> of the drone &mdash; visible without opening any compartment.</li>
+        <li><strong>How</strong> &mdash; Most pilots use a label maker or a permanent marker on a piece of light-colored tape affixed to the airframe.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ Item 3 -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>For recreational flying, where can I start flying safely and what should I do &mdash; and not do?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <p class="faq-summary">"Flying safely" means more than just not crashing &mdash; it means staying invisible to the FAA's radar while you're literally wearing goggles. Here is the Recreational Handbook for 2026.</p>
+
+      <h4 class="faq-subhead faq-subhead--gold">Where to Start Flying Safely</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">Finding a spot in 2026 is easier than it used to be, thanks to better apps. Before you leave the house, check one of these:</p>
+      <ul class="faq-list">
+        <li><strong>The "Go/No-Go" Apps</strong> &mdash; Use <strong style="color:var(--white)">Aloft Air Aware</strong> (the modern successor to B4UFLY) or the <strong style="color:var(--white)">DJI Fly app</strong> built into your goggles. If the map is clear of red/blue circles, you're usually good to go.</li>
+        <li><strong>Open Fields &amp; School Yards</strong> &mdash; On weekends, empty school sports fields (when no games are on) are FPV goldmines. Wide-open spaces to practice Manual mode without hitting trees.</li>
+        <li><strong>AMA Flight Fields</strong> &mdash; Local Academy of Model Aeronautics fields are sanctioned spots where people expect drones and often have FPV gates already set up.</li>
+        <li><strong>Local Parks</strong> &mdash; Check your city's website first. Some cities allow drones in parks; others (like most National Parks) have a strict no-drone policy.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--gold" style="margin-top:1.4rem">The "Definitely Do These" List</h4>
+      <ul class="faq-list">
+        <li><strong>Use a Visual Observer (VO)</strong> &mdash; The #1 rule for FPV. Since you can't see the real world with goggles on, you legally need a buddy who can see the drone and any incoming planes or curious dogs.</li>
+        <li><strong>Take the TRUST Test</strong> &mdash; A free 10-minute online safety quiz for hobbyists. Keep the digital certificate on your phone. It never expires.</li>
+        <li><strong>Stay Below 400 Feet</strong> &mdash; Your Avata 2 can go much higher, but above 400 ft is where Cessnas and helicopters operate. Don't go there.</li>
+        <li><strong>Check Your Remote ID</strong> &mdash; Ensure your Avata 2 has a GPS lock before takeoff. This activates the internal Remote ID broadcast, which is mandatory in 2026.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--red" style="margin-top:1.4rem">The "Never Ever" List</h4>
+      <ul class="faq-list">
+        <li><strong>No Flying Over People</strong> &mdash; Even with prop guards, do not buzz crowds, moving cars, or your neighbor's backyard BBQ. It's the fastest way to get a knock on the door from local law enforcement.</li>
+        <li><strong>No Emergency Scenes</strong> &mdash; If you see smoke or a police chase, stay away. Flying near a fire makes it impossible for fire-fighting helicopters to do their job, and the FAA will throw the book at you.</li>
+        <li><strong>No National Parks</strong> &mdash; It's tempting to get that epic mountain shot, but National Parks are strictly off-limits. Heavy fines and drone confiscation are both on the table.</li>
+        <li><strong>No Flying Under the Influence</strong> &mdash; FAA rules specifically mention alcohol or drugs. FPV is a high-speed sport; you need 100% of your brain.</li>
+      </ul>
+
+      <div style="margin-top:1.2rem;background:rgba(245,197,0,.07);border-left:3px solid var(--gold);padding:.9rem 1.1rem;border-radius:0 3px 3px 0;font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.65">
+        <strong style="color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.5rem">Pro Tip for Avata 2 Pilots</strong>
+        The Avata 2's ducted prop guards make it louder and "whinier" than a standard camera drone. To avoid unwanted attention: fly high and far when near people to keep the noise down. If someone approaches, take the goggles off, smile, and show them the screen. Most people aren't mad &mdash; they're just curious. Be an ambassador.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Item 4 -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>Why should I take the TRUST test even if I'm only flying recreationally?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <h4 class="faq-subhead faq-subhead--gold">Why Should You Take It?</h4>
+      <ul class="faq-list">
+        <li><strong>It's the Law</strong> &mdash; Since 2021, the FAA requires all recreational flyers to carry proof of passing this test. If a park ranger or officer asks to see your "papers," this is what they're looking for.</li>
+        <li><strong>It's Impossible to Fail</strong> &mdash; The test is educational, not punitive. If you get a question wrong, the system shows you the right answer and lets you try again until you have 100%.</li>
+        <li><strong>It's Free and Fast</strong> &mdash; About 15&ndash;30 minutes, costs $0, and never expires.</li>
+        <li><strong>Airspace Awareness</strong> &mdash; It teaches you how to use apps like Aloft to get instant LAANC permission to fly in controlled airspace &mdash; something many hobbyists don't realize they can do.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--red" style="margin-top:1.4rem">How to Take the TRUST Test</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">The FAA doesn't host the test themselves &mdash; they use approved test administrators. Here's how to get it done right now:</p>
+      <ul class="faq-list">
+        <li><strong>Pick a Provider</strong> &mdash; Go to one of these free FAA-approved sites:
+          <div style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.5rem">
+            <a href="https://pilotinstitute.com/trust-test/" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">Pilot Institute</a>
+            <a href="https://uavcoach.com/trust/" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">UAV Coach</a>
+            <a href="https://www.modelaircraft.org/trust" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">AMA</a>
+          </div>
+        </li>
+        <li><strong>Go Through the Modules</strong> &mdash; Short videos or slides covering basic rules: stay below 400 ft, don't fly over people, give way to manned aircraft.</li>
+        <li><strong>Answer the Questions</strong> &mdash; Mini-quiz after each section. Miss one? Correct it and move on.</li>
+        <li><strong>Download Your Certificate</strong> &mdash; This is critical. The FAA does <em>not</em> keep a copy, and neither does the test provider.</li>
+      </ul>
+
+      <div style="margin-top:1rem;background:rgba(155,27,43,.12);border-left:3px solid var(--crimson);padding:.9rem 1.1rem;border-radius:0 3px 3px 0;font-size:.87rem;color:rgba(255,255,255,.75);line-height:1.65">
+        <strong style="color:var(--crimson);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.4rem">Action Required</strong>
+        Save the PDF to your phone, email it to yourself, and print a physical copy to keep in your Avata 2 carrying case.
+      </div>
+
+      <div style="margin-top:1rem;background:rgba(245,197,0,.07);border-left:3px solid var(--gold);padding:.9rem 1.1rem;border-radius:0 3px 3px 0;font-size:.87rem;color:rgba(255,255,255,.72);line-height:1.65">
+        <strong style="color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.4rem">Note for Future Commercial Pilots</strong>
+        Once you pass your Part 107 exam, your Remote Pilot Certificate "overrides" the need for the TRUST certificate. However, keep your TRUST cert handy until that plastic card arrives in the mail.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Item 5 -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>Should I log all my flights? If so, why and what's the best way to do it?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <p class="faq-summary">Yes &mdash; absolutely. While the FAA doesn't mandate a specific logbook for every Part 107 flight, they strongly recommend it, and in 2026 it is considered a baseline professional requirement. Logging is what separates a "hobbyist" from a <strong>Remote Pilot in Command</strong>.</p>
+
+      <h4 class="faq-subhead faq-subhead--gold">Why Should You Log Your Flights?</h4>
+      <ul class="faq-list">
+        <li><strong>Proof of Proficiency</strong> &mdash; A logbook is your resume in the sky. To get a high-paying job, you need to prove you can fly.</li>
+        <li><strong>Maintenance &amp; Battery Health</strong> &mdash; The Avata 2's motors and batteries have limited lifespans. Logging tracks cycle counts so you know exactly when to swap props before they fail.</li>
+        <li><strong>Liability &amp; Legal Protection</strong> &mdash; If there is ever an incident, a detailed log proves you conducted a pre-flight inspection, checked weather, and stayed within legal airspace.</li>
+        <li><strong>Waiver Applications</strong> &mdash; Applying for a Part 107 Waiver (night ops, flying over people, BVLOS)? The FAA often asks for documented flight experience.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--red" style="margin-top:1.4rem">The Best Logging Tools (2026)</h4>
+
+      <div style="display:flex;flex-direction:column;gap:.9rem;margin-top:.5rem">
+
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:1rem 1.1rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem">
+            <strong style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--white)">1. Airdata UAV</strong>
+            <span style="font-size:.72rem;background:rgba(245,197,0,.12);color:var(--gold);border:1px solid rgba(245,197,0,.3);padding:2px 10px;border-radius:2px;font-family:'Oswald',sans-serif;letter-spacing:.08em;text-transform:uppercase">Gold Standard</span>
+          </div>
+          <p style="font-size:.87rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.7rem">Automatically pulls "black box" data from your DJI Fly app &mdash; battery cell voltages, signal strength, motor efficiency. Best for maintenance tracking and technical reports.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+            <a href="https://airdata.com" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">Airdata UAV</a>
+            <a href="https://app.airdata.com/wiki/Help/DJI-Sync" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">DJI Sync Guide</a>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:1rem 1.1rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem">
+            <strong style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--white)">2. Aloft Air Control</strong>
+            <span style="font-size:.72rem;background:rgba(155,27,43,.15);color:#e87;border:1px solid rgba(155,27,43,.4);padding:2px 10px;border-radius:2px;font-family:'Oswald',sans-serif;letter-spacing:.08em;text-transform:uppercase">Commercial Pick</span>
+          </div>
+          <p style="font-size:.87rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.7rem">FAA-approved LAANC provider that combines airspace authorization with flight logging in one place. Best for commercial pilots who need "authorization + flight" records for audits.</p>
+          <a href="https://www.aloft.ai" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">Aloft Air Control</a>
+        </div>
+
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:1rem 1.1rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem">
+            <strong style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--white)">3. DroneLogbook</strong>
+            <span style="font-size:.72rem;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.12);padding:2px 10px;border-radius:2px;font-family:'Oswald',sans-serif;letter-spacing:.08em;text-transform:uppercase">Business / Fleet</span>
+          </div>
+          <p style="font-size:.87rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.7rem">Best tools for generating professional PDF reports for clients. Ideal if you plan to turn this into a full-time business or manage a multi-drone fleet.</p>
+          <a href="https://www.dronelogbook.com" target="_blank" rel="noopener" style="color:var(--gold);background:rgba(245,197,0,.08);border:1px solid rgba(245,197,0,.3);padding:4px 12px;border-radius:3px;font-size:.82rem;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:.06em">DroneLogbook</a>
+        </div>
+
+      </div>
+
+      <h4 class="faq-subhead faq-subhead--gold" style="margin-top:1.4rem">What a Professional Log Entry Looks Like</h4>
+      <ul class="faq-list">
+        <li><strong>The Drone</strong> &mdash; DJI Avata 2 (Registration #FAxxxxxxx)</li>
+        <li><strong>The Pilot</strong> &mdash; Your name (and eventually your Part 107 Certificate #)</li>
+        <li><strong>The Mission</strong> &mdash; "Real estate shoot" or "Manual mode practice"</li>
+        <li><strong>The Environment</strong> &mdash; Weather conditions (e.g., "Clear, 10 knots wind from North")</li>
+        <li><strong>The Technicals</strong> &mdash; Total flight time and which battery you used (e.g., "Battery A")</li>
+      </ul>
+
+      <div style="margin-top:1.2rem;background:rgba(245,197,0,.07);border-left:3px solid var(--gold);padding:.9rem 1.1rem;border-radius:0 3px 3px 0;font-size:.87rem;color:rgba(255,255,255,.72);line-height:1.65">
+        <strong style="color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.4rem">Next Step for You</strong>
+        Set up a free <a href="https://airdata.com" target="_blank" rel="noopener" style="color:var(--gold)">Airdata UAV</a> account today and sync it with your DJI Fly app. You'll see the "hidden" technical data of your Avata 2 and start building your professional flight history immediately &mdash; before you even pass the exam.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.faq-item{border:1px solid rgba(255,255,255,.08);border-radius:6px;margin-bottom:.75rem;overflow:hidden;background:var(--charcoal2);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(155,27,43,.5)}
+.faq-item.open{border-color:var(--crimson)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;cursor:pointer;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:500;color:var(--white);gap:1rem;user-select:none}
+.faq-chevron{font-size:1.3rem;color:var(--crimson);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.3rem 1.4rem;border-top:1px solid rgba(255,255,255,.06)}
+.faq-item.open .faq-a{display:block}
+.faq-summary{font-size:1rem;color:rgba(255,255,255,.85);line-height:1.7;margin:1rem 0 .9rem}
+.faq-subhead{font-family:'Oswald',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin:1.2rem 0 .6rem;padding:5px 10px;border-radius:3px;display:inline-block}
+.faq-subhead--red{color:var(--crimson);background:rgba(155,27,43,.1);border-left:3px solid var(--crimson)}
+.faq-subhead--gold{color:var(--gold);background:rgba(245,197,0,.08);border-left:3px solid var(--gold)}
+.faq-list{padding-left:1.1rem;display:flex;flex-direction:column;gap:.6rem;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.65}
+.faq-list li strong{color:var(--white)}
+</style>
+
+<script>
+function toggleFaq(el){el.classList.toggle('open')}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School">
+  <p style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--gold);margin-bottom:.5rem">Top Drone School</p>
+  <p>FAA Part 107 Study Guide · Based on 14 CFR Part 107 (updated Feb 26, 2026) · PHAK Chapters 12 &amp; 14</p>
+  <div class="foot-links">
+    <a href="#regulations">Regulations</a>
+    <a href="#weather">Weather</a>
+    <a href="#airspace">Airspace</a>
+    <a href="#runway">Runway &amp; Wakes</a>
+    <a href="#exam">Final Exam</a>
+  </div>
+  <p style="margin-top:1rem;font-size:.75rem;color:#444">This guide is for educational purposes. Always verify current regulations at faa.gov before flight operations.</p>
+</footer>
+
+<!-- STICKY SCORE -->
+<div id="sticky-score">Score: <span class="ss-num" id="sticky-num">0</span>/<span id="sticky-total">30</span></div>
+
+<script>
+// Accordion
+function toggle(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  btn.classList.toggle('active', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+// Quiz state
+let correct = 0;
+let answered = 0;
+const total = 30;
+
+function answer(btn, result) {
+  const block = btn.closest('.quiz-block');
+  if (block.dataset.answered) return;
+  block.dataset.answered = '1';
+
+  const opts = block.querySelectorAll('.q-opt');
+  opts.forEach(o => { o.classList.add('disabled'); o.onclick = null; });
+
+  const expl = block.querySelector('.q-explanation');
+  expl.classList.add('show');
+
+  if (result === 'correct') {
+    btn.classList.add('correct');
+    correct++;
+  } else {
+    btn.classList.add('wrong');
+    // highlight correct
+    opts.forEach(o => {
+      if (o.onclick === null && !o.classList.contains('wrong')) {
+        // find the correct one by checking for answer(this,'correct') in removed onclick
+      }
+    });
+  }
+
+  answered++;
+  updateScore();
+  updateProgress();
+}
+
+function updateScore() {
+  document.getElementById('nav-score').textContent = `Score: ${correct}/${answered}`;
+  document.getElementById('sticky-num').textContent = correct;
+  document.getElementById('sticky-total').textContent = answered;
+}
+
+function updateProgress() {
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+}
+
+function showFinalScore() {
+  const scoreEl = document.getElementById('exam-score');
+  scoreEl.style.display = 'block';
+  const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+  const pctEl = document.getElementById('score-pct');
+  pctEl.textContent = pct + '%';
+  pctEl.className = 'pct ' + (pct === 100 ? 'perfect' : pct >= 70 ? 'passing' : 'failing');
+  document.getElementById('score-detail').textContent = `${correct} correct out of ${answered} answered (${total} total questions)`;
+  const msgs = {
+    100: '🏆 PERFECT SCORE! You\'re ready to ace the Part 107 test.',
+    90: '🎯 Excellent work! Review the questions you missed and you\'ll be ready.',
+    80: '✈️ Good progress! A few more study sessions and you\'ll nail it.',
+    70: '📚 Passing territory — but keep studying for that perfect score.',
+    0: '🔁 Keep studying! Review each section and try again.'
+  };
+  const msgEl = document.getElementById('score-msg');
+  if (pct === 100) msgEl.textContent = msgs[100];
+  else if (pct >= 90) msgEl.textContent = msgs[90];
+  else if (pct >= 80) msgEl.textContent = msgs[80];
+  else if (pct >= 70) msgEl.textContent = msgs[70];
+  else msgEl.textContent = msgs[0];
+  scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetAll() {
+  correct = 0; answered = 0;
+  document.querySelectorAll('.quiz-block').forEach(b => {
+    delete b.dataset.answered;
+    b.querySelectorAll('.q-opt').forEach(o => {
+      o.classList.remove('correct','wrong','disabled');
+      o.onclick = function() { answer(this, o.getAttribute('data-result')); };
+    });
+    const expl = b.querySelector('.q-explanation');
+    if (expl) expl.classList.remove('show');
+  });
+  document.getElementById('exam-score').style.display = 'none';
+  updateScore();
+  updateProgress();
+  // Re-bind onclick from HTML attributes (page reload is cleaner)
+  location.reload();
+}
+
+// ---- AUDIO PLAYER ----
+const audio = document.getElementById('mainAudio');
+const playBtn = document.getElementById('apPlayBtn');
+const fill = document.getElementById('apFill');
+const thumb = document.getElementById('apThumb');
+const curEl = document.getElementById('apCurrent');
+const durEl = document.getElementById('apDuration');
+const waveform = document.getElementById('apWaveform');
+const speeds = [1, 1.25, 1.5, 1.75, 2];
+let speedIdx = 0;
+
+// Generate decorative waveform bars
+(function buildWave() {
+  const count = 80;
+  for (let i = 0; i < count; i++) {
+    const b = document.createElement('div');
+    b.className = 'ap-bar';
+    // pseudo-random heights that look like a real waveform
+    const h = 20 + Math.abs(Math.sin(i * 0.4) * 24) + Math.abs(Math.cos(i * 0.9) * 12) + (Math.random() * 8);
+    b.style.height = Math.min(h, 46) + 'px';
+    b.dataset.idx = i;
+    waveform.appendChild(b);
+  }
+})();
+
+function fmt(s) {
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ':' + (sec < 10 ? '0' : '') + sec;
+}
+
+audio.addEventListener('loadedmetadata', () => {
+  durEl.textContent = fmt(audio.duration);
+});
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = audio.currentTime / audio.duration;
+  fill.style.width = (pct * 100) + '%';
+  curEl.textContent = fmt(audio.currentTime);
+  // update waveform bars
+  const bars = waveform.querySelectorAll('.ap-bar');
+  const activeIdx = Math.floor(pct * bars.length);
+  bars.forEach((b, i) => {
+    b.classList.toggle('played', i < activeIdx);
+    b.classList.toggle('active', i === activeIdx);
+  });
+});
+
+audio.addEventListener('ended', () => {
+  playBtn.textContent = '▶';
+});
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = '⏸';
+  } else {
+    audio.pause();
+    playBtn.textContent = '▶';
+  }
+}
+
+function seek(e) {
+  const track = document.getElementById('apTrack');
+  const rect = track.getBoundingClientRect();
+  const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  audio.currentTime = pct * audio.duration;
+}
+
+waveform.addEventListener('click', e => {
+  const rect = waveform.getBoundingClientRect();
+  const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  audio.currentTime = pct * audio.duration;
+});
+
+function cycleSpeed() {
+  speedIdx = (speedIdx + 1) % speeds.length;
+  audio.playbackRate = speeds[speedIdx];
+  document.getElementById('apSpeed').textContent = speeds[speedIdx] + '×';
+}
+
+function setVol(v) { audio.volume = parseFloat(v); }
+
+// ---- END AUDIO PLAYER ----
+
+// ---- GLOSSARY ----
+const glossaryData = [
+  // Regulatory / Certification
+  { abbr: 'FAA',      def: 'Federal Aviation Administration — the U.S. government agency that regulates civil aviation.' },
+  { abbr: 'CFR',      def: 'Code of Federal Regulations — the codification of U.S. federal rules. Part 107 lives in Title 14 CFR.' },
+  { abbr: 'Part 107', def: '14 CFR Part 107 — the FAA regulation governing civil small unmanned aircraft systems (sUAS).' },
+  { abbr: 'RPIC',     def: 'Remote Pilot in Command — the person directly responsible and final authority for a small UAS operation.' },
+  { abbr: 'PIC',      def: 'Pilot in Command — the person responsible for the safe operation of an aircraft.' },
+  { abbr: 'VO',       def: 'Visual Observer — a crew member designated by the RPIC to help maintain visual contact with the UAS.' },
+  { abbr: 'NTSB',     def: 'National Transportation Safety Board — independent federal agency that investigates aviation accidents.' },
+  { abbr: 'TSA',      def: 'Transportation Security Administration — federal agency with authority to inspect drone operators for compliance.' },
+  { abbr: 'COA',      def: 'Certificate of Waiver or Authorization — legacy FAA authorization (largely replaced by LAANC for drones).' },
+  { abbr: 'ICAO',     def: 'International Civil Aviation Organization — UN body that sets global aviation standards.' },
+  // Aircraft / Systems
+  { abbr: 'UAS',      def: 'Unmanned Aircraft System — the aircraft and all associated elements required for safe operation.' },
+  { abbr: 'sUAS',     def: 'Small Unmanned Aircraft System — a UAS weighing less than 55 pounds at takeoff.' },
+  { abbr: 'UA',       def: 'Unmanned Aircraft — the aircraft component of a UAS, operated without a pilot on board.' },
+  { abbr: 'FPV',      def: 'First Person View — flying a drone via a live video feed, typically through goggles.' },
+  { abbr: 'GPS',      def: 'Global Positioning System — satellite-based navigation system used by most drones for positioning.' },
+  { abbr: 'ADS-B',    def: 'Automatic Dependent Surveillance-Broadcast — technology that broadcasts an aircraft\'s position; prohibited on small UAS unless required.' },
+  { abbr: 'Remote ID', def: 'Remote Identification — FAA-mandated system that broadcasts a drone\'s identity and location; the "digital license plate."' },
+  { abbr: 'EMAS',     def: 'Engineered Materials Arresting System — crushable concrete bed at runway ends that safely stops overrunning aircraft.' },
+  // Airspace
+  { abbr: 'ATC',      def: 'Air Traffic Control — the service that directs aircraft in controlled airspace.' },
+  { abbr: 'Class B',  def: 'Controlled airspace around the nation\'s busiest airports; shaped like an inverted wedding cake. Requires ATC authorization for drones.' },
+  { abbr: 'Class C',  def: 'Controlled airspace around medium-hub airports; typically two concentric rings. Requires ATC authorization for drones.' },
+  { abbr: 'Class D',  def: 'Controlled airspace around airports with operating control towers; typically ~5 nm radius. Requires ATC authorization for drones.' },
+  { abbr: 'Class E',  def: 'Controlled airspace not classified as B, C, or D. Surface areas require ATC authorization for drones.' },
+  { abbr: 'Class G',  def: 'Uncontrolled airspace — no ATC control, but all Part 107 rules still apply. Most accessible for drone ops.' },
+  { abbr: 'MOA',      def: 'Military Operations Area — special use airspace where military training occurs. Drones should avoid or use caution.' },
+  { abbr: 'SUA',      def: 'Special Use Airspace — airspace with defined activities that may be hazardous (Prohibited, Restricted, Warning, MOA, Alert areas).' },
+  { abbr: 'TFR',      def: 'Temporary Flight Restriction — a temporary airspace restriction issued via NOTAM for events, emergencies, VIP movement, etc.' },
+  { abbr: 'TRSA',     def: 'Terminal Radar Service Area — airspace where ATC provides radar service to participating VFR aircraft.' },
+  { abbr: 'LAANC',    def: 'Low Altitude Authorization and Notification Capability — automated system for drone pilots to get near-real-time ATC authorization.' },
+  // Navigation / Altitude
+  { abbr: 'AGL',      def: 'Above Ground Level — altitude measured from the surface directly below the aircraft. Part 107 max altitude: 400 ft AGL.' },
+  { abbr: 'MSL',      def: 'Mean Sea Level — altitude measured from average sea level. Used in aeronautical charts.' },
+  { abbr: 'PA',       def: 'Pressure Altitude — altitude indicated when altimeter is set to standard sea level pressure (29.92 inHg).' },
+  { abbr: 'DA',       def: 'Density Altitude — pressure altitude corrected for non-standard temperature. High DA = degraded aircraft performance.' },
+  // Flight rules / conditions
+  { abbr: 'VFR',      def: 'Visual Flight Rules — flight conducted with visual reference to the ground and in VMC conditions.' },
+  { abbr: 'IFR',      def: 'Instrument Flight Rules — flight conducted by reference to instruments only, in IMC or clouds.' },
+  { abbr: 'VMC',      def: 'Visual Meteorological Conditions — weather conditions that allow VFR flight (adequate visibility and cloud clearance).' },
+  { abbr: 'IMC',      def: 'Instrument Meteorological Conditions — weather below VFR minimums; clouds, fog, or low visibility.' },
+  { abbr: 'VLOS',     def: 'Visual Line of Sight — requirement that the RPIC or VO can see the UAS with unaided vision at all times.' },
+  { abbr: 'BVLOS',    def: 'Beyond Visual Line of Sight — drone operations outside unaided visual range; requires FAA waiver under §107.31.' },
+  // Weather reports
+  { abbr: 'METAR',    def: 'Meteorological Aerodrome Report — routine weather observation at an airport (wind, visibility, clouds, temp, dew point, altimeter).' },
+  { abbr: 'TAF',      def: 'Terminal Aerodrome Forecast — weather forecast for a specific airport area, valid 24–30 hours.' },
+  { abbr: 'PIREP',    def: 'Pilot Report — real-time weather conditions reported by pilots in flight (turbulence, icing, cloud tops, winds).' },
+  { abbr: 'SIGMET',   def: 'Significant Meteorological Information — advisory for severe weather hazards: severe turbulence, icing, hail, volcanic ash, microbursts.' },
+  { abbr: 'AIRMET',   def: 'Airmen\'s Meteorological Information — advisory for moderate hazards: moderate turbulence/icing, mountain obscuration, strong surface winds.' },
+  { abbr: 'ASOS',     def: 'Automated Surface Observing System — automated weather station that generates METARs continuously.' },
+  { abbr: 'AWOS',     def: 'Automated Weather Observing System — similar to ASOS; automated weather observations at smaller airports.' },
+  // Weather phenomena
+  { abbr: 'OAT',      def: 'Outside Air Temperature — the ambient air temperature at a given altitude.' },
+  { abbr: 'ISA',      def: 'International Standard Atmosphere — standard model where sea level temp is 15°C (59°F) and pressure is 29.92 inHg.' },
+  { abbr: 'inHg',     def: 'Inches of Mercury — unit for barometric pressure. Standard sea level: 29.92 inHg.' },
+  { abbr: 'mb',       def: 'Millibars — metric unit for atmospheric pressure. Standard sea level: 1,013.2 mb.' },
+  { abbr: 'CB',       def: 'Cumulonimbus — the thunderstorm cloud. Most dangerous cloud type to aviation. Avoid at all costs.' },
+  { abbr: 'TCU',      def: 'Towering Cumulus — rapidly building cumulus cloud indicating atmospheric instability; precursor to cumulonimbus.' },
+  // Airport comms
+  { abbr: 'CTAF',     def: 'Common Traffic Advisory Frequency — the designated frequency for self-announcing at non-towered airports.' },
+  { abbr: 'UNICOM',   def: 'Universal Integrated Community — non-government aeronautical advisory radio station at non-towered airports.' },
+  { abbr: 'ATIS',     def: 'Automated Terminal Information Service — continuous recorded broadcast of airport weather, active runways, and NOTAMs at towered airports.' },
+  { abbr: 'FSS',      def: 'Flight Service Station — FAA facility providing weather briefings, flight plans, NOTAMs, and other pilot services.' },
+  { abbr: 'NOTAM',    def: 'Notice to Air Missions (formerly Notice to Airmen) — time-critical information on hazards, closures, TFRs, or changes affecting flight.' },
+  // Units / measurements
+  { abbr: 'kts',      def: 'Knots — nautical miles per hour. Part 107 max groundspeed: 87 knots (100 mph).' },
+  { abbr: 'mph',      def: 'Miles Per Hour — statute miles per hour. Part 107 max groundspeed: 100 mph (87 kts).' },
+  { abbr: 'nm',       def: 'Nautical Mile — unit of distance equal to 1,852 meters or ~1.15 statute miles.' },
+  { abbr: 'sm',       def: 'Statute Mile — standard land mile (5,280 ft). Part 107 visibility minimum: 3 sm.' },
+  // References
+  { abbr: 'PHAK',     def: 'Pilot\'s Handbook of Aeronautical Knowledge — FAA publication covering foundational aviation knowledge; Chapters 12 & 14 are Part 107 test sources.' },
+  { abbr: 'AIM',      def: 'Aeronautical Information Manual — official FAA guide to U.S. air navigation and procedures.' },
+  { abbr: 'AFM',      def: 'Approved Flight Manual — manufacturer\'s FAA-approved document specifying aircraft operating limitations; required for Category 4 ops.' },
+  { abbr: 'AWC',      def: 'Aviation Weather Center — FAA/NOAA facility that produces aviation weather forecasts, SIGMETs, and AIRMETs.' },
+  { abbr: 'NWS',      def: 'National Weather Service — federal agency that provides weather forecasts and warnings.' },
+];
+
+function renderGloss(data) {
+  const grid = document.getElementById('glossGrid');
+  const empty = document.getElementById('glossEmpty');
+  const count = document.getElementById('glossCount');
+  grid.innerHTML = '';
+  if (data.length === 0) {
+    empty.style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+  empty.style.display = 'none';
+  count.textContent = data.length + ' terms';
+  data.forEach(item => {
+    const card = document.createElement('div');
+    card.style.cssText = 'background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem';
+    const parts = item.def.split(' — ');
+    const defHTML = parts.length > 1
+      ? `<span style="color:#fff;font-weight:500">${parts[0]}</span><span style="color:rgba(255,255,255,.45)"> — </span><span style="color:rgba(255,255,255,.65)">${parts.slice(1).join(' — ')}</span>`
+      : `<span style="color:rgba(255,255,255,.65)">${item.def}</span>`;
+    card.innerHTML = `<span style="font-family:'Oswald',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;line-height:1.5">${defHTML}</span>`;
+    grid.appendChild(card);
+  });
+}
+
+function filterGloss(q) {
+  const lower = q.toLowerCase();
+  const filtered = glossaryData.filter(i =>
+    i.abbr.toLowerCase().includes(lower) || i.def.toLowerCase().includes(lower)
+  );
+  renderGloss(filtered);
+}
+
+// Initial render
+renderGloss(glossaryData);
+// ---- END GLOSSARY ----
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
