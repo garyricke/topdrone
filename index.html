@@ -241,6 +241,7 @@ footer .foot-links a:hover{color:var(--gold)}
     <a href="#runway">Runway &amp; Wakes</a>
     <a href="#exam">Final Exam</a>
     <a href="#glossary">Glossary</a>
+    <a href="#faq">FAQ</a>
     <a href="training-course.html" style="color:#F5C500;border:1px solid rgba(245,197,0,0.4);padding:5px 14px;border-radius:3px;font-family:'Oswald',sans-serif;letter-spacing:.08em;">Training Course</a>
   </div>
   <div class="score-badge" id="nav-score">Score: 0/0</div>
@@ -1331,6 +1332,74 @@ footer .foot-links a:hover{color:var(--gold)}
   <div id="glossGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.6rem"></div>
   <p id="glossEmpty" style="display:none;text-align:center;color:var(--gray);padding:2rem;font-size:.9rem">No matches found.</p>
 </div>
+
+<!-- FAQ -->
+<div id="faq" class="section">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div><h2 class="section-title">Frequently Asked <span>Questions</span></h2><p style="color:var(--gray);font-size:.9rem">Real questions pilots ask before (and after) their first flight</p></div>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- FAQ Item -->
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">
+      <span>When do I need a Part 107 license?</span>
+      <span class="faq-chevron">&#8964;</span>
+    </div>
+    <div class="faq-a">
+      <p class="faq-summary">The FAA makes it simple: your license requirement is based on <strong>intent, not money</strong>. If you're using your Avata 2 for anything other than "pure fun," you need Part 107.</p>
+      <p style="margin-bottom:.8rem;color:rgba(255,255,255,.65);font-size:.9rem">In 2026, the distinction is sharper than ever because registration and Remote ID are now standard across the board.</p>
+
+      <h4 class="faq-subhead faq-subhead--red">When You NEED a Part 107 License</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">You need the license the moment the flight is <em>"in furtherance of a business."</em> This is a broad term that catches people off guard.</p>
+      <ul class="faq-list">
+        <li><strong>Direct Commercial Work</strong> &mdash; Getting paid to take real estate photos, inspect a roof, or film a wedding.</li>
+        <li><strong>Indirect Business Use</strong> &mdash; Flying a drone to check your own gutters (replaces a ladder, which is a business "tool") or filming a local charity event for free to help their marketing.</li>
+        <li><strong>Content Creation</strong> &mdash; Uploading a video to a monetized YouTube channel. Even if that specific video doesn't make money, if the channel is a business, the flight is commercial.</li>
+        <li><strong>Non-Profit / Volunteer</strong> &mdash; Flying for your church, a school, or a government agency. The FAA views "volunteering" for an organization as a commercial-style operation.</li>
+      </ul>
+
+      <h4 class="faq-subhead faq-subhead--gold">When You CAN Fly Without a License</h4>
+      <p style="margin-bottom:.75rem;color:rgba(255,255,255,.7);font-size:.9rem">You do not need a Part 107 license if you are flying under the <strong style="color:var(--gold)">"Exception for Limited Recreational Operations" (Section 44809)</strong>.</p>
+      <ul class="faq-list">
+        <li><strong>Strictly for Fun</strong> &mdash; You are flying at the park because you enjoy the sensation of FPV flight.</li>
+        <li><strong>Educational Use</strong> &mdash; Students flying as part of a classroom setting (though the instructor may sometimes need a 107).</li>
+      </ul>
+
+      <div class="alert alert-gold" style="margin-top:1.2rem">
+        <strong>Even without a license, you must still:</strong>
+        <ul style="margin-top:.6rem;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem">
+          <li>Pass the <strong>TRUST</strong> (The Recreational UAS Safety Test) &mdash; free, online, no failing grade.</li>
+          <li><strong>Register your drone</strong> ($5 for 3 years) if it weighs more than 250g. The Avata 2 is ~377g &mdash; you must register.</li>
+          <li>Follow a set of <strong>Community Based Organization (CBO)</strong> safety guidelines.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.faq-item{border:1px solid rgba(255,255,255,.08);border-radius:6px;margin-bottom:.75rem;overflow:hidden;background:var(--charcoal2);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(155,27,43,.5)}
+.faq-item.open{border-color:var(--crimson)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;cursor:pointer;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:500;color:var(--white);gap:1rem;user-select:none}
+.faq-chevron{font-size:1.3rem;color:var(--crimson);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.3rem 1.4rem;border-top:1px solid rgba(255,255,255,.06)}
+.faq-item.open .faq-a{display:block}
+.faq-summary{font-size:1rem;color:rgba(255,255,255,.85);line-height:1.7;margin:1rem 0 .9rem}
+.faq-subhead{font-family:'Oswald',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin:1.2rem 0 .6rem;padding:5px 10px;border-radius:3px;display:inline-block}
+.faq-subhead--red{color:var(--crimson);background:rgba(155,27,43,.1);border-left:3px solid var(--crimson)}
+.faq-subhead--gold{color:var(--gold);background:rgba(245,197,0,.08);border-left:3px solid var(--gold)}
+.faq-list{padding-left:1.1rem;display:flex;flex-direction:column;gap:.6rem;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.65}
+.faq-list li strong{color:var(--white)}
+</style>
+
+<script>
+function toggleFaq(el){el.classList.toggle('open')}
+</script>
 
 <!-- FOOTER -->
 <footer>
