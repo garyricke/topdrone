@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DJI Avata 2 &mdash; The FPV Drone Guide | Top Drone School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #9B1B2B;
+      --crimson-dark: #7a1522;
+      --gold: #F5C500;
+      --charcoal: #1A1A1A;
+      --charcoal2: #222;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --white: #ffffff;
+      --off-white: #f0ede8;
+      --gray: #888;
+      --light-gray: #ccc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(26,26,26,0.96);
+      border-bottom: 2px solid var(--crimson);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      color: var(--white) !important;
+      background: var(--crimson);
+      padding: 6px 16px;
+      border-radius: 3px;
+    }
+    .nav-cta:hover { background: var(--crimson-dark) !important; }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("avata 2/avata-2-in-flight-front-view.jpg");
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,26,26,0.45) 0%,
+        rgba(26,26,26,0.65) 55%,
+        rgba(26,26,26,1) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.5rem;
+      max-width: 820px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(245,197,0,0.1);
+      border: 1px solid rgba(245,197,0,0.4);
+      padding: 5px 16px;
+      border-radius: 2px;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      max-width: 580px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      padding: 13px 34px;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--crimson-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: transparent;
+      border: 2px solid var(--gold);
+      padding: 11px 32px;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-1px); }
+
+    /* ── LAYOUT ──────────────────────────────────────────── */
+    section { padding: 80px 0; }
+    .section-alt { background: var(--charcoal-mid); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+    .section-title span { color: var(--crimson); }
+
+    .divider { width: 44px; height: 3px; background: var(--crimson); margin: 1rem 0 1.8rem; }
+    .divider-gold { background: var(--gold); }
+
+    .section-intro {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.78;
+      max-width: 640px;
+    }
+
+    /* ── STAT BAR ────────────────────────────────────────── */
+    .stat-bar {
+      background: var(--charcoal-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .stat-cell {
+      padding: 2rem 1.2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-cell:last-child { border-right: none; }
+
+    .stat-val {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-key {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── TWO-COL SPLIT ───────────────────────────────────── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .split-reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
+    .split-reverse > * { direction: ltr; }
+
+    .split-img {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .split-img img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+    }
+    .split-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .img-caption {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.38);
+      font-style: italic;
+      margin-top: 0.6rem;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SPEC TABLE ──────────────────────────────────────── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 1.4rem;
+    }
+    .spec-table th {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 9px 14px;
+      background: rgba(245,197,0,0.05);
+      border-bottom: 1px solid rgba(245,197,0,0.2);
+    }
+    .spec-table td {
+      padding: 9px 14px;
+      color: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+    }
+    .spec-table td:first-child { color: var(--white); font-weight: 500; }
+    .spec-table tr:last-child td { border-bottom: none; }
+
+    /* ── COMPARE TABLE ───────────────────────────────────── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+      margin-top: 1.4rem;
+    }
+    .compare-table th {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    .compare-table th:first-child { color: rgba(255,255,255,0.5); text-align: left; }
+    .compare-table th:nth-child(2) { color: var(--gold); background: rgba(245,197,0,0.06); }
+    .compare-table th:nth-child(3) { color: var(--crimson); background: rgba(155,27,43,0.06); }
+    .compare-table td {
+      padding: 9px 14px;
+      color: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      text-align: left;
+    }
+    .compare-table td:first-child { color: var(--white); font-weight: 500; }
+    .compare-table td:nth-child(2) { background: rgba(245,197,0,0.03); }
+    .compare-table td:nth-child(3) { background: rgba(155,27,43,0.03); }
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    /* ── FILTER GRID ─────────────────────────────────────── */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .filter-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 1.1rem 1.2rem;
+      transition: border-color 0.2s;
+    }
+    .filter-card:hover { border-color: var(--gold); }
+
+    .filter-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .filter-use {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .filter-desc { font-size: 0.84rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── TIMELINE ────────────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .tl-left { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+
+    .tl-year {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      background: rgba(245,197,0,0.1);
+      border: 1px solid rgba(245,197,0,0.3);
+      padding: 3px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .tl-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      margin-top: 6px;
+    }
+
+    .tl-content { flex: 1; padding-top: 2px; }
+
+    .tl-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .tl-desc { font-size: 0.87rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* ── USE CASE CARDS ──────────────────────────────────── */
+    .use-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+
+    .use-card {
+      background: var(--charcoal-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .use-card:hover { border-color: var(--crimson); transform: translateY(-2px); }
+
+    .use-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .use-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .use-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* ── TRAINING STEPS ──────────────────────────────────── */
+    .training-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+
+    .step-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .step-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(155,27,43,0.3);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    .drill-list {
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── CALLOUT ─────────────────────────────────────────── */
+    .callout-gold {
+      background: rgba(245,197,0,0.07);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      border-radius: 0 3px 3px 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      margin-top: 1.4rem;
+    }
+    .callout-gold strong { color: var(--gold); font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+
+    .callout-red {
+      background: rgba(155,27,43,0.1);
+      border-left: 3px solid var(--crimson);
+      padding: 1rem 1.2rem;
+      border-radius: 0 3px 3px 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      margin-top: 1.4rem;
+    }
+    .callout-red strong { color: var(--crimson); font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+
+    /* ── BUNDLE SHOWCASE ─────────────────────────────────── */
+    .bundle-img-wrap {
+      position: relative;
+    }
+    .bundle-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+    .bundle-annotation {
+      position: absolute;
+      background: rgba(26,26,26,0.9);
+      border: 1px solid rgba(245,197,0,0.5);
+      border-radius: 3px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 3px 8px;
+      white-space: nowrap;
+    }
+    .ann-drone   { top: 12%;  left: 28%; }
+    .ann-goggles { bottom: 30%; left: 5%; }
+    .ann-remote  { bottom: 28%; left: 58%; }
+    .ann-hub     { top: 20%; right: 4%; }
+
+    /* ── CTA ─────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--crimson);
+      padding: 72px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-section p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      position: relative;
+    }
+    .cta-section .btn-primary { background: var(--charcoal); position: relative; }
+    .cta-section .btn-primary:hover { background: #000; }
+    .cta-section .btn-outline { border-color: rgba(255,255,255,0.6); color: var(--white); position: relative; }
+    .cta-section .btn-outline:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 2px solid var(--crimson);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    footer img { height: 52px; width: auto; margin-bottom: 1rem; }
+    footer p { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 940px) {
+      .split, .split-reverse { grid-template-columns: 1fr; direction: ltr; }
+      .stat-bar-inner { grid-template-columns: repeat(3, 1fr); }
+      .use-cases, .training-steps { grid-template-columns: 1fr 1fr; }
+      .filter-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .stat-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .use-cases, .training-steps, .filter-grid { grid-template-columns: 1fr; }
+      section { padding: 52px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#imaging">Imaging</a></li>
+    <li><a href="#controls">Controls</a></li>
+    <li><a href="#filters">Filters</a></li>
+    <li><a href="#storytelling">Storytelling</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="index.html" class="nav-cta">Part 107 Guide</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">DJI Avata 2 &mdash; FPV Cinewhoop Guide</div>
+    <h1>Not Just a Drone.<br /><span>A New Way to See.</span></h1>
+    <p>The complete guide to the DJI Avata 2 ecosystem &mdash; the hardware, the history, and how to use it to tell stories no camera has ever captured before.</p>
+    <div class="hero-actions">
+      <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
+      <a href="training-course.html" class="btn-outline">Training Course</a>
+    </div>
+  </div>
+</div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="stat-cell"><div class="stat-val">377<small style="font-size:1rem">g</small></div><div class="stat-key">Takeoff Weight</div></div>
+      <div class="stat-cell"><div class="stat-val">23<small style="font-size:1rem">min</small></div><div class="stat-key">Max Flight Time</div></div>
+      <div class="stat-cell"><div class="stat-val">97<small style="font-size:1rem">kph</small></div><div class="stat-key">Max Speed</div></div>
+      <div class="stat-cell"><div class="stat-val">46<small style="font-size:1rem">GB</small></div><div class="stat-key">Internal Storage</div></div>
+      <div class="stat-cell"><div class="stat-val">155<small style="font-size:1rem">&deg;</small></div><div class="stat-key">Field of View</div></div>
+      <div class="stat-cell"><div class="stat-val">24<small style="font-size:1rem">ms</small></div><div class="stat-key">Video Latency</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label">Chapter 01 &mdash; History</div>
+        <h2 class="section-title">From Tesla's Boat<br />to the <span>Cinewhoop</span></h2>
+        <div class="divider"></div>
+        <p class="section-intro">The Avata 2 didn't appear from nowhere. It is the result of 125 years of human obsession with putting cameras into impossible places. Understanding that history makes every flight feel intentional.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-year">1898</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Nikola Tesla &mdash; The First Remote Vehicle</div>
+            <div class="tl-desc">Tesla demonstrated a radio-controlled boat in New York, shocking audiences who suspected hidden operators inside. The concept of controlling a vehicle beyond physical contact was born.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-year">1944</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">BQ-7 "Aphrodite" &mdash; First FPV Aircraft</div>
+            <div class="tl-desc">The US Army Air Forces converted B-17 bombers into remote explosives carriers with cockpit cameras. A pilot in a trailing aircraft guided the drone via live television feed &mdash; the first true FPV system.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-year">1989</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Project Cyclops &mdash; The Hobbyist Era Begins</div>
+            <div class="tl-desc">Carl Berry mounted bulky security cameras on RC planes. By the early 1990s he had built custom arcade-style simulators to fly them &mdash; proving immersive FPV was possible outside government labs.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-year">2014</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">Airgonay Video &mdash; FPV Goes Viral</div>
+            <div class="tl-desc">A European enthusiast group posted a video of drones racing through dense forest at high speed. The video catalyzed the formation of the Drone Racing League and MultiGP, turning a niche hobby into a sport.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-year">2017</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-title">"Muscle Up" &mdash; The Cinewhoop is Born</div>
+            <div class="tl-desc">Robert McIntosh's short film proved that ducted-propeller drones could achieve cinema-quality footage in tight spaces. DJI took notice. The Avata series followed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM BUNDLE -->
+<section id="ecosystem" class="section-alt">
+  <div class="container">
+    <div class="section-label">Chapter 02 &mdash; The Ecosystem</div>
+    <h2 class="section-title">Everything in <span>the Box</span></h2>
+    <div class="divider"></div>
+    <p class="section-intro">The Avata 2 is a system, not just a drone. The aircraft, goggles, controller, and charging hub are designed to work as a single unit. Here's what each component does and why it matters.</p>
+
+    <div class="split" style="margin-top:3rem;">
+      <div class="bundle-img-wrap">
+        <img src="avata 2/avata-2-full-ecosystem-bundle.jpg" alt="DJI Avata 2 full ecosystem — drone, Goggles 3, RC Motion 3, and battery charging hub" />
+        <div class="bundle-annotation ann-drone">Avata 2 Drone</div>
+        <div class="bundle-annotation ann-goggles">Goggles 3</div>
+        <div class="bundle-annotation ann-remote">RC Motion 3</div>
+        <div class="bundle-annotation ann-hub">Battery Hub</div>
+        <div class="img-caption">DJI Avata 2 &mdash; Fly More Combo: drone, Goggles 3, RC Motion 3, and dual battery charging hub</div>
+      </div>
+      <div>
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Value</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Takeoff Weight</td><td>~377 g</td><td>Lighter than Avata 1 (410g); enhanced agility</td></tr>
+            <tr><td>Max Speed (Manual)</td><td>27 m/s (97 kph)</td><td>High-speed chase and dive shots</td></tr>
+            <tr><td>Max Flight Time</td><td>~23 min</td><td>5 min longer than original Avata</td></tr>
+            <tr><td>Internal Storage</td><td>46 GB</td><td>~40 min of 4K/60fps without SD card</td></tr>
+            <tr><td>Ascent Speed</td><td>9 m/s (Sport)</td><td>Rapid vertical reveal shots</td></tr>
+            <tr><td>Wind Resistance</td><td>38.5 kph</td><td>Reliable in outdoor riverwalk environments</td></tr>
+            <tr><td>Propellers</td><td>3-inch tri-blade</td><td>Quieter and more efficient than Avata 1</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-gold">
+          <strong>Motor Configuration</strong>
+          The Avata 2 switches from a "pusher" motor configuration to a standard motor-on-top layout. Combined with integrated prop guards and tri-blade 3-inch props, this means lower noise, better efficiency, and safer indoor flight.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGING -->
+<section id="imaging">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label">Chapter 03 &mdash; The Camera</div>
+        <h2 class="section-title">A Sensor Built for<br /><span>Dark Spaces</span></h2>
+        <div class="divider"></div>
+        <p class="section-intro">The Avata 2's 1/1.3-inch CMOS sensor is a generation ahead of its predecessor. Combined with 10-bit D-Log M and dual EIS systems, it captures footage that would be impossible to grade from standard FPV platforms.</p>
+
+        <table class="spec-table" style="margin-top:1.2rem;">
+          <tbody>
+            <tr><td>Sensor Size</td><td>1/1.3-inch CMOS</td><td>Up from 1/1.7-inch &mdash; better low-light</td></tr>
+            <tr><td>Field of View</td><td>155&deg; ultra-wide</td><td>Immersive fisheye perspective</td></tr>
+            <tr><td>Color Mode</td><td>10-bit D-Log M</td><td>Maximum dynamic range for grading</td></tr>
+            <tr><td>Stabilization</td><td>RockSteady 3.0+ / HorizonSteady</td><td>Smooth in-camera; disable for Gyroflow post</td></tr>
+            <tr><td>Max Resolution</td><td>4K / 60fps</td><td>Cinema-grade with 46GB internal buffer</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout-red">
+          <strong>The Gyroflow Advantage</strong>
+          Disable EIS in-camera and record raw gyroscopic data instead. Import into Gyroflow in post for superior stabilization with full control over the look &mdash; the preferred workflow for professional FPV editors.
+        </div>
+      </div>
+      <div>
+        <div class="split-img">
+          <img src="avata 2/avata-2-battery-removed.webp" alt="DJI Avata 2 with battery removed, showing battery compartment and Serial Number location" />
+        </div>
+        <div class="img-caption">Avata 2 with battery removed &mdash; this is also where you find your Remote ID Serial Number for FAA registration</div>
+
+        <div class="split-img" style="margin-top:1.5rem;">
+          <img src="avata 2/avata-2-dji-fly-app-sync.jpg" alt="DJI Fly app syncing with Avata 2 drone on rocks — showing device registration screen" />
+        </div>
+        <div class="img-caption">The DJI Fly app syncs flight logs and device registration &mdash; connect this to Airdata UAV for automatic flight tracking</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<section id="controls" class="section-alt">
+  <div class="container">
+    <div class="section-label">Chapter 04 &mdash; Controls</div>
+    <h2 class="section-title">Two Controllers.<br /><span>Two Different Pilots.</span></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Your experience is shaped entirely by which controller you pick up. One lowers the barrier to entry. The other removes it entirely &mdash; and hands all responsibility to you.</p>
+
+    <div class="split" style="margin-top:2.5rem;">
+      <div>
+        <div class="split-img">
+          <img src="avata 2/rc-motion-3-gesture-control.jpg" alt="DJI RC Motion 3 gesture controller — single-handed wrist-motion control of Avata 2" />
+        </div>
+        <div class="img-caption">RC Motion 3 &mdash; point-to-fly gesture control. Wrist tilt maps directly to flight direction.</div>
+      </div>
+      <div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>RC Motion 3</th>
+              <th>FPV Remote Controller 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Complexity</td><td>Low &mdash; intuitive point-to-fly</td><td>High &mdash; full manual control</td></tr>
+            <tr><td>Special Features</td><td>Easy ACRO; AR Cursor in goggles</td><td>Manual Mode; Simulator support</td></tr>
+            <tr><td>Best For</td><td>Casual flying; simple cine shots</td><td>Freestyle; racing; advanced cine</td></tr>
+            <tr><td>Safety</td><td>Emergency Brake / Hover button</td><td>Requires skilled manual recovery</td></tr>
+            <tr><td>Acro Capable</td><td>Easy ACRO (assisted)</td><td>Full unassisted Manual Mode</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-gold">
+          <strong>Which Should You Start With?</strong>
+          Begin on the RC Motion 3. Its "Easy ACRO" button performs cinematic flips and 180&deg; drifts automatically. Once you've built spatial awareness and comfort, graduate to the RC3 for full Manual/Acro mode &mdash; the gateway to the training course.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOGGLES -->
+<section id="goggles">
+  <div class="container">
+    <div class="split-reverse split">
+      <div>
+        <div class="section-label">Chapter 05 &mdash; The Goggles</div>
+        <h2 class="section-title">Goggles 3 &mdash;<br /><span>Inside the Cockpit</span></h2>
+        <div class="divider"></div>
+        <p class="section-intro">The Goggles 3 are not just a screen. They are the entire First-Person interface &mdash; 1080p micro-OLED at 100Hz, with an O4 transmission system that delivers a 24ms latency feed. When you put them on, you are inside the aircraft.</p>
+
+        <table class="spec-table" style="margin-top:1.2rem;">
+          <tbody>
+            <tr><td>Display</td><td>Dual 1080p micro-OLED</td><td>100Hz refresh for smooth FPV</td></tr>
+            <tr><td>Latency</td><td>~24ms at 100fps</td><td>Near real-time via O4 system</td></tr>
+            <tr><td>Real View PiP</td><td>External cameras</td><td>See physical surroundings while flying</td></tr>
+            <tr><td>Transmission</td><td>DJI O4</td><td>Long-range, low-interference signal</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout-red">
+          <strong>Real View PiP &mdash; A Legal Safety Feature</strong>
+          The Picture-in-Picture external camera view is not just a convenience &mdash; it addresses the core legal requirement that FPV pilots have a Visual Observer. The PiP allows solo pilots to maintain situational awareness without removing the headset.
+        </div>
+      </div>
+      <div>
+        <div class="split-img">
+          <img src="avata 2/pilot-goggles-3-visual-observer.webp" alt="Pilot wearing DJI Goggles 3 flying Avata 2 with visual observer standing nearby on beach" />
+        </div>
+        <div class="img-caption">Pilot in Goggles 3 with RC Motion 3 &mdash; the person in the background is the Visual Observer, a legal requirement for FPV flight</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section id="filters" class="section-alt">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label">Chapter 06 &mdash; Filters</div>
+        <h2 class="section-title">ND, CPL &amp; UV &mdash;<br /><span>The 180&deg; Rule</span></h2>
+        <div class="divider"></div>
+        <p class="section-intro">Cinematic motion blur is not an accident. It is a deliberate technical choice. Because the Avata 2 has no adjustable aperture, ND filters are your only tool for controlling shutter speed &mdash; and shutter speed controls how the world moves in your footage.</p>
+
+        <div class="callout-gold">
+          <strong>The 180-Degree Rule</strong>
+          Set your shutter speed to double the frame rate. Filming at 60fps? Use 1/120 shutter. In bright daylight, this would blow out the image &mdash; so you add an ND filter to cut incoming light and restore proper exposure while keeping the blur natural.
+        </div>
+
+        <div class="filter-grid">
+          <div class="filter-card">
+            <div class="filter-name">ND8</div>
+            <div class="filter-use">Cloudy / Golden Hour</div>
+            <div class="filter-desc">Maintains natural blur in low-light conditions without over-darkening.</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-name">ND16 / 32</div>
+            <div class="filter-use">Bright Sun</div>
+            <div class="filter-desc">The workhorses. Essential for the 180&deg; rule on sunny days.</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-name">ND64</div>
+            <div class="filter-use">Extreme Bright</div>
+            <div class="filter-desc">Snow, beach, and midday desert. Prevents total overexposure.</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-name">CPL</div>
+            <div class="filter-use">Water &amp; Glass</div>
+            <div class="filter-desc">Blocks reflected light waves. Reveals riverbed depth instead of surface glare.</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-name">UV</div>
+            <div class="filter-use">Always-On Protection</div>
+            <div class="filter-desc">Guards lens glass from debris and UV haze. Leave it on by default.</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="split-img">
+          <img src="avata 2/avata-2-nd-filter-installation.jpg" alt="DJI Avata 2 with ND filter being installed onto camera, filter case visible" />
+        </div>
+        <div class="img-caption">Installing an ND filter on the Avata 2 camera. The magnetic mount snaps on in seconds &mdash; no tools required mid-flight.</div>
+        <div class="split-img">
+          <img src="avata 2/avata-2-mingven-nd-uv-cpl-filter-set.jpg" alt="MINGVEN ND/UV/CPL filter set for DJI Avata 2 — UV, PL, ND8, ND16, ND32, ND64" />
+        </div>
+        <div class="img-caption">The MINGVEN 6-pack: UV, CPL (PL), ND8, ND16, ND32, ND64 &mdash; full coverage from golden hour to midday sun.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORYTELLING -->
+<section id="storytelling">
+  <div class="container">
+    <div class="section-label">Chapter 07 &mdash; Storytelling</div>
+    <h2 class="section-title">The "One-Take"<br /><span>Shot</span></h2>
+    <div class="divider"></div>
+    <p class="section-intro">The Avata 2's compact size and prop guards allow it to navigate spaces that are inaccessible to traditional cameras &mdash; creating a continuous narrative flow that bridges outdoor environments and interior spaces in a single, unbroken shot.</p>
+
+    <div class="use-cases">
+      <div class="use-card">
+        <div class="use-icon">&#127968;</div>
+        <div class="use-title">Real Estate &amp; Hospitality</div>
+        <div class="use-desc">Fly through the front door, navigate the lobby, transition to an outdoor balcony. The "sense of place" a static photo cannot replicate. Campaigns using drone footage report 42% higher engagement.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">&#127981;</div>
+        <div class="use-title">Manufacturing &amp; Industry</div>
+        <div class="use-desc">Follow a product from raw material to finished good in a single flight. The scale and efficiency of a facility becomes visceral instead of abstract. Highly effective for B2B marketing and recruitment.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">&#127869;</div>
+        <div class="use-title">Retail &amp; Restaurants</div>
+        <div class="use-desc">Begin in the kitchen, follow a server to the table. The atmosphere and human story become the product. Viewer retention increases 30% over standard promotional video.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">&#127963;</div>
+        <div class="use-title">Community &amp; Events</div>
+        <div class="use-desc">Navigate through a crowd, fly through an archway, reveal a landscape. The Avata 2 is a history preservation tool &mdash; a single flight can document a community's identity in a way that lives forever.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">&#9654;</div>
+        <div class="use-title">Reveal Shots</div>
+        <div class="use-desc">Start behind an obstacle &mdash; a tree, a building, a doorframe &mdash; and move out to dramatically unveil a landscape or subject. The 155&deg; FOV amplifies the reveal effect.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">&#8681;</div>
+        <div class="use-title">Dives &amp; Split-S</div>
+        <div class="use-desc">Use verticality to create dramatic transitions &mdash; diving down a tall structure, dropping through a gate, or pulling out of a Split-S to reframe the subject from below.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;letter-spacing:.08em;">Pre-Production Workflow</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+        <div style="background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:1.2rem;">
+          <div style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:rgba(155,27,43,.35);margin-bottom:.5rem;">01</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Site Scout</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;">Walk the space. Identify low-hanging fixtures, tight turns, and the optimal lighting setup.</div>
+        </div>
+        <div style="background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:1.2rem;">
+          <div style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:rgba(155,27,43,.35);margin-bottom:.5rem;">02</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Storyboard</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;">Define the narrative arc and every transition &mdash; from close product detail to wide-angle venue reveal.</div>
+        </div>
+        <div style="background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:1.2rem;">
+          <div style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:rgba(155,27,43,.35);margin-bottom:.5rem;">03</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Prep the Site</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;">Remove clutter. Turn all lights on. Maximize dynamic range for the sensor.</div>
+        </div>
+        <div style="background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:1.2rem;">
+          <div style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:rgba(155,27,43,.35);margin-bottom:.5rem;">04</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Test Flights</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;">Run a full "dress rehearsal" before recording. Refine throttle timing and transitions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section id="training" class="section-alt">
+  <div class="container">
+    <div class="section-label">Chapter 08 &mdash; Training</div>
+    <h2 class="section-title">The Path to<br /><span>Mastery</span></h2>
+    <div class="divider"></div>
+    <p class="section-intro">The transition from a consumer camera drone to an FPV platform is steep. Navigate it systematically. Skipping steps doesn't save time &mdash; it destroys equipment.</p>
+
+    <div class="training-steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Simulation First</div>
+        <div class="step-desc">The RC3 is compatible with Liftoff, Uncrashed, and the DRL simulator. Log at least 20 hours in simulation before attempting Manual mode outdoors.</div>
+        <ul class="drill-list">
+          <li>Throttle control &mdash; maintain altitude in a narrow hallway</li>
+          <li>Coordinated turns &mdash; roll and yaw together for cinematic flow</li>
+          <li>Emergency recovery &mdash; build the panic response that saves your drone</li>
+        </ul>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Real-World Drills</div>
+        <div class="step-desc">Open field, no obstacles. Build the muscle memory that simulation started. Feel the real-world inertia and ground effect before you add complexity.</div>
+        <ul class="drill-list">
+          <li>The Orbit &mdash; 360&deg; circle around a fixed subject</li>
+          <li>Figure-8s &mdash; master inertia through directional changes</li>
+          <li>Low-altitude proximity &mdash; get comfortable with ground effect over grass</li>
+        </ul>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Cinematic Techniques</div>
+        <div class="step-desc">Flight proficiency is the prerequisite. Storytelling is the destination. These are the maneuvers that transform technical skill into visual narrative.</div>
+        <ul class="drill-list">
+          <li>Reveal shots &mdash; emerge from behind obstacles dramatically</li>
+          <li>Dives and Split-S &mdash; use verticality for cinematic transitions</li>
+          <li>Subject chasing &mdash; follow moving subjects at consistent distance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-gold" style="max-width:700px;margin-top:2rem;">
+      <strong>Ready to Build the Course?</strong>
+      The full four-phase indoor training curriculum &mdash; Box Drill, Hallway Slalom, Rafter Dive, and Gap Mastery &mdash; is mapped out in detail on the Training Course page. It covers everything from building PVC gates to the four-week progression from Normal to Manual Mode.
+    </div>
+    <a href="training-course.html" class="btn-primary" style="display:inline-block;margin-top:1.2rem;">View the Training Course</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,.6);">Ready to Fly Legally</div>
+    <h2>The Drone is Ready.<br />Are You Certified?</h2>
+    <p>Flying the Avata 2 for anything other than pure recreation requires a Part 107 Remote Pilot Certificate. Start studying now &mdash; the exam is closer than you think.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;">
+      <a href="index.html" class="btn-primary">Part 107 Study Guide</a>
+      <a href="training-course.html" class="btn-outline">Training Course</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html"><img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" /></a>
+  <p>DJI Avata 2 &mdash; FPV Drone Guide. Technical specifications and historical content based on manufacturer documentation and published research.<br />&copy; 2026 Top Drone School. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
