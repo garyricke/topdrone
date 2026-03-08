@@ -53,45 +53,64 @@
 
     /* ── HERO ─────────────────────────────── */
     .hero {
-      min-height: 100vh; padding-top: 64px;
-      background: var(--charcoal);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(155,27,43,0.18) 0%, transparent 60%);
+
+    /* Fullscreen Vimeo background */
+    .hero-video-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      /* Cover viewport at any aspect ratio */
+      width: 100vw; height: 56.25vw;   /* 16:9 at viewport width */
+      min-height: 100vh; min-width: 177.78vh; /* 16:9 at viewport height */
+      transform: translate(-50%, -50%);
       pointer-events: none;
+    }
+    .hero-video-bg iframe {
+      width: 100%; height: 100%; border: 0;
+    }
+
+    /* Dark gradient overlay for readability */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.45) 50%,
+        rgba(0,0,0,0.72) 100%
+      );
+      z-index: 1;
     }
 
     .hero-inner {
       position: relative; z-index: 2;
       max-width: 860px; margin: 0 auto;
-      padding: 5rem 2rem 2.5rem;
+      padding: 0 2rem;
       text-align: center;
     }
-    .hero-eyebrow {
-      display: inline-block;
-      font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
-      background: rgba(245,197,0,0.07); border: 1px solid rgba(245,197,0,0.22);
-      padding: 5px 18px; border-radius: 2px; margin-bottom: 1.8rem;
+    .hero-logo {
+      display: block; margin: 0 auto 2rem;
+      height: 110px; width: auto;
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.7));
     }
     .hero h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(3.2rem, 9vw, 7rem);
+      font-size: clamp(3rem, 9vw, 7rem);
       font-weight: 700; text-transform: uppercase;
       line-height: 0.93; letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.7);
     }
     .hero h1 .word-gold { color: var(--gold); }
     .hero h1 .word-red  { color: var(--crimson); }
     .hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.62);
+      font-size: 1.05rem; color: rgba(255,255,255,0.85);
       line-height: 1.78; max-width: 560px;
       margin: 0 auto 2.4rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
     }
     .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
@@ -114,30 +133,18 @@
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── VIDEO SHOWCASE ────────────────────── */
-    .video-showcase {
-      position: relative; z-index: 2;
-      width: 100%; max-width: 980px;
-      margin: 0 auto;
-      padding: 0 2rem 5rem;
+    /* ── SCROLL CUE ──────────────────────────── */
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-family: 'Oswald', sans-serif; font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+      animation: bounce 2.4s ease-in-out infinite;
     }
-    .video-label {
-      font-family: 'Oswald', sans-serif; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
-      text-align: center; margin-bottom: 1rem;
-    }
-    .video-wrap {
-      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-      border-radius: 6px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.07), 0 36px 90px rgba(0,0,0,0.65);
-    }
-    .video-wrap iframe {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      border: 0; border-radius: 6px;
-    }
-    .video-caption {
-      text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.32);
-      font-style: italic; margin-top: 0.9rem; letter-spacing: 0.02em;
+    .scroll-cue svg { width: 18px; height: 18px; opacity: 0.4; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
     }
 
     /* ── STAT BAR ──────────────────────────── */
@@ -372,32 +379,40 @@
 
 <!-- HERO -->
 <section class="hero">
+
+  <!-- Fullscreen Vimeo background (background=1 = muted autoplay loop, no controls) -->
+  <div class="hero-video-bg">
+    <iframe
+      src="https://player.vimeo.com/video/1111752132?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0"
+      allow="autoplay; fullscreen"
+      title="Wrigley Field FPV Drone Tour">
+    </iframe>
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Hero copy -->
   <div class="hero-inner">
-    <div class="hero-eyebrow">Top Drone School &mdash; Batavia, Illinois</div>
+    <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" class="hero-logo" />
     <h1>
       Nobody's Seen<br />
       <span class="word-gold">Batavia</span><br />
       <span class="word-red">Like This.</span>
     </h1>
-    <p class="hero-sub">We train FPV pilots to execute single-take, high-speed cinematic drone tours of local businesses. One shot. No edits. No cuts. Train, get certified, and get paid $25 an hour to show Batavia like nobody &mdash; except Superman &mdash; has seen it before.</p>
+    <p class="hero-sub">We train FPV pilots to execute single-take, high-speed cinematic drone tours of local businesses. One shot. No edits. No cuts. Train, certify, and get paid $25/hr to show Batavia like nobody &mdash; except Superman &mdash; has seen it before.</p>
     <div class="hero-ctas">
       <a href="part107-study-guide.html" class="btn-primary">Start the Part 107 Guide</a>
       <a href="training-course.html" class="btn-outline">See the Training Course</a>
     </div>
   </div>
 
-  <div class="video-showcase">
-    <div class="video-label">The Wrigley Field Standard &mdash; What You&rsquo;re Training For</div>
-    <div class="video-wrap">
-      <iframe
-        src="https://player.vimeo.com/video/1111752132?title=0&byline=0&portrait=0&color=F5C500"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        title="Wrigley Field FPV Drone Tour — Top Drone School Inspiration">
-      </iframe>
-    </div>
-    <p class="video-caption">One continuous FPV flight through Wrigley Field. No cuts. No edits. This is the standard every Top Drone pilot trains to achieve.</p>
+  <!-- Scroll cue -->
+  <div class="scroll-cue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll
   </div>
+
 </section>
 
 <!-- STAT BAR -->
