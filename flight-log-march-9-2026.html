@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-apple.png" />
+  <title>Flight Log — March 9, 2026 | Top Drone School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #9B1B2B;
+      --crimson-dark: #7a1522;
+      --gold: #F5C500;
+      --gold-dark: #d4a900;
+      --charcoal: #1A1A1A;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --white: #ffffff;
+      --off-white: #f0ede8;
+      --gray: #888;
+      --light-gray: #ccc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--charcoal); color: var(--white); line-height: 1.6; }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,26,0.96);
+      border-bottom: 2px solid var(--crimson);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 52px; width: auto; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--light-gray); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-pill {
+      color: var(--gold) !important;
+      border: 1px solid rgba(245,197,0,0.4);
+      padding: 5px 14px; border-radius: 3px;
+    }
+    .nav-pill:hover { background: rgba(245,197,0,0.08) !important; }
+
+    /* ── HERO ─────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100vw; height: 56.25vw;
+      min-height: 100vh; min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+    }
+    .hero-video-bg video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.35) 50%,
+        rgba(0,0,0,0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 860px; margin: 0 auto;
+      padding: 0 2rem; text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      font-weight: 700; text-transform: uppercase;
+      line-height: 0.95; letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.8);
+    }
+    .hero h1 .word-gold { color: var(--gold); }
+
+    .hero-meta {
+      font-size: 1rem; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+    }
+    .hero-meta span {
+      display: inline-block;
+      padding: 0 1rem;
+      border-right: 1px solid rgba(255,255,255,0.3);
+    }
+    .hero-meta span:last-child { border-right: none; }
+
+    /* ── SOUND BUTTON ──────────────────── */
+    .sound-btn {
+      position: absolute; bottom: 2.5rem; right: 2.5rem;
+      z-index: 10;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(26,26,26,0.75);
+      border: 2px solid rgba(245,197,0,0.6);
+      color: var(--gold);
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .sound-btn:hover {
+      background: rgba(26,26,26,0.95);
+      border-color: var(--gold);
+    }
+    .sound-btn.is-muted::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(245,197,0,0.35);
+      animation: pulse-ring 1.8s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1);   opacity: 0.8; }
+      100% { transform: scale(1.55); opacity: 0; }
+    }
+
+    /* ── SCROLL CUE ─────────────────────── */
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 10; text-align: center;
+    }
+    .scroll-cue span {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 6px;
+    }
+    .scroll-arrow {
+      width: 20px; height: 20px; margin: 0 auto;
+      border-right: 2px solid rgba(255,255,255,0.4);
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      transform: rotate(45deg);
+      animation: bounce 1.4s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ── STAT BAR ───────────────────────── */
+    .stat-bar {
+      background: var(--crimson);
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 0;
+    }
+    .stat-item {
+      flex: 1; min-width: 120px;
+      padding: 1.1rem 1.5rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem; font-weight: 700; line-height: 1;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); margin-top: 3px;
+    }
+
+    /* ── SECTIONS ───────────────────────── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; text-transform: uppercase;
+      line-height: 1.05; margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 1.05rem; line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      max-width: 760px;
+    }
+    .section-body p + p { margin-top: 1.1rem; }
+
+    /* ── NARRATIVE ──────────────────────── */
+    .narrative { background: var(--charcoal-mid); }
+
+    /* ── ACCOMPLISHMENTS ────────────────── */
+    .accomplish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .accomplish-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(245,197,0,0.18);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .accomplish-icon {
+      font-size: 1.6rem; line-height: 1;
+      flex-shrink: 0; padding-top: 2px;
+    }
+    .accomplish-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--gold); margin-bottom: 0.3rem;
+    }
+    .accomplish-desc {
+      font-size: 0.9rem; color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ── CHALLENGES ─────────────────────── */
+    .challenges { background: var(--charcoal-mid); }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .challenge-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(155,27,43,0.3);
+      border-left: 4px solid var(--crimson);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .challenge-icon {
+      font-size: 1.6rem; line-height: 1;
+      flex-shrink: 0; padding-top: 2px;
+    }
+    .challenge-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--crimson); margin-bottom: 0.3rem;
+    }
+    .challenge-desc {
+      font-size: 0.9rem; color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ── LOCATIONS ──────────────────────── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 700px) { .location-grid { grid-template-columns: 1fr; } }
+    .location-card {
+      border-radius: 6px; overflow: hidden;
+      background: var(--charcoal-light);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .location-card-img {
+      width: 100%; height: 220px; object-fit: cover;
+      display: block;
+    }
+    .location-card-placeholder {
+      width: 100%; height: 220px;
+      background: linear-gradient(135deg, #1e2a1e 0%, #2a3a2a 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .location-body { padding: 1.4rem 1.5rem; }
+    .location-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.3rem;
+    }
+    .location-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem; font-weight: 700; text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .location-desc {
+      font-size: 0.9rem; color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+    .location-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .location-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 2px;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── GEAR NOTES ─────────────────────── */
+    .gear-notes { background: var(--charcoal-mid); }
+    .gear-list {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    .gear-item {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 1.2rem 1.4rem;
+      display: flex; gap: 0.85rem; align-items: flex-start;
+    }
+    .gear-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 7px;
+    }
+    .gear-dot.red { background: var(--crimson); }
+    .gear-text {
+      font-size: 0.92rem; color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+    .gear-text strong {
+      color: var(--white); font-weight: 600;
+      display: block; margin-bottom: 2px;
+    }
+
+    /* ── QUOTE BAND ─────────────────────── */
+    .quote-band {
+      background: var(--crimson);
+      padding: 4rem 2rem; text-align: center;
+    }
+    .quote-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 600; font-style: italic;
+      line-height: 1.3;
+      color: var(--white);
+      max-width: 800px; margin: 0 auto 1.2rem;
+    }
+    .quote-attr {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── FOOTER ─────────────────────────── */
+    footer {
+      background: #111;
+      border-top: 2px solid var(--crimson);
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    footer a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--light-gray); text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--gold); }
+    .footer-links { margin-bottom: 1rem; }
+    .footer-copy {
+      font-size: 0.78rem; color: rgba(255,255,255,0.35);
+    }
+
+    /* ── RESPONSIVE ─────────────────────── */
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .hero-meta span { display: block; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 0.3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="avata-2.html">Avata 2 Guide</a></li>
+      <li><a href="training-course.html">Training Course</a></li>
+      <li><a href="part107-study-guide.html" class="nav-pill">Part 107 Guide</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-video-bg">
+      <video id="hero-video" autoplay loop muted playsinline>
+        <source src="https://player.vimeo.com/progressive_redirect/playback/1172121485/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=c24ce7401e4068eb8ee42b79947926becb28ff63e06c5dd2b07305c05c2f4c1d" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Flight Log &mdash; Mission 001</div>
+      <h1>First <span class="word-gold">Flight</span></h1>
+      <div class="hero-meta">
+        <span>March 9, 2026</span>
+        <span>DJI Avata 2</span>
+        <span>Gary &amp; Julian</span>
+        <span>2 Locations</span>
+      </div>
+    </div>
+
+    <!-- Sound toggle -->
+    <button class="sound-btn is-muted" id="sound-btn" title="Toggle sound" aria-label="Toggle sound">
+      <svg id="sound-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- muted icon shown by default -->
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15" class="mute-line"></line>
+        <line x1="17" y1="9" x2="23" y2="15" class="mute-line"></line>
+      </svg>
+    </button>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ── STAT BAR ── -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Pilots</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Batteries</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">5+</div>
+      <div class="stat-label">Flights</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">300 ft</div>
+      <div class="stat-label">Max Altitude</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Locations</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Crash (Badge of Honor)</div>
+    </div>
+  </div>
+
+  <!-- ── NARRATIVE ── -->
+  <section class="narrative">
+    <div class="section-inner">
+      <div class="section-label">The Story</div>
+      <h2 class="section-title">Mission Debrief</h2>
+      <div class="section-body">
+        <p>March 9th, 2026. Gary and Julian met at Memorial Park around noon for the first official flight of the DJI Avata 2. Before a single prop turned, the real work began — FAA drone registration, Remote ID entry, setting up the goggles, pairing the RC3 controller, connecting the DJI Fly app to a phone, and managing it all on a MacBook Pro at a picnic table. Multiple devices, multiple menus, and zero manual. Just Gemini AI fielding question after question.</p>
+        <p>After wrestling the Remote ID out of the system and getting everything linked, the drone lifted off for the first time — five feet of hover, the motors humming, the goggles active. Both pilots flew on that first battery, but the drone felt sluggish. That was Beginner Mode doing its job a little too well. Getting it disabled took patience and persistence — and once it was off, the Avata 2 was a completely different aircraft. Fast, responsive, aggressive. The difference was night and day.</p>
+        <p>A calibration issue stuck at 95% nearly ended the day early, but a simple power cycle of both the goggles and the drone simultaneously cleared it. Then the crew packed up and drove to Blackberry Maples Forest Preserve, where Julian flew the trail at full tilt — threading through trees flanking both sides, calling out turns in real time while Gary watched through the phone connected to the goggles. One crash. Turtle Mode. Back in the air. Up to 300 feet. Four videos captured. A first flight worth logging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACCOMPLISHMENTS ── -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">What We Nailed</div>
+      <h2 class="section-title">Key Accomplishments</h2>
+
+      <div class="accomplish-grid">
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">📋</div>
+          <div>
+            <div class="accomplish-title">FAA Registration + Remote ID</div>
+            <div class="accomplish-desc">Created the FAA account, registered the drone, and entered the Remote ID transmitted by the Avata 2 — all from a picnic table using Gemini to navigate the menus.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🔗</div>
+          <div>
+            <div class="accomplish-title">Full System Paired</div>
+            <div class="accomplish-desc">Drone, RC3 controller, DJI goggles, DJI Fly app on phone, and MacBook Pro all linked and operational. A genuinely complex multi-device setup — completed in the field.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🚀</div>
+          <div>
+            <div class="accomplish-title">Beginner Mode Disabled</div>
+            <div class="accomplish-desc">Both pilots flew in Beginner Mode, then figured out how to disable it. The Avata 2 immediately became a different aircraft — significantly faster, more responsive, and far more capable.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🏠</div>
+          <div>
+            <div class="accomplish-title">Return to Home Confirmed</div>
+            <div class="accomplish-desc">On low battery, a red alert in the goggles triggered Return to Home. One button press. The drone came back precisely to the takeoff point. Feature verified and working perfectly.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🌲</div>
+          <div>
+            <div class="accomplish-title">Tree Line Flying at the Forest Preserve</div>
+            <div class="accomplish-desc">Julian flew the forested trail at Blackberry Maples at full speed — weaving between trees on both sides. First real FPV experience in a dynamic, technical environment.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">📡</div>
+          <div>
+            <div class="accomplish-title">Live FPV Feed Shared</div>
+            <div class="accomplish-desc">Phone connected to the goggles let both pilots see the same FPV feed. A short cable was the only limitation. Solution: get a longer cord.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🔆</div>
+          <div>
+            <div class="accomplish-title">ND Filter Installed</div>
+            <div class="accomplish-desc">Tested an ND filter mid-session for better motion blur in footage. Successfully installed and re-installed without disrupting flight operations.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🐢</div>
+          <div>
+            <div class="accomplish-title">Crash Recovery via Turtle Mode</div>
+            <div class="accomplish-desc">Julian crashed in the trees. Turtle Mode flipped the drone right-side up. Back in the air in seconds. The drone took the hit with zero damage.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">⬆️</div>
+          <div>
+            <div class="accomplish-title">300 Feet Altitude</div>
+            <div class="accomplish-desc">Pushed up to 300 feet — three-quarters of the 400-foot legal ceiling. Wind was noticeable at that altitude. Brought it back down confidently.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🎬</div>
+          <div>
+            <div class="accomplish-title">Footage Retrieved — No Special Software</div>
+            <div class="accomplish-desc">Plugged the Avata 2 into the MacBook via USB. Four videos transferred as clean MP4 files — dropped straight into editing with no conversion, no app, no friction.</div>
+          </div>
+        </div>
+
+        <div class="accomplish-card">
+          <div class="accomplish-icon">🤖</div>
+          <div>
+            <div class="accomplish-title">Gemini as Real-Time Manual</div>
+            <div class="accomplish-desc">Used Gemini AI constantly to navigate setup, troubleshoot calibration, and find answers faster than any physical manual could provide. Game changer.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CHALLENGES ── -->
+  <section class="challenges">
+    <div class="section-inner">
+      <div class="section-label">What We Fought</div>
+      <h2 class="section-title">Challenges</h2>
+
+      <div class="challenge-grid">
+
+        <div class="challenge-card">
+          <div class="challenge-icon">🔍</div>
+          <div>
+            <div class="challenge-title">Finding the Remote ID</div>
+            <div class="challenge-desc">The Remote ID isn't labeled clearly in the Avata 2 menus. Bouncing between the goggles, the app, and Gemini — it took real persistence before Julian located the correct number.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">🐌</div>
+          <div>
+            <div class="challenge-title">Escaping Beginner Mode</div>
+            <div class="challenge-desc">Took a disproportionate amount of time. Setting limits, navigating menus, going back and forth between app and goggles — should have been faster, but now we know exactly where it is.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">⚙️</div>
+          <div>
+            <div class="challenge-title">Calibration Stuck at 95%</div>
+            <div class="challenge-desc">After swapping batteries the drone would not recalibrate — stuck at 95% every attempt. Tried everything Gemini suggested. Fix: power cycle both the goggles and drone simultaneously. Never happened again.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">💾</div>
+          <div>
+            <div class="challenge-title">SD Card Too Slow for 4K</div>
+            <div class="challenge-desc">The SD card purchased alongside the drone was flagged as too slow. The Avata 2 has built-in storage so footage was saved — but the card must be replaced. Check minimum write speeds before buying.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">⚠️</div>
+          <div>
+            <div class="challenge-title">Flight Warnings at Memorial Park</div>
+            <div class="challenge-desc">Repeated flight warnings in the DJI Fly app and goggles at the first location. The cause is not yet understood. Needs research — may relate to proximity to restricted airspace or local rules.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">📱</div>
+          <div>
+            <div class="challenge-title">Short Phone Cord for FPV Sharing</div>
+            <div class="challenge-desc">The cable connecting the phone to the goggles was too short to comfortably share the view with a second person. A longer cord is on the list.</div>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">🔌</div>
+          <div>
+            <div class="challenge-title">Multi-Device Setup Complexity</div>
+            <div class="challenge-desc">Five active devices at once — drone, goggles, RC3 controller, phone app, and MacBook — each with their own menus and interdependencies. Confusing at first, but manageable once you know the flow.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOCATIONS ── -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Where We Flew</div>
+      <h2 class="section-title">Flight Locations</h2>
+
+      <div class="location-grid">
+
+        <div class="location-card">
+          <div class="location-card-placeholder">🌳</div>
+          <div class="location-body">
+            <div class="location-number">Location 01</div>
+            <div class="location-name">Memorial Park</div>
+            <div class="location-desc">Open grass field used for registration, first hover, and initial flights. Both pilots flew here on the first battery. Good for getting the system up — but a wide, featureless space. Repeated flight warnings in the app need follow-up investigation.</div>
+            <div class="location-tags">
+              <span class="location-tag">FAA Registration</span>
+              <span class="location-tag">First Hover</span>
+              <span class="location-tag">Beginner Mode Off</span>
+              <span class="location-tag">Battery Swap</span>
+              <span class="location-tag">Flight Warnings</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <img class="location-card-img" src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1773146802/blackberry-maples-forest-preserve-1_dazpch.jpg" alt="Blackberry Maples Forest Preserve" />
+          <div class="location-body">
+            <div class="location-number">Location 02</div>
+            <div class="location-name">Blackberry Maples Forest Preserve</div>
+            <div class="location-desc">Off Route 31 West. A forested trail flanked by small trees — exactly the kind of dynamic environment that makes FPV flying real. Julian flew the full trail at speed, weaving through the tree line. One crash, one Turtle Mode recovery, zero damage.</div>
+            <div class="location-tags">
+              <span class="location-tag">Tree Line Flying</span>
+              <span class="location-tag">300 ft Altitude</span>
+              <span class="location-tag">FPV Shared View</span>
+              <span class="location-tag">Crash + Recovery</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GEAR NOTES ── -->
+  <section class="gear-notes">
+    <div class="section-inner">
+      <div class="section-label">Equipment</div>
+      <h2 class="section-title">Gear Notes</h2>
+
+      <div class="gear-list">
+
+        <div class="gear-item">
+          <div class="gear-dot"></div>
+          <div class="gear-text">
+            <strong>DJI Avata 2</strong>
+            Performed flawlessly after initial setup hurdles. Fast and capable once Beginner Mode was disabled. Built-in storage means no SD card required for shooting.
+          </div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-dot"></div>
+          <div class="gear-text">
+            <strong>RC3 Controller</strong>
+            Julian's primary interface throughout the session. Comfortable and responsive. USB-C port doubles as sim cable for practice on a computer.
+          </div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-dot"></div>
+          <div class="gear-text">
+            <strong>DJI Goggles</strong>
+            Worn by Julian for all flights. Phone can connect for a shared FPV view. Power cycling alongside the drone resolved the 95% calibration hang.
+          </div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-dot"></div>
+          <div class="gear-text">
+            <strong>ND Filters</strong>
+            Installed mid-session. Designed to reduce shutter speed for smoother motion blur — like sunglasses for the drone lens. Good 4K footage requires them.
+          </div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-dot red"></div>
+          <div class="gear-text">
+            <strong>SD Card — Needs Replacement</strong>
+            The bundled card was flagged as too slow for 4K recording. Built-in storage covered the session, but a faster card (check minimum write speed for 4K) is required long-term.
+          </div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-dot red"></div>
+          <div class="gear-text">
+            <strong>Phone Cord — Too Short</strong>
+            Connects phone to goggles for FPV sharing. The current cable limits range. A longer USB-C cable is needed for practical shared viewing.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE BAND ── -->
+  <div class="quote-band">
+    <div class="quote-text">"This is why people pay other people to do this."</div>
+    <div class="quote-attr">— Gary Ricke, March 9, 2026 &mdash; Said it, then kept going anyway.</div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="part107-study-guide.html">Part 107 Guide</a>
+      <a href="avata-2.html">Avata 2 Guide</a>
+      <a href="training-course.html">Training Course</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Top Drone School &mdash; Train. Certify. Get Paid.</div>
+  </footer>
+
+  <!-- ── SOUND TOGGLE ── -->
+  <script>
+    const video = document.getElementById('hero-video');
+    const btn   = document.getElementById('sound-btn');
+    const icon  = document.getElementById('sound-icon');
+
+    const mutedIcon = `
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>`;
+
+    const unmutedIcon = `
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>`;
+
+    btn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (video.muted) {
+        icon.innerHTML = mutedIcon;
+        btn.classList.add('is-muted');
+        btn.title = 'Unmute';
+      } else {
+        icon.innerHTML = unmutedIcon;
+        btn.classList.remove('is-muted');
+        btn.title = 'Mute';
+      }
+    });
+  </script>
+
+</body>
+</html>
