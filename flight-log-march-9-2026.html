@@ -498,79 +498,87 @@
     /* ── SOUNDTRACK ─────────────────────── */
     .soundtrack { background: var(--charcoal); }
     .soundtrack-layout {
-      display: flex; gap: 3.5rem; align-items: flex-start;
+      display: flex; gap: 4rem; align-items: center;
       flex-wrap: wrap;
     }
     .soundtrack-left { flex: 1; min-width: 260px; }
-    .soundtrack-right { flex: 0 0 auto; display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .soundtrack-right { flex: 0 0 auto; }
 
-    /* Album art placeholder */
-    .album-art {
-      width: 180px; height: 180px; border-radius: 6px;
-      background: linear-gradient(135deg, var(--crimson-dark) 0%, #2a0a10 100%);
-      border: 1px solid rgba(155,27,43,0.4);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.5rem; flex-shrink: 0;
+    /* Album cover player card */
+    .album-player {
+      width: 300px;
+      border-radius: 10px; overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.7);
+      cursor: pointer;
+      flex-shrink: 0;
     }
-    .album-art-icon { font-size: 2.8rem; }
-    .album-art-title {
+    .album-cover-img {
+      display: block; width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    /* Top gradient — track info */
+    .album-player-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      padding: 1.1rem 1.2rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, transparent 100%);
+    }
+    .album-player-label {
       font-family: 'Oswald', sans-serif;
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); text-align: center; padding: 0 0.5rem;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.2rem;
     }
-
-    /* Custom audio player */
-    .audio-player {
-      background: var(--charcoal-light);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 8px;
-      padding: 1.4rem 1.6rem;
-      margin-top: 1.8rem;
-      max-width: 540px;
-    }
-    .audio-track-name {
+    .album-player-title {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.1rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.06em; color: var(--white);
-      margin-bottom: 0.15rem;
+      font-size: 1.2rem; font-weight: 700; text-transform: uppercase;
+      line-height: 1.1; color: var(--white);
     }
-    .audio-track-by {
-      font-size: 0.8rem; color: rgba(255,255,255,0.45);
-      margin-bottom: 1.1rem;
+    .album-player-by {
+      font-size: 0.75rem; color: rgba(255,255,255,0.55);
+      margin-top: 0.2rem;
     }
-    .audio-controls {
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .audio-play-btn {
-      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-      background: var(--crimson); border: none; cursor: pointer;
+    /* Center play button */
+    .album-play-center {
+      position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
-      transition: background 0.15s, transform 0.1s;
     }
-    .audio-play-btn:hover { background: var(--crimson-dark); transform: scale(1.06); }
-    .audio-play-btn svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
-    .audio-play-btn .pause-icon { display: none; margin-left: 0; }
-    .audio-play-btn.playing .play-icon { display: none; }
-    .audio-play-btn.playing .pause-icon { display: block; }
-    .audio-progress-wrap {
-      flex: 1; display: flex; flex-direction: column; gap: 4px;
+    .album-play-btn {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(245,197,0,0.92);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.15s, background 0.15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .album-play-btn:hover { transform: scale(1.1); background: var(--gold); }
+    .album-play-btn svg { width: 24px; height: 24px; fill: #1A1A1A; margin-left: 3px; }
+    .album-play-btn .pause-icon { display: none; margin-left: 0; }
+    .album-play-btn.playing .play-icon { display: none; }
+    .album-play-btn.playing .pause-icon { display: block; }
+    /* Bottom gradient — progress bar */
+    .album-player-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 1.2rem 1.1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
     }
     .audio-progress {
-      width: 100%; height: 4px; border-radius: 2px;
-      background: rgba(255,255,255,0.12);
+      width: 100%; height: 3px; border-radius: 2px;
+      background: rgba(255,255,255,0.18);
       appearance: none; cursor: pointer; outline: none;
+      display: block; margin-bottom: 6px;
     }
     .audio-progress::-webkit-slider-thumb {
       appearance: none; width: 12px; height: 12px;
       border-radius: 50%; background: var(--gold); cursor: pointer;
     }
     .audio-progress::-webkit-slider-runnable-track {
-      background: linear-gradient(to right, var(--gold) var(--pct, 0%), rgba(255,255,255,0.12) var(--pct, 0%));
-      height: 4px; border-radius: 2px;
+      background: linear-gradient(to right, var(--gold) var(--pct, 0%), rgba(255,255,255,0.18) var(--pct, 0%));
+      height: 3px; border-radius: 2px;
     }
     .audio-time {
       display: flex; justify-content: space-between;
-      font-size: 0.72rem; color: rgba(255,255,255,0.4);
+      font-size: 0.7rem; color: rgba(255,255,255,0.5);
       font-variant-numeric: tabular-nums;
     }
 
@@ -1219,31 +1227,18 @@
 
       <div class="soundtrack-layout">
 
-        <!-- Left: player + prompt -->
+        <!-- Left: copy + prompt + lyrics -->
         <div class="soundtrack-left">
 
-          <div class="audio-player">
-            <div class="audio-track-name">Altitude Attitude</div>
-            <div class="audio-track-by">Created with Suno &mdash; inspired by RHCP's "Can't Stop"</div>
-            <audio id="flight-audio" preload="metadata">
-              <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1773148829/Altitude_Attitude_0_fyknow.mp3" type="audio/mpeg" />
-            </audio>
-            <div class="audio-controls">
-              <button class="audio-play-btn" id="audio-play-btn" aria-label="Play">
-                <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-                <svg class="pause-icon" viewBox="0 0 24 24" fill="white" width="16" height="16"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
-              </button>
-              <div class="audio-progress-wrap">
-                <input class="audio-progress" id="audio-progress" type="range" min="0" max="100" value="0" step="0.1" />
-                <div class="audio-time">
-                  <span id="audio-current">0:00</span>
-                  <span id="audio-duration">—</span>
-                </div>
-              </div>
-            </div>
+          <audio id="flight-audio" preload="metadata">
+            <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1773148829/Altitude_Attitude_0_fyknow.mp3" type="audio/mpeg" />
+          </audio>
+
+          <div class="section-body">
+            <p>Created with Suno AI — inspired by "Can't Stop" by the Red Hot Chili Peppers, with lyrics rewritten to reflect the feeling of flight.</p>
           </div>
 
-          <div class="prompt-box">
+          <div class="prompt-box" style="margin-top: 1.6rem;">
             <div class="prompt-label">Gemini Prompt</div>
             <div class="prompt-text">"Write a suno prompt to replicate the song 'Can't Stop' by the Red Hot Chili Peppers but change the lyrics to reflect flying."</div>
           </div>
@@ -1254,11 +1249,36 @@
 
         </div>
 
-        <!-- Right: album art -->
+        <!-- Right: album cover with player overlaid -->
         <div class="soundtrack-right">
-          <div class="album-art">
-            <div class="album-art-icon">🎵</div>
-            <div class="album-art-title">Altitude Attitude</div>
+          <div class="album-player">
+            <img class="album-cover-img"
+              src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1773151560/altitude-attitude-cover-art_zubtn5.jpg"
+              alt="Altitude Attitude — cover art" />
+
+            <!-- Top: track info -->
+            <div class="album-player-top">
+              <div class="album-player-label">Mission Soundtrack</div>
+              <div class="album-player-title">Altitude Attitude</div>
+              <div class="album-player-by">Suno AI &mdash; inspired by RHCP</div>
+            </div>
+
+            <!-- Center: play/pause -->
+            <div class="album-play-center">
+              <button class="album-play-btn" id="audio-play-btn" aria-label="Play">
+                <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="#1A1A1A" width="24" height="24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+              </button>
+            </div>
+
+            <!-- Bottom: progress + time -->
+            <div class="album-player-bottom">
+              <input class="audio-progress" id="audio-progress" type="range" min="0" max="100" value="0" step="0.1" />
+              <div class="audio-time">
+                <span id="audio-current">0:00</span>
+                <span id="audio-duration">—</span>
+              </div>
+            </div>
           </div>
         </div>
 
