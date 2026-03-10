@@ -338,6 +338,31 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* ── TRAIL VIDEO ────────────────────── */
+    .trail-video-section { background: var(--charcoal-mid); }
+    .trail-video-wrap {
+      margin-top: 2.5rem;
+      position: relative;
+      border-radius: 6px; overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 900px;
+    }
+    .trail-video-wrap video {
+      display: block;
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      background: #000;
+    }
+    .trail-video-caption {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+      max-width: 900px;
+    }
+
     /* ── GEAR NOTES ─────────────────────── */
     .gear-notes { background: var(--charcoal-mid); }
     .gear-list {
@@ -713,6 +738,23 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── TRAIL VIDEO ── -->
+  <section class="trail-video-section">
+    <div class="section-inner">
+      <div class="section-label">Blackberry Maples — iPhone Perspective</div>
+      <h2 class="section-title">Julian's First Pass Through the Trail</h2>
+      <div class="section-body" style="margin-bottom: 0;">
+        <p>Shot on iPhone from the trail entrance. This is what it looks like from the outside — the Avata 2 threading through the tree line at full throttle. Watch the speed.</p>
+      </div>
+      <div class="trail-video-wrap">
+        <video controls playsinline preload="metadata" poster="">
+          <source src="https://player.vimeo.com/progressive_redirect/playback/1172140994/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=3fc84a9874206371db37149af205d92496001439e5234af6e8e44c88b29f35a8" type="video/mp4" />
+        </video>
+      </div>
+      <div class="trail-video-caption">iPhone handheld — Gary filming Julian as the Avata 2 makes its first run down the forest trail.</div>
     </div>
   </section>
 
