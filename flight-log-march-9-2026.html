@@ -333,22 +333,25 @@
     .video-modal.open { display: flex; }
     .modal-inner {
       position: relative;
-      width: min(90vw, 1200px);
+      width: 100vw; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
     }
     .modal-inner video {
-      display: block; width: 100%;
-      border-radius: 6px;
-      max-height: 85vh;
+      display: block;
+      width: 100vw; height: 100vh;
       object-fit: contain;
       background: #000;
     }
     .modal-close {
-      position: absolute; top: -44px; right: 0;
-      background: none; border: none;
-      color: rgba(255,255,255,0.7); font-size: 2rem; line-height: 1;
-      cursor: pointer; transition: color 0.15s;
+      position: fixed; top: 1.2rem; right: 1.5rem;
+      background: rgba(0,0,0,0.5); border: none;
+      color: rgba(255,255,255,0.8); font-size: 2.2rem; line-height: 1;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: color 0.15s, background 0.15s;
+      z-index: 501;
     }
-    .modal-close:hover { color: var(--gold); }
+    .modal-close:hover { color: var(--gold); background: rgba(0,0,0,0.8); }
     .location-card-video {
       width: 100%; height: 220px;
       object-fit: cover; display: block;
