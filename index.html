@@ -279,6 +279,50 @@
     .card-arrow { color: var(--crimson); font-size: 1rem; transition: color 0.2s; }
     .page-card:hover .card-arrow { color: var(--gold); }
 
+    /* ── FLIGHT LOGS ────────────────────────── */
+    .log-cards {
+      display: flex; flex-wrap: wrap; gap: 1.8rem;
+      margin-top: 3rem;
+    }
+    .log-card {
+      width: 200px; flex-shrink: 0;
+      text-decoration: none; color: var(--white);
+      display: flex; flex-direction: column;
+      border-radius: 8px; overflow: hidden;
+      background: var(--charcoal-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .log-card:hover {
+      transform: translateY(-5px) rotate(1deg);
+      border-color: var(--gold);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.55);
+    }
+    .log-card-img {
+      width: 100%;
+      aspect-ratio: 5 / 7;
+      object-fit: cover;
+      display: block;
+    }
+    .log-card-body {
+      padding: 0.9rem 1rem 1rem;
+      border-top: 2px solid var(--crimson);
+    }
+    .log-card-mission {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.25rem;
+    }
+    .log-card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem; font-weight: 700; text-transform: uppercase;
+      line-height: 1.2; margin-bottom: 0.3rem;
+    }
+    .log-card-date {
+      font-size: 0.72rem; color: rgba(255,255,255,0.4);
+    }
+
     /* ── THE PATH ──────────────────────────── */
     .path-steps {
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -518,6 +562,31 @@
         <div class="page-card-bottom">
           <span class="card-link-label">See the Course</span>
           <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLIGHT LOGS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-label">In the Field</div>
+    <h2 class="section-title">Flight <span>Logs</span></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Every flight gets logged. Here's the record — what we flew, where we flew it, what worked, and what didn't.</p>
+
+    <div class="log-cards">
+
+      <a href="flight-log-march-9-2026.html" class="log-card">
+        <img class="log-card-img"
+          src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1773148283/topdrone-blackberry-video-freeze_ggny9x.jpg"
+          alt="Flight Log — March 9, 2026" />
+        <div class="log-card-body">
+          <div class="log-card-mission">Mission 001</div>
+          <div class="log-card-title">First Flight</div>
+          <div class="log-card-date">March 9, 2026</div>
         </div>
       </a>
 
