@@ -1704,8 +1704,8 @@ function toggleFaq(el){el.classList.toggle('open')}
     </div>
     <div class="fact-card">
       <div class="label">Serial / Remote ID Number</div>
-      <div class="value" style="font-size:1rem;word-break:break-all;color:var(--gold)">1581F6W8W257U00224DW</div>
-      <div class="note">Same number from your receipt. This is your Remote ID serial — critical for Part 107 compliance.</div>
+      <div class="value" style="font-size:1rem;word-break:break-all;color:var(--gold)">1581F6W8&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div>
+      <div class="note">Your 20-character Remote ID serial — find it on the receipt, inside the battery bay, or under Settings &rarr; About in the goggles. This is the number you enter in FAA DroneZone and it is critical for Part 107 compliance.</div>
     </div>
   </div>
 
@@ -1767,7 +1767,7 @@ function toggleFaq(el){el.classList.toggle('open')}
       </button>
       <div class="acc-body">
         <div class="acc-content">
-          The address on your <strong>Driver's License must match</strong> the address you used for your PSI and IACRA registration (<strong>330 North Ave</strong>). If it doesn't match, you must bring a secondary proof of residency — a utility bill works — or they will turn you away at the door.
+          The address on your <strong>Driver's License must match</strong> the address you used for your PSI and IACRA registration. If it doesn't match, you must bring a secondary proof of residency — a utility bill works — or they will turn you away at the door.
         </div>
       </div>
     </div>
@@ -1824,8 +1824,149 @@ function toggleFaq(el){el.classList.toggle('open')}
   </div>
 
   <div class="alert alert-blue" style="margin-top:1.5rem">
-    <strong>Why LAANC Matters Here</strong>
-    The flight warnings you saw at Memorial Park? Those were almost certainly proximity alerts to Aurora or DuPage airspace. With your Part 107 and a LAANC authorization through Aloft, that warning becomes a green light.
+    <strong>Why LAANC Matters for Batavia Pilots</strong>
+    Batavia sits under the airspace shelf of Aurora and DuPage airports. Those flight warnings you may have seen at local parks? Almost certainly proximity alerts. With your Part 107 and a LAANC authorization through Aloft, that warning becomes a green light.
+  </div>
+
+  <!-- 5. Exam Strategy -->
+  <h3 style="font-family:'Oswald',sans-serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.05em;margin-top:3rem;margin-bottom:1rem;">5. Exam Strategy</h3>
+
+  <p style="color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.7;margin-bottom:1.25rem;">The Part 107 exam is often called <strong style="color:var(--white)">"easy to pass, but hard to ace."</strong> Because you have your own study guide, you likely know the rules — but the FAA is notorious for <strong style="color:var(--gold)">distractor answers</strong> that look correct if you don't read carefully.</p>
+
+  <!-- Pass Rate stats -->
+  <div class="fact-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr));margin-bottom:2rem;">
+    <div class="fact-card gold">
+      <div class="label">Official Pass Rate (2024–2026)</div>
+      <div class="value">~84%</div>
+      <div class="note">Consistent average across the current question bank</div>
+    </div>
+    <div class="fact-card">
+      <div class="label">Average Score</div>
+      <div class="value"><span>~80%</span></div>
+      <div class="note">Most people miss about 12 questions — often on Sectional Charts</div>
+    </div>
+    <div class="fact-card" style="border-left-color:#3b82f6;">
+      <div class="label">The Weak Spot</div>
+      <div class="value" style="font-size:1rem;color:var(--white);margin-top:.3rem;line-height:1.4">Sectional Charts</div>
+      <div class="note">Self-studiers underestimate chart questions. They make up the bulk of missed points.</div>
+    </div>
+  </div>
+
+  <!-- Trick questions -->
+  <h4 style="font-family:'Oswald',sans-serif;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:1rem;">The "Trick" Questions to Watch For</h4>
+
+  <div class="accordion">
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+        <span>⚖️ &nbsp;The "Who Is Responsible?" Trap</span>
+        <span class="acc-arrow">&#8964;</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">
+          <p><strong>The Question:</strong> Who is responsible for briefing the crew, checking weather, or ensuring the drone is airworthy?</p>
+          <p style="margin-top:.6rem"><strong>The Distractors:</strong> The "Owner," the "Visual Observer," or the "License Holder."</p>
+          <div class="alert alert-gold" style="margin-top:.8rem">
+            <strong>The Rule</strong>
+            It is <em>always</em> the <strong>Remote Pilot in Command (RPIC)</strong>. If RPIC appears in an answer about responsibility, it is almost certainly correct.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+        <span>🌙 &nbsp;The "Night Visibility" Confusion</span>
+        <span class="acc-arrow">&#8964;</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">
+          <p><strong>The Trick:</strong> Mixing up <em>distance</em> and <em>visibility</em>.</p>
+          <p style="margin-top:.6rem">To fly at night, your drone needs anti-collision lights visible for <strong>3 statute miles</strong>. People confuse this with the cloud clearance rule: you must stay <strong>500 ft below</strong> and <strong>2,000 ft horizontally</strong> from clouds.</p>
+          <div class="alert alert-red" style="margin-top:.8rem">
+            <strong>Watch For</strong>
+            A question asking for the <em>visibility required to fly</em> vs. the <em>distance a light must be seen from</em>. These are two different numbers — don't swap them.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+        <span>✈️ &nbsp;The "Left Downwind" Runway Question</span>
+        <span class="acc-arrow">&#8964;</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">
+          <p><strong>The Scenario:</strong> "An aircraft announces they are on 'left downwind' for Runway 16. Where is the aircraft relative to the runway?"</p>
+          <p style="margin-top:.6rem">Runway 16 = landing at <strong>160°</strong>. Downwind = flying the opposite direction (<strong>340°</strong>). "Left" = the runway is on the pilot's left side.</p>
+          <div class="alert alert-gold" style="margin-top:.8rem">
+            <strong>The Answer</strong>
+            The aircraft is to the <strong>East</strong> of the runway. Sketch this on your scratch paper — every time.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+        <span>🌡️ &nbsp;Weather &amp; Density Altitude</span>
+        <span class="acc-arrow">&#8964;</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">
+          <p><strong>The Question:</strong> What happens to drone performance on a hot, humid day at a high-elevation location?</p>
+          <p style="margin-top:.6rem"><strong>The Trap:</strong> Thinking "High Density Altitude" means the air is thick or dense.</p>
+          <div class="alert alert-red" style="margin-top:.8rem">
+            <strong>The Truth</strong>
+            <strong>High Density Altitude = Thin Air.</strong> Thin air means propellers are less efficient, climb rate decreases, and battery life may suffer. Hot + humid + high elevation = your drone works harder for less performance.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open')">
+        <span>🗺️ &nbsp;"Hicks Airport" &amp; The Testing Supplement</span>
+        <span class="acc-arrow">&#8964;</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">
+          <p><strong>The Trick:</strong> The FAA frequently uses <strong>Hicks Airport (T67)</strong> in the testing supplement.</p>
+          <p style="margin-top:.6rem"><strong>The Trap:</strong> The question asks about the airspace directly over the airport. Most people see the blue shaded lines nearby and guess Class B or C.</p>
+          <div class="alert alert-gold" style="margin-top:.8rem">
+            <strong>The Truth</strong>
+            Hicks is actually in <strong>Class G (uncontrolled)</strong> — it sits <em>under</em> the shelf of the Class B airspace. Look at the fractions (e.g., <strong>110/40</strong>) to determine where the controlled airspace actually begins. The number on top is the ceiling; the number on the bottom is the floor.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion -->
+
+  <!-- Quick Tips -->
+  <h4 style="font-family:'Oswald',sans-serif;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-top:2rem;margin-bottom:1rem;">Quick Tips for Exam Day</h4>
+
+  <div class="fact-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
+
+    <div class="fact-card gold">
+      <div class="label">Trust the Legend</div>
+      <div class="value" style="font-size:.95rem;color:var(--white);margin-top:.3rem;line-height:1.4">Use the Testing Supplement</div>
+      <div class="note" style="margin-top:.4rem">The supplement is essentially a legal cheat sheet for map questions. If you forget what a symbol means, the legend in the front has the answer.</div>
+    </div>
+
+    <div class="fact-card">
+      <div class="label">"Upon Request" — Not "Within 10 Days"</div>
+      <div class="value" style="font-size:.95rem;color:var(--gold);margin-top:.3rem;line-height:1.4">Upon Request of the Administrator</div>
+      <div class="note" style="margin-top:.4rem">When asked when you must show your license or records to the FAA, the answer is <strong style="color:var(--white)">"upon request"</strong> — not within 10 days. Don't overthink it.</div>
+    </div>
+
+    <div class="fact-card" style="border-left-color:var(--red);">
+      <div class="label">The $500 Damage Rule</div>
+      <div class="value" style="font-size:.95rem;color:var(--white);margin-top:.3rem;line-height:1.4">Report if Damage Exceeds $500</div>
+      <div class="note" style="margin-top:.4rem">You only have to report an accident to the FAA if the damage <strong style="color:var(--white)">(excluding the drone itself)</strong> is over $500, or if someone sustains a serious injury or loss of consciousness.</div>
+    </div>
+
   </div>
 
 </div>
