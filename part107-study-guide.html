@@ -227,6 +227,25 @@ footer .foot-links a:hover{color:var(--gold)}
 /* STICKY SCORE */
 #sticky-score{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--red);color:white;border-radius:50px;padding:.6rem 1.2rem;font-family:'Oswald',sans-serif;font-size:.9rem;letter-spacing:.05em;box-shadow:0 4px 20px rgba(0,0,0,.5);z-index:99;display:flex;gap:.5rem;align-items:center;transition:all .3s}
 #sticky-score .ss-num{font-size:1.1rem;color:var(--gold)}
+
+/* FACT CARD MODALS */
+.fact-card[data-modal]{cursor:pointer;transition:transform .15s,box-shadow .15s}
+.fact-card[data-modal]:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.fact-card[data-modal] .card-hint{display:block;font-size:.68rem;color:var(--gold);letter-spacing:.08em;margin-top:.5rem;opacity:.75}
+.fc-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:1.5rem}
+.fc-modal-overlay.open{display:flex}
+.fc-modal{background:#1e1e1e;border:1px solid #3a3a3a;border-radius:10px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:2rem;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.fc-modal-close{position:absolute;top:1rem;right:1.25rem;background:none;border:none;color:var(--gray);font-size:1.4rem;cursor:pointer;line-height:1}
+.fc-modal-close:hover{color:var(--white)}
+.fc-modal h3{font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--gold);letter-spacing:.06em;margin:0 0 .25rem}
+.fc-modal .fc-modal-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:.12em;padding:.2rem .7rem;border-radius:3px;margin-bottom:1.25rem}
+.fc-modal p{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:1rem}
+.fc-modal .fc-rule{background:#2a2a2a;border-left:4px solid var(--gold);border-radius:4px;padding:.75rem 1rem;margin:1rem 0;font-size:.88rem;color:var(--white)}
+.fc-modal .fc-rule strong{color:var(--gold)}
+.fc-modal table{width:100%;border-collapse:collapse;font-size:.83rem;margin-top:1rem}
+.fc-modal table th{background:#2a2a2a;color:var(--gold);font-family:'Oswald',sans-serif;letter-spacing:.06em;padding:.5rem .75rem;text-align:left;border-bottom:2px solid var(--gold)}
+.fc-modal table td{padding:.5rem .75rem;border-bottom:1px solid #333;color:rgba(255,255,255,.8)}
+.fc-modal table tr:last-child td{border-bottom:none}
 </style>
 </head>
 <body>
@@ -605,10 +624,10 @@ footer .foot-links a:hover{color:var(--gold)}
   <div class="section-divider"></div>
 
   <div class="fact-grid">
-    <div class="fact-card gold"><div class="label">Standard Sea Level Pressure</div><div class="value"><span>29.92</span> inHg</div><div class="note">or 1,013.2 mb</div></div>
-    <div class="fact-card"><div class="label">Pressure Drop Rate</div><div class="value"><span>1 in</span></div><div class="note">per 1,000 ft altitude gain</div></div>
-    <div class="fact-card gold"><div class="label">Standard Lapse Rate</div><div class="value"><span>3°C</span></div><div class="note">per 1,000 ft (5.4°F)</div></div>
-    <div class="fact-card"><div class="label">Cold Front Speed</div><div class="value"><span>25–30</span> mph</div><div class="note">warm fronts: 10–15 mph</div></div>
+    <div class="fact-card gold" data-modal="modal-pressure" role="button" tabindex="0"><div class="label">Standard Sea Level Pressure</div><div class="value"><span>29.92</span> inHg</div><div class="note">or 1,013.2 mb</div><span class="card-hint">TAP TO LEARN MORE ›</span></div>
+    <div class="fact-card" data-modal="modal-pressuredrop" role="button" tabindex="0"><div class="label">Pressure Drop Rate</div><div class="value"><span>1 in</span></div><div class="note">per 1,000 ft altitude gain</div><span class="card-hint">TAP TO LEARN MORE ›</span></div>
+    <div class="fact-card gold" data-modal="modal-lapse" role="button" tabindex="0"><div class="label">Standard Lapse Rate</div><div class="value"><span>3°C</span></div><div class="note">per 1,000 ft (5.4°F)</div><span class="card-hint">TAP TO LEARN MORE ›</span></div>
+    <div class="fact-card" data-modal="modal-fronts" role="button" tabindex="0"><div class="label">Cold Front Speed</div><div class="value"><span>25–30</span> mph</div><div class="note">warm fronts: 10–15 mph</div><span class="card-hint">TAP TO LEARN MORE ›</span></div>
   </div>
 
   <!-- CLOUD BASE FORMULA -->
@@ -2460,6 +2479,98 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
   });
 });
+</script>
+
+<!-- FACT CARD MODALS -->
+<div class="fc-modal-overlay" id="modal-pressure" role="dialog" aria-modal="true" aria-label="Standard Sea Level Pressure">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-pressure')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">ISA STANDARD</div>
+    <h3>Standard Sea Level Pressure</h3>
+    <p>Think of this as Earth's "factory setting" for air pressure — the weight of the entire atmosphere pressing down on you at sea level on a perfectly average day.</p>
+    <div class="fc-rule"><strong>29.92 inHg</strong> — how high the air pressure pushes mercury up a glass tube (the old-school way to measure it).<br><strong>1,013.2 mb (millibars)</strong> — the metric/SI equivalent used in weather charts and METARs.</div>
+    <p><strong>Why it matters for pilots:</strong> Every aircraft altimeter is calibrated against this number. When you set your altimeter to 29.92, you're reading <em>pressure altitude</em> — the standard used for airways above 18,000 ft (Flight Level operations).</p>
+    <p><strong>Reading the sky:</strong> If actual pressure is <em>below</em> 29.92, that's a low-pressure system — expect clouds, wind, and stormy conditions. Above 29.92 signals high pressure — generally clear, stable flying weather.</p>
+    <table>
+      <tr><th>Value</th><th>Meaning</th><th>Practical Effect</th></tr>
+      <tr><td>29.92 inHg</td><td>ISA sea-level baseline</td><td>Altimeter calibration reference</td></tr>
+      <tr><td>&lt; 29.92</td><td>Low pressure</td><td>Stormy, turbulent conditions</td></tr>
+      <tr><td>&gt; 29.92</td><td>High pressure</td><td>Clear skies, stable air</td></tr>
+      <tr><td>1,013.2 mb</td><td>Metric equivalent</td><td>Used in METARs &amp; weather maps</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="fc-modal-overlay" id="modal-pressuredrop" role="dialog" aria-modal="true" aria-label="Pressure Drop Rate">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-pressuredrop')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">ALTIMETRY</div>
+    <h3>Pressure Drop Rate</h3>
+    <p>As you climb higher, there's less air above you — so the atmosphere presses down less. This pressure drop is predictable enough that we use it to measure altitude.</p>
+    <div class="fc-rule"><strong>Rule:</strong> For every <strong>1,000 feet</strong> you climb, barometric pressure drops by approximately <strong>1 inch of mercury (inHg)</strong>.</div>
+    <p><strong>How altimeters work:</strong> An aircraft altimeter is essentially a barometer in disguise. It detects lower pressure and translates that into a higher altitude reading — no GPS required. The pilot sets the current local pressure (QNH) so the altimeter reads true altitude above sea level.</p>
+    <p><strong>Density altitude connection:</strong> On hot days, air is less dense — the pressure at a given altitude is effectively lower than standard. This makes your altimeter read <em>lower</em> than your true altitude, which is why aircraft performance degrades on hot days (density altitude is high).</p>
+    <table>
+      <tr><th>Altitude (ft)</th><th>Approx. Pressure</th><th>Note</th></tr>
+      <tr><td>0 (sea level)</td><td>29.92 inHg</td><td>ISA baseline</td></tr>
+      <tr><td>1,000</td><td>~28.92 inHg</td><td>–1 inHg</td></tr>
+      <tr><td>5,000</td><td>~24.92 inHg</td><td>–5 inHg</td></tr>
+      <tr><td>10,000</td><td>~19.92 inHg</td><td>–10 inHg</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="fc-modal-overlay" id="modal-lapse" role="dialog" aria-modal="true" aria-label="Standard Lapse Rate">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-lapse')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">TEMPERATURE</div>
+    <h3>Standard Lapse Rate</h3>
+    <p>The further you get from the Earth's surface (which absorbs solar heat), the colder it gets. The ISA standard lapse rate gives us a predictable rule for how fast temperature drops with altitude.</p>
+    <div class="fc-rule"><strong>ISA Standard:</strong> Temperature drops <strong>2°C (3.5°F)</strong> per 1,000 ft — this is the official International Standard Atmosphere (ISA) rate.<br><strong>Dry Adiabatic Lapse Rate (DALR):</strong> ~3°C per 1,000 ft — used for very dry, unsaturated air (what the Part 107 test often quotes).</div>
+    <p><strong>Why it matters:</strong> This is how pilots predict freezing levels. If it's 15°C on the ground, expect 0°C (freezing) around 7,500 ft. Ice on a drone or aircraft is a serious hazard — rotors lose lift, sensors fail.</p>
+    <p><strong>Temperature inversions:</strong> Sometimes temperature <em>increases</em> with altitude (an inversion) — this traps pollution, creates stable but hazy air, and can affect drone performance and visibility.</p>
+    <table>
+      <tr><th>Rate</th><th>Condition</th><th>Use Case</th></tr>
+      <tr><td>2°C / 1,000 ft</td><td>ISA standard (moist air)</td><td>Official aviation standard</td></tr>
+      <tr><td>3°C / 1,000 ft</td><td>Dry adiabatic</td><td>Part 107 test reference</td></tr>
+      <tr><td>Inversion</td><td>Temp rises with altitude</td><td>Haze, fog, trapped smoke</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="fc-modal-overlay" id="modal-fronts" role="dialog" aria-modal="true" aria-label="Cold Front Speed">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-fronts')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER FRONTS</div>
+    <h3>Cold &amp; Warm Front Speeds</h3>
+    <p>A weather front is the battle line where two different air masses collide. The speed and behavior of that collision determines whether you get a quick violent storm or days of gray drizzle.</p>
+    <div class="fc-rule"><strong>Cold Front (25–30 mph):</strong> Dense, cold air acts like a bulldozer — it shoves warm, moist air steeply upward. Result: sudden thunderstorms, gusty winds, rapid pressure drops, but conditions clear quickly after passage.<br><br><strong>Warm Front (10–15 mph):</strong> Warm air is lighter — it gently rides up over cooler air at a shallow angle. Result: a wide band of steady rain or drizzle that can last 12–24+ hours before the front passes.</div>
+    <p><strong>Drone pilot rule of thumb:</strong> A cold front approaching means ground conditions can go from flyable to dangerous in under an hour. A warm front means a slow, gray grind — plan around it the day before, not the hour before.</p>
+    <table>
+      <tr><th>Feature</th><th>Cold Front</th><th>Warm Front</th></tr>
+      <tr><td>Speed</td><td>25–30 mph</td><td>10–15 mph</td></tr>
+      <tr><td>Onset</td><td>Rapid, violent</td><td>Slow, gradual</td></tr>
+      <tr><td>Weather type</td><td>Thunderstorms, squalls</td><td>Steady rain, drizzle, fog</td></tr>
+      <tr><td>Symbol on map</td><td>Blue line, triangles</td><td>Red line, semicircles</td></tr>
+      <tr><td>After passage</td><td>Clears fast, temps drop</td><td>Warms up, clouds linger</td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+// Fact card modals
+document.querySelectorAll('.fact-card[data-modal]').forEach(card => {
+  function openIt() { document.getElementById(card.dataset.modal).classList.add('open'); }
+  card.addEventListener('click', openIt);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openIt(); } });
+});
+document.querySelectorAll('.fc-modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.fc-modal-overlay.open').forEach(o => o.classList.remove('open'));
+});
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 </script>
 </body>
 </html>
