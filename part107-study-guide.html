@@ -631,10 +631,11 @@ footer .foot-links a:hover{color:var(--gold)}
   </div>
 
   <!-- CLOUD BASE FORMULA -->
-  <div class="alert alert-gold">
+  <div class="alert alert-gold" style="cursor:pointer;transition:box-shadow .15s" onclick="document.getElementById('modal-cloudbase').classList.add('open')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('modal-cloudbase').classList.add('open')}">
     <strong>Cloud Base Formula — Memorize It</strong>
     (Surface Temp °F − Dew Point °F) ÷ 4.4 × 1,000 = Cloud Base AGL in feet<br>
     <em>Example: Temp 68°F, Dew Point 50°F → (68−50) ÷ 4.4 × 1000 = 4,090 ft AGL</em>
+    <span style="display:block;font-size:.68rem;color:var(--gold);letter-spacing:.08em;margin-top:.6rem;opacity:.75">TAP TO LEARN MORE ›</span>
   </div>
 
   <!-- ATMOSPHERE LAYERS -->
@@ -2480,6 +2481,34 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+
+<!-- CLOUD BASE FORMULA MODAL -->
+<div class="fc-modal-overlay" id="modal-cloudbase" role="dialog" aria-modal="true" aria-label="Cloud Base Formula Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="document.getElementById('modal-cloudbase').classList.remove('open')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">CLOUD BASE FORMULA</div>
+    <h3>What Does "AGL" Mean?</h3>
+    <p>In aviation and meteorology, <strong>AGL</strong> stands for <strong>Above Ground Level</strong> — the height of something measured from the specific patch of earth directly beneath it, not from sea level.</p>
+    <p>When the Cloud Base Formula gives you a result, it's telling you how far <em>up from where you're standing</em> you'd need to look to see the bottom of the clouds.</p>
+    <div class="fc-rule">
+      <strong>AGL (Above Ground Level):</strong> Height from the ground under your feet.<br>
+      Standing on a 5,000 ft mountain with clouds 1,000 ft AGL? The clouds are 1,000 ft above your head.<br><br>
+      <strong>MSL (Mean Sea Level):</strong> Altitude from the global zero point at sea level.<br>
+      Those same clouds are at 6,000 ft MSL.
+    </div>
+    <h3 style="margin-top:1.25rem">Why the Formula Works</h3>
+    <p>The result is AGL because it's based on what happens to air as it rises <em>from the surface beneath you</em>:</p>
+    <table>
+      <tr><th>Step</th><th>What's Happening</th></tr>
+      <tr><td>Air rises</td><td>It cools at the dry adiabatic lapse rate (~3°C / 1,000 ft)</td></tr>
+      <tr><td>Dew point drops</td><td>More slowly than temperature — about 0.5°C / 1,000 ft</td></tr>
+      <tr><td>The 4.4 factor</td><td>The "convergence rate" — temp &amp; dew point get 4.4°F closer per 1,000 ft gained</td></tr>
+      <tr><td>LCL reached</td><td>Where temp = dew point → air is 100% humid → cloud forms</td></tr>
+    </table>
+    <p style="margin-top:1rem">That meeting point — the <strong>Lifting Condensation Level (LCL)</strong> — is the base of the cloud, measured from the surface the air lifted off of. Hence: AGL.</p>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Rule of Thumb Caveat:</strong> This formula works best for cumulus clouds formed by surface heating on days with well-mixed air. It's less reliable over complex mountain terrain or in stable air masses where clouds form differently.</div>
+  </div>
+</div>
 
 <!-- FACT CARD MODALS -->
 <div class="fc-modal-overlay" id="modal-pressure" role="dialog" aria-modal="true" aria-label="Standard Sea Level Pressure">
