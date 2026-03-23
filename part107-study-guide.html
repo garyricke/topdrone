@@ -2509,39 +2509,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Rule of Thumb Caveat:</strong> This formula works best for cumulus clouds formed by surface heating on days with well-mixed air. It's less reliable over complex mountain terrain or in stable air masses where clouds form differently.</div>
 
     <h3 style="margin-top:1.5rem">Apps That Do This For You</h3>
-    <p>You don't have to run the math yourself. Several apps pull live weather data and calculate cloud base automatically — some are built specifically for drone pilots.</p>
+    <p>You don't have to run the math yourself. Several apps pull live weather data and calculate cloud base automatically. Here's how the three most popular drone pilot apps stack up.</p>
 
-    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem">Best for Drone Pilots</p>
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem">1. UAV Forecast — The Industry Standard</p>
     <div class="fc-rule" style="margin-top:0">
-      <strong>UAV Forecast</strong> — iOS &amp; Android<br>
-      The go-to app for drone pilots. Uses your GPS location to pull live local weather and shows estimated cloud base AGL directly — so you know at a glance whether you're legal to fly without doing any math. Also shows wind, KP index, and no-fly zones.
+      <strong>Best for:</strong> Pure weather and at-a-glance safety decisions.<br><br>
+      Explicitly lists <strong>Cloud Base AGL</strong> in its main dashboard — pulls temp and dew point automatically from local stations and does the math for you. You can set personal thresholds (e.g., "only show green if cloud base is ≥ 1,000 ft AGL").<br><br>
+      <strong>Wind at altitude:</strong> High accuracy &nbsp;|&nbsp; <strong>No-fly zones:</strong> Basic &nbsp;|&nbsp; <strong>Cost:</strong> Free for 24-hr forecasts; subscription for 7-day/hourly detail.
     </div>
 
-    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">E6B Flight Computer Apps</p>
-    <p style="margin-top:0">An E6B is the standard flight computer used by all pilots. Modern app versions include a dedicated Cloud Base calculator — plug in temp and dew point, get the answer.</p>
-    <div class="fc-rule" style="margin-top:.5rem">
-      <strong>E6BX</strong> — iOS, Android, and web<br>
-      Dedicated Cloud Base Altitude calculator with °F / °C toggle.
-    </div>
-    <div class="fc-rule" style="margin-top:.5rem">
-      <strong>Sporty's E6B</strong> — iOS &amp; Android<br>
-      Popular with student pilots; clean interface, reliable calculations.
-    </div>
-
-    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">All-in-One Weather Apps</p>
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">2. Drone Forecast (DroneWeather) — Cleanest UI</p>
     <div class="fc-rule" style="margin-top:0">
-      <strong>AeroWeather</strong> — pulls live METARs (official airport weather reports) showing temp and dew point for any airport worldwide. The "spread" (temp minus dew point) is calculated for you.
+      <strong>Best for:</strong> Beginners who want simple, visual weather without aviation data clutter.<br><br>
+      Shows cloud cover percentage and height in an intuitive Green / Yellow / Red color-coded system. Cloud base is included but less customizable than UAV Forecast — you can't set your own thresholds.<br><br>
+      <strong>Wind at altitude:</strong> Standard &nbsp;|&nbsp; <strong>No-fly zones:</strong> Basic &nbsp;|&nbsp; <strong>Cost:</strong> Free with optional upgrades.
     </div>
-    <div class="fc-rule" style="margin-top:.5rem">
-      <strong>Windy.com</strong> — includes a visual "Cloud Base" map layer that overlays estimated cloud base AGL across your entire region. Great for scouting locations before you drive out.
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">3. Drone Buddy — The All-in-One Toolkit</p>
+    <div class="fc-rule" style="margin-top:0">
+      <strong>Best for:</strong> Finding places to fly and managing your drone operations.<br><br>
+      Weather is included (with cloud base), but Drone Buddy's real strength is its <strong>detailed No-Fly Zone maps</strong>, community "Where to Fly" spots shared by other pilots, built-in logbook, and drone news. Think of it more as a regulatory and social app than a scientific weather tool.<br><br>
+      <strong>Wind at altitude:</strong> Standard &nbsp;|&nbsp; <strong>No-fly zones:</strong> Very detailed &nbsp;|&nbsp; <strong>Community map:</strong> Yes.
     </div>
 
     <table style="margin-top:1.25rem">
-      <tr><th>Method</th><th>Data Input</th><th>Accuracy</th><th>Internet</th></tr>
-      <tr><td>Manual formula</td><td>You find temp &amp; dew point</td><td>Rough estimate</td><td>Not required</td></tr>
-      <tr><td>E6B apps</td><td>You type the numbers</td><td>Mathematically precise</td><td>Not required</td></tr>
-      <tr><td>UAV Forecast / Windy</td><td>Automatic via GPS</td><td>Real-time sensor data</td><td>Required</td></tr>
+      <tr><th>Feature</th><th>UAV Forecast</th><th>Drone Forecast</th><th>Drone Buddy</th></tr>
+      <tr><td>Cloud Base AGL</td><td>Detailed</td><td>Basic</td><td>General</td></tr>
+      <tr><td>Custom thresholds</td><td>Yes</td><td>No</td><td>No</td></tr>
+      <tr><td>Wind at altitude</td><td>High accuracy</td><td>Standard</td><td>Standard</td></tr>
+      <tr><td>No-fly zones</td><td>Basic</td><td>Basic</td><td>Very detailed</td></tr>
+      <tr><td>Community spots</td><td>No</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Best for</td><td>Pilot-focused</td><td>Beginners</td><td>Feature-rich toolkit</td></tr>
     </table>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1.25rem">E6B &amp; Aviation Weather Apps</p>
+    <div class="fc-rule" style="margin-top:0">
+      <strong>E6BX / Sporty's E6B</strong> — Enter temp and dew point manually; get a mathematically precise cloud base. No internet required. Used by all pilots, not just drone pilots.
+    </div>
+    <div class="fc-rule" style="margin-top:.5rem">
+      <strong>AeroWeather</strong> — Live METARs for any airport worldwide. Shows temp/dew point spread so you can run the formula yourself. &nbsp;|&nbsp; <strong>Windy.com</strong> — Visual "Cloud Base" map layer showing estimated AGL across your entire region.
+    </div>
   </div>
 </div>
 
