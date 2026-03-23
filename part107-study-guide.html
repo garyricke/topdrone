@@ -2507,6 +2507,41 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     </table>
     <p style="margin-top:1rem">That meeting point — the <strong>Lifting Condensation Level (LCL)</strong> — is the base of the cloud, measured from the surface the air lifted off of. Hence: AGL.</p>
     <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Rule of Thumb Caveat:</strong> This formula works best for cumulus clouds formed by surface heating on days with well-mixed air. It's less reliable over complex mountain terrain or in stable air masses where clouds form differently.</div>
+
+    <h3 style="margin-top:1.5rem">Apps That Do This For You</h3>
+    <p>You don't have to run the math yourself. Several apps pull live weather data and calculate cloud base automatically — some are built specifically for drone pilots.</p>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem">Best for Drone Pilots</p>
+    <div class="fc-rule" style="margin-top:0">
+      <strong>UAV Forecast</strong> — iOS &amp; Android<br>
+      The go-to app for drone pilots. Uses your GPS location to pull live local weather and shows estimated cloud base AGL directly — so you know at a glance whether you're legal to fly without doing any math. Also shows wind, KP index, and no-fly zones.
+    </div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">E6B Flight Computer Apps</p>
+    <p style="margin-top:0">An E6B is the standard flight computer used by all pilots. Modern app versions include a dedicated Cloud Base calculator — plug in temp and dew point, get the answer.</p>
+    <div class="fc-rule" style="margin-top:.5rem">
+      <strong>E6BX</strong> — iOS, Android, and web<br>
+      Dedicated Cloud Base Altitude calculator with °F / °C toggle.
+    </div>
+    <div class="fc-rule" style="margin-top:.5rem">
+      <strong>Sporty's E6B</strong> — iOS &amp; Android<br>
+      Popular with student pilots; clean interface, reliable calculations.
+    </div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;margin-top:1rem">All-in-One Weather Apps</p>
+    <div class="fc-rule" style="margin-top:0">
+      <strong>AeroWeather</strong> — pulls live METARs (official airport weather reports) showing temp and dew point for any airport worldwide. The "spread" (temp minus dew point) is calculated for you.
+    </div>
+    <div class="fc-rule" style="margin-top:.5rem">
+      <strong>Windy.com</strong> — includes a visual "Cloud Base" map layer that overlays estimated cloud base AGL across your entire region. Great for scouting locations before you drive out.
+    </div>
+
+    <table style="margin-top:1.25rem">
+      <tr><th>Method</th><th>Data Input</th><th>Accuracy</th><th>Internet</th></tr>
+      <tr><td>Manual formula</td><td>You find temp &amp; dew point</td><td>Rough estimate</td><td>Not required</td></tr>
+      <tr><td>E6B apps</td><td>You type the numbers</td><td>Mathematically precise</td><td>Not required</td></tr>
+      <tr><td>UAV Forecast / Windy</td><td>Automatic via GPS</td><td>Real-time sensor data</td><td>Required</td></tr>
+    </table>
   </div>
 </div>
 
