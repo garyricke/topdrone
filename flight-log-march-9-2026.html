@@ -810,9 +810,17 @@
       font-size: 0.78rem; color: rgba(255,255,255,0.35);
     }
 
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── RESPONSIVE ─────────────────────── */
     @media (max-width: 880px) {
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(26,26,26,0.98); border-bottom: 2px solid var(--crimson); padding: 1rem 1.5rem; gap: 0.75rem; list-style: none; }
+      .nav-links.open { display: flex; }
       .hero-meta span { display: block; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 0.3rem 0; }
     }
   </style>
@@ -824,6 +832,7 @@
     <a class="nav-logo" href="index.html">
       <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" />
     </a>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="avata-2.html">Avata 2 Guide</a></li>
@@ -1557,6 +1566,13 @@ Go!</div>
         trailOverlay.classList.remove('hidden');
       }
     });
+  (function(){
+    var ham = document.querySelector('.nav-hamburger');
+    var links = document.querySelector('.nav-links');
+    if (!ham || !links) return;
+    ham.addEventListener('click', function() { ham.classList.toggle('active'); links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { ham.classList.remove('active'); links.classList.remove('open'); }); });
+  })();
   </script>
 
 </body>

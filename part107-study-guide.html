@@ -210,11 +210,15 @@ footer .foot-links a:hover{color:var(--gold)}
 .ap-vol{width:70px;accent-color:var(--red);cursor:pointer}
 .ap-badge{display:inline-block;background:rgba(245,197,0,.12);border:1px solid rgba(245,197,0,.3);color:var(--gold);font-size:.7rem;font-family:'Oswald',sans-serif;letter-spacing:.1em;padding:.2rem .6rem;border-radius:3px;text-transform:uppercase;margin-top:.75rem}
 
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .25s}.nav-hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-hamburger.active span:nth-child(2){opacity:0}.nav-hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   .hero h1{font-size:2.2rem}
   .hero-stats{gap:1rem}
-  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(26,26,26,.98);border-bottom:3px solid var(--red);padding:1rem 1.5rem;gap:.75rem}
+  .nav-links.open{display:flex}
   .fact-grid{grid-template-columns:1fr 1fr}
   .section{padding:2.5rem 1rem}
 }
@@ -255,6 +259,7 @@ footer .foot-links a:hover{color:var(--gold)}
   <a href="index.html" class="nav-logo">
     <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School">
   </a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="nav-links">
     <a href="#regulations">Regulations</a>
     <a href="#weather">Weather</a>
@@ -2642,6 +2647,13 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.querySelectorAll('.fc-modal-overlay.open').forEach(o => o.classList.remove('open'));
 });
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+(function(){
+  var ham = document.querySelector('.nav-hamburger');
+  var links = document.querySelector('.nav-links');
+  if (!ham || !links) return;
+  ham.addEventListener('click', function() { ham.classList.toggle('active'); links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { ham.classList.remove('active'); links.classList.remove('open'); }); });
+})();
 </script>
 </body>
 </html>

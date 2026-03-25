@@ -393,6 +393,12 @@
     .footer-links a:hover { color: var(--gold); }
     footer p { font-size: 0.74rem; color: rgba(255,255,255,0.22); line-height: 1.7; max-width: 480px; margin: 0 auto; }
 
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 880px) {
       .split { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -400,7 +406,9 @@
       .path-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .path-steps::before { display: none; }
       .stat-bar-inner { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(26,26,26,0.98); border-bottom: 2px solid var(--crimson); padding: 1rem 1.5rem; gap: 0.75rem; list-style: none; }
+      .nav-links.open { display: flex; }
     }
     @media (max-width: 520px) {
       .path-steps { grid-template-columns: 1fr; }
@@ -415,6 +423,7 @@
   <a href="index.html" class="nav-logo">
     <img src="top-drone-school-logo-20aug25-b.png" alt="Top Drone School" />
   </a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="part107-study-guide.html">Part 107 Guide</a></li>
     <li><a href="avata-2.html">Avata 2 Guide</a></li>
@@ -650,5 +659,14 @@
   <p>Top Drone School &mdash; Batavia, Illinois. Training FPV pilots to capture one-shot cinematic drone tours of local businesses. Not affiliated with the FAA or DJI.</p>
 </footer>
 
+<script>
+(function(){
+  var ham = document.querySelector('.nav-hamburger');
+  var links = document.querySelector('.nav-links');
+  if (!ham || !links) return;
+  ham.addEventListener('click', function() { ham.classList.toggle('active'); links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { ham.classList.remove('active'); links.classList.remove('open'); }); });
+})();
+</script>
 </body>
 </html>
