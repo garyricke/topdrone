@@ -79,7 +79,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(26,26,26,.97);border-botto
 
 /* FACT BOX */
 .fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
-.fact-card{background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:1rem 1.25rem}
+.fact-card{background:var(--charcoal2);border:1px solid #333;border-left:4px solid var(--red);border-radius:6px;padding:1rem 1.25rem;position:relative}
+.card-info-btn{position:absolute;top:.5rem;right:.5rem;width:20px;height:20px;border-radius:50%;background:rgba(245,197,0,.12);border:1px solid rgba(245,197,0,.3);color:var(--gold);font-size:.68rem;font-family:'Oswald',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .2s;padding:0}
+.card-info-btn:hover{background:rgba(245,197,0,.3)}
 .fact-card.gold{border-left-color:var(--gold)}
 .fact-card .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-bottom:.3rem}
 .fact-card .value{font-family:'Oswald',sans-serif;font-size:1.6rem;color:var(--white)}
@@ -359,7 +361,7 @@ footer .foot-links a:hover{color:var(--gold)}
   <div class="fact-grid">
     <div class="fact-card gold"><div class="label">Max Weight</div><div class="value">&lt;<span>55</span> lbs</div><div class="note">at takeoff, including payload</div></div>
     <div class="fact-card"><div class="label">Max Altitude</div><div class="value"><span>400</span> ft AGL</div><div class="note">or 400 ft above structure within 400 ft radius</div></div>
-    <div class="fact-card gold"><div class="label">Max Groundspeed</div><div class="value"><span>87</span> kts</div><div class="note">100 mph — groundspeed, not airspeed</div></div>
+    <div class="fact-card gold"><button class="card-info-btn" onclick="document.getElementById('modal-groundspeed').classList.add('open')" aria-label="More info">i</button><div class="label">Max Groundspeed</div><div class="value"><span>87</span> kts</div><div class="note">100 mph — groundspeed, not airspeed</div></div>
     <div class="fact-card"><div class="label">Min Visibility</div><div class="value"><span>3</span> sm</div><div class="note">statute miles from control station</div></div>
     <div class="fact-card gold"><div class="label">Cloud Clearance (Below)</div><div class="value"><span>500</span> ft</div><div class="note">minimum below clouds</div></div>
     <div class="fact-card"><div class="label">Cloud Clearance (Horiz)</div><div class="value"><span>2,000</span> ft</div><div class="note">minimum horizontal from clouds</div></div>
@@ -2630,6 +2632,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       <tr><td>Symbol on map</td><td>Blue line, triangles</td><td>Red line, semicircles</td></tr>
       <tr><td>After passage</td><td>Clears fast, temps drop</td><td>Warms up, clouds linger</td></tr>
     </table>
+  </div>
+</div>
+
+<div class="fc-modal-overlay" id="modal-groundspeed" role="dialog" aria-modal="true" aria-label="Max Groundspeed">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-groundspeed')">×</button>
+    <h3>Max Groundspeed</h3>
+    <span class="fc-modal-badge">PART 107 LIMIT</span>
+    <p>Maximum Groundspeed is the absolute speed limit your drone (sUAS) is allowed to travel relative to the surface of the earth. No matter how fast your drone can fly, it is illegal under Part 107 to exceed <strong style="color:var(--gold)">100 mph (87 knots)</strong> over the ground.</p>
+    <div class="fc-rule"><strong>Why "Groundspeed" and Not "Airspeed"?</strong><br><br>
+      <strong>Airspeed:</strong> How fast the drone is moving through the air around it.<br>
+      <strong>Groundspeed:</strong> How fast the drone is moving relative to a fixed point on the ground.<br><br>
+      The FAA specifies groundspeed because wind can significantly change how fast your drone is moving across the map.
+    </div>
+    <p><strong style="color:var(--gold)">The Tailwind Scenario</strong><br>
+    Imagine your drone has a top speed of 80 mph and you're flying with a 30 mph tailwind:<br>
+    Airspeed = 80 mph &nbsp;|&nbsp; Groundspeed = <strong>110 mph</strong> (80 + 30)<br>
+    That scenario is a <strong>Part 107 violation</strong> — your speed relative to the ground exceeds 100 mph.</p>
+    <table>
+      <thead><tr><th>Unit</th><th>Limit</th></tr></thead>
+      <tbody>
+        <tr><td>Miles Per Hour</td><td><strong style="color:var(--gold)">100 mph</strong></td></tr>
+        <tr><td>Knots</td><td><strong style="color:var(--gold)">87 knots</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="fc-rule" style="margin-top:1.25rem"><strong>Why does this limit exist?</strong><br>
+    Primarily kinetic energy. At 100 mph, the FAA determined the risk to people and property on the ground becomes significantly higher if a collision or flyaway occurs.
+    </div>
+    <p style="margin-top:1rem;font-size:.82rem;color:rgba(255,255,255,.5)"><strong style="color:var(--gold)">Pro Tip:</strong> Most consumer drones (DJI Mavic, Phantom) can't reach 50–60 mph, so this limit mostly applies to high-end FPV racing drones or industrial fixed-wing aircraft in high winds.</p>
   </div>
 </div>
 
