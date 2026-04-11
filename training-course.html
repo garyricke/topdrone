@@ -980,6 +980,181 @@
       .gallery-grid { grid-template-columns: 1fr; }
     }
 
+    /* ── BUILD GUIDE ────────────────────────────────────── */
+    .build-section {
+      background: var(--charcoal);
+    }
+
+    .build-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .build-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .build-diagram {
+      background: var(--charcoal-mid);
+      border: 1px solid rgba(245,197,0,0.18);
+      border-radius: 6px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .build-diagram svg {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .build-specs {}
+
+    .specs-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .cut-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-bottom: 2rem;
+    }
+
+    .cut-table thead th {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      border-bottom: 2px solid rgba(245,197,0,0.25);
+      padding: 0.4rem 0.6rem 0.6rem;
+    }
+
+    .cut-table tbody td {
+      padding: 0.5rem 0.6rem;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+    }
+
+    .cut-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cut-table .qty {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .cut-table .len {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .cut-table .total-row td {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      color: var(--crimson);
+      border-top: 2px solid rgba(155,27,43,0.4);
+      padding-top: 0.7rem;
+    }
+
+    .build-note {
+      background: rgba(245,197,0,0.07);
+      border-left: 3px solid var(--gold);
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .build-note strong { color: var(--gold); }
+
+    /* Assembly steps */
+    .build-steps {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 2.5rem;
+    }
+
+    .build-steps-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+    }
+
+    .build-steps-title span { color: var(--crimson); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .step-card {
+      background: var(--charcoal-mid);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 5px;
+      padding: 1.3rem 1.2rem 1.2rem;
+      position: relative;
+    }
+
+    .step-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(155,27,43,0.35);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-body {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .build-layout { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── CTA ─────────────────────────────────────────────── */
     .cta-section {
       background: var(--crimson);
@@ -1599,6 +1774,294 @@
   <span class="gallery-lightbox-close" onclick="closeGallery()">&times;</span>
   <img id="galleryLightboxImg" src="" alt="Gallery photo" />
 </div>
+
+<!-- BUILD GUIDE -->
+<section class="build-section">
+  <div class="container">
+
+    <div class="build-header">
+      <div class="section-label">Section 07 &mdash; Build Guide</div>
+      <h2 class="section-title">Build One <span>Gate</span></h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p class="section-intro" style="max-width:600px; margin:0 auto;">One gate, sized for the Avata 2, built from off-the-shelf 3&frasl;4&Prime; Schedule&nbsp;40 PVC. Master the cuts and glue sequence on this first one &mdash; then crank out the rest.</p>
+    </div>
+
+    <div class="build-layout">
+
+      <!-- LEFT: Diagram -->
+      <div class="build-diagram">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+          <!-- bg -->
+          <rect width="400" height="500" fill="#1a1a1a" rx="6"/>
+
+          <!-- Label -->
+          <text x="200" y="26" text-anchor="middle" fill="#F5C500" font-family="Oswald,sans-serif" font-size="11" letter-spacing="3" font-weight="600">FRONT ELEVATION — NOT TO SCALE</text>
+
+          <!-- ── GATE OCTAGON ── -->
+          <!-- R=74, cx=200, cy=148; flat-top orientation; vertices: -->
+          <!-- V0 67.5°→  (228,80)  V1 22.5°→ (268,110) -->
+          <!-- V7 337.5°→ (268,186) V6 292.5°→ (228,216) -->
+          <!-- V5 247.5°→ (172,216) V4 202.5°→ (132,186) -->
+          <!-- V3 157.5°→ (132,110) V2 112.5°→ (172,80)  -->
+          <polygon
+            points="228,80 268,110 268,186 228,216 172,216 132,186 132,110 172,80"
+            fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+
+          <!-- 45° elbow fittings at corners (dark circles) -->
+          <circle cx="228" cy="80"  r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="268" cy="110" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="268" cy="186" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="228" cy="216" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="172" cy="216" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="132" cy="186" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="132" cy="110" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <circle cx="172" cy="80"  r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+
+          <!-- T-fitting at gate bottom (post connection) -->
+          <circle cx="200" cy="216" r="7" fill="#9B1B2B" stroke="#F5C500" stroke-width="1"/>
+
+          <!-- ── POST ── -->
+          <line x1="200" y1="216" x2="200" y2="400" stroke="#ffffff" stroke-width="6"/>
+
+          <!-- T#2 fitting (6" above base, 32" below gate) -->
+          <!-- 32" at ~4.7px/in = 150px below gate y=216 → T#2 at y=366 -->
+          <circle cx="200" cy="366" r="7" fill="#9B1B2B" stroke="#F5C500" stroke-width="1"/>
+
+          <!-- T#1 fitting (base center) -->
+          <!-- 6" below T#2 = 28px → T#1 at y=394 -->
+          <circle cx="200" cy="394" r="7" fill="#9B1B2B" stroke="#F5C500" stroke-width="1"/>
+
+          <!-- ── BASE LEGS ── -->
+          <!-- Left-right legs through T#1 at y=394 (16" each = 75px) -->
+          <line x1="125" y1="394" x2="275" y2="394" stroke="#ffffff" stroke-width="6"/>
+          <!-- Front-back legs through T#2 at y=366 (shown dashed = into/out of page) -->
+          <line x1="125" y1="366" x2="275" y2="366" stroke="#ffffff" stroke-width="6" stroke-dasharray="8,5" opacity="0.45"/>
+
+          <!-- End caps on T#1 legs -->
+          <rect x="115" y="389" width="10" height="10" rx="1" fill="#555"/>
+          <rect x="275" y="389" width="10" height="10" rx="1" fill="#555"/>
+          <!-- End caps on T#2 legs -->
+          <rect x="115" y="361" width="10" height="10" rx="1" fill="#555" opacity="0.45"/>
+          <rect x="275" y="361" width="10" height="10" rx="1" fill="#555" opacity="0.45"/>
+
+          <!-- ══ DIMENSION LINES ══ (gold) -->
+
+          <!-- Gate opening 28" — horizontal arrow inside gate at vertical center (148) -->
+          <line x1="138" y1="148" x2="262" y2="148" stroke="#F5C500" stroke-width="1.2"/>
+          <polygon points="138,148 145,144 145,152" fill="#F5C500"/>
+          <polygon points="262,148 255,144 255,152" fill="#F5C500"/>
+          <rect x="168" y="138" width="64" height="22" fill="#1a1a1a"/>
+          <text x="200" y="148" text-anchor="middle" dominant-baseline="middle" fill="#F5C500" font-family="Oswald,sans-serif" font-size="12" font-weight="600">28″ opening</text>
+
+          <!-- Side length 11.5" — right vertical side V1→V7: x=268, y=110→186 -->
+          <!-- Leader line to the right -->
+          <line x1="268" y1="148" x2="310" y2="148" stroke="#F5C500" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="310" y1="110" x2="310" y2="186" stroke="#F5C500" stroke-width="1.2"/>
+          <line x1="268" y1="110" x2="310" y2="110" stroke="#F5C500" stroke-width="1"/>
+          <line x1="268" y1="186" x2="310" y2="186" stroke="#F5C500" stroke-width="1"/>
+          <polygon points="310,110 306,117 314,117" fill="#F5C500"/>
+          <polygon points="310,186 306,179 314,179" fill="#F5C500"/>
+          <text x="318" y="143" fill="#F5C500" font-family="Oswald,sans-serif" font-size="11" font-weight="600">11.5″</text>
+          <text x="318" y="157" fill="#F5C500" font-family="Inter,sans-serif" font-size="9" opacity="0.75">per side</text>
+
+          <!-- Gate outer height 30" — left side bracket -->
+          <line x1="100" y1="80"  x2="132" y2="80"  stroke="#F5C500" stroke-width="1"/>
+          <line x1="100" y1="216" x2="132" y2="216" stroke="#F5C500" stroke-width="1"/>
+          <line x1="100" y1="80"  x2="100" y2="216" stroke="#F5C500" stroke-width="1.2"/>
+          <polygon points="100,80  96,87   104,87"  fill="#F5C500"/>
+          <polygon points="100,216 96,209  104,209" fill="#F5C500"/>
+          <text x="96" y="152" text-anchor="middle" fill="#F5C500" font-family="Oswald,sans-serif" font-size="11" font-weight="600" transform="rotate(-90,96,152)">30″ outer</text>
+
+          <!-- Post height 39" — right side of post -->
+          <line x1="232" y1="216" x2="232" y2="394" stroke="#F5C500" stroke-width="1.2"/>
+          <line x1="200" y1="216" x2="232" y2="216" stroke="#F5C500" stroke-width="1"/>
+          <line x1="200" y1="394" x2="232" y2="394" stroke="#F5C500" stroke-width="1"/>
+          <polygon points="232,216 228,223 236,223" fill="#F5C500"/>
+          <polygon points="232,394 228,387 236,387" fill="#F5C500"/>
+          <text x="244" y="309" text-anchor="middle" fill="#F5C500" font-family="Oswald,sans-serif" font-size="11" font-weight="600" transform="rotate(-90,244,309)">39″ post</text>
+
+          <!-- Base width 32" — below base T#1 -->
+          <line x1="125" y1="418" x2="275" y2="418" stroke="#F5C500" stroke-width="1.2"/>
+          <line x1="125" y1="394" x2="125" y2="418" stroke="#F5C500" stroke-width="1"/>
+          <line x1="275" y1="394" x2="275" y2="418" stroke="#F5C500" stroke-width="1"/>
+          <polygon points="125,418 132,414 132,422" fill="#F5C500"/>
+          <polygon points="275,418 268,414 268,422" fill="#F5C500"/>
+          <text x="200" y="435" text-anchor="middle" fill="#F5C500" font-family="Oswald,sans-serif" font-size="11" font-weight="600">32″ base span</text>
+
+          <!-- Dashed label for front-back legs -->
+          <text x="290" y="369" fill="#F5C500" font-family="Inter,sans-serif" font-size="9" opacity="0.6">← front/back</text>
+          <text x="290" y="379" fill="#F5C500" font-family="Inter,sans-serif" font-size="9" opacity="0.6">    legs (T#2)</text>
+
+          <!-- Legend fittings -->
+          <circle cx="30" cy="460" r="7" fill="#9B1B2B" stroke="#F5C500" stroke-width="1"/>
+          <text x="42" y="464" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="9">T-fitting</text>
+          <circle cx="120" cy="460" r="5.5" fill="#3a3a3a" stroke="#888" stroke-width="1"/>
+          <text x="131" y="464" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="9">45° elbow</text>
+          <rect x="222" y="455" width="10" height="10" rx="1" fill="#555"/>
+          <text x="237" y="464" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="9">end cap</text>
+          <line x1="312" y1="460" x2="340" y2="460" stroke="#ffffff" stroke-width="5" stroke-dasharray="6,4" opacity="0.45"/>
+          <text x="345" y="464" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="9">into page</text>
+        </svg>
+      </div>
+
+      <!-- RIGHT: Cut list + fittings + materials -->
+      <div class="build-specs">
+
+        <div class="build-note">
+          <strong>Pipe spec:</strong> 3&frasl;4&Prime; Schedule&nbsp;40 PVC. The 28&Prime; gate opening gives you a 3&times; clearance on the Avata&nbsp;2's prop-tip span &mdash; comfortable for building precision at speed, tight enough to demand accuracy.
+        </div>
+
+        <div class="specs-label">Cut List &mdash; 3/4&Prime; PVC Pipe</div>
+        <table class="cut-table">
+          <thead>
+            <tr>
+              <th>Piece</th>
+              <th>Qty</th>
+              <th>Length</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Octagon side</td>
+              <td class="qty">7</td>
+              <td class="len">11.5&Prime;</td>
+              <td>Standard sides</td>
+            </tr>
+            <tr>
+              <td>Bottom side (flanks post T)</td>
+              <td class="qty">2</td>
+              <td class="len">5.25&Prime;</td>
+              <td>Straddle the gate T-fitting</td>
+            </tr>
+            <tr>
+              <td>Upper post</td>
+              <td class="qty">1</td>
+              <td class="len">32&Prime;</td>
+              <td>Gate bottom → T#2</td>
+            </tr>
+            <tr>
+              <td>Lower post</td>
+              <td class="qty">1</td>
+              <td class="len">6&Prime;</td>
+              <td>T#2 → T#1 (base center)</td>
+            </tr>
+            <tr>
+              <td>Base legs</td>
+              <td class="qty">4</td>
+              <td class="len">16&Prime;</td>
+              <td>2 into T#1, 2 into T#2</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2">Total pipe</td>
+              <td class="len">~16.2&nbsp;ft</td>
+              <td>Buy 2&times;&nbsp;10-ft lengths</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="specs-label">Fittings</div>
+        <table class="cut-table">
+          <thead>
+            <tr><th>Part</th><th>Qty</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3&frasl;4&Prime; 45° elbow</td>
+              <td class="qty">8</td>
+              <td>Octagon corners</td>
+            </tr>
+            <tr>
+              <td>3&frasl;4&Prime; T-fitting</td>
+              <td class="qty">3</td>
+              <td>1 gate bottom, 1 T#1 base, 1 T#2 base</td>
+            </tr>
+            <tr>
+              <td>3&frasl;4&Prime; end cap</td>
+              <td class="qty">4</td>
+              <td>One on each base leg</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="specs-label">Other Materials</div>
+        <table class="cut-table">
+          <thead>
+            <tr><th>Item</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PVC primer (small can)</td>
+              <td>Purple Primer, ~4 oz</td>
+            </tr>
+            <tr>
+              <td>PVC cement (small can)</td>
+              <td>Medium-body clear, ~4 oz</td>
+            </tr>
+            <tr>
+              <td>Pipe cutter or hacksaw</td>
+              <td>Ratcheting cutter is cleanest</td>
+            </tr>
+            <tr>
+              <td>Marker + tape measure</td>
+              <td>Mark every cut before cutting</td>
+            </tr>
+            <tr>
+              <td>Spray paint (optional)</td>
+              <td>Krylon Fusion bonds to PVC without primer</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div><!-- end .build-layout -->
+
+    <!-- Assembly Steps -->
+    <div class="build-steps">
+      <div class="build-steps-title">Assembly <span>Sequence</span></div>
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-title">Cut All Pipe</div>
+          <div class="step-body">Mark and cut every piece before gluing anything. Label each piece with tape. Deburr the inside of every cut with a utility knife or sandpaper — rough edges weaken the joint.</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-title">Dry-Fit the Octagon</div>
+          <div class="step-body">Assemble the full ring without cement first. All 8 elbows should sit flat in one plane with no twisting. Use a flat floor as your reference surface. Adjust cut lengths now if needed.</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-title">Glue the Octagon</div>
+          <div class="step-body">Work around the ring in one direction. Prime both surfaces, apply cement, push and twist 90° to seat. You have about 30 seconds to adjust. Hold for 15 seconds. Let the full ring cure 1 hour before handling.</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-title">Attach the Post T</div>
+          <div class="step-body">Glue the gate T-fitting to the center of the bottom side — the two 5.25&Prime; sections flank it. Orient the T branch pointing straight down. This is the post socket — keep it perfectly plumb.</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">05</div>
+          <div class="step-title">Build the Stand</div>
+          <div class="step-body">Glue T#1 and T#2 onto the upper and lower post sections. T#1 branch faces down (base center), T#2 branch faces perpendicular to T#1's legs. Glue 2 base legs into each T. Cap all 4 ends.</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">06</div>
+          <div class="step-title">Join Gate to Stand</div>
+          <div class="step-body">With both assemblies fully cured, cement the post top into the gate bottom T. Check plumb from two angles before the cement sets. Let sit 2 hours before flying through it.</div>
+        </div>
+
+      </div><!-- end .steps-grid -->
+    </div><!-- end .build-steps -->
+
+  </div>
+</section>
 
 <!-- CTA -->
 <section class="cta-section">
