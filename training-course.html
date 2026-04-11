@@ -1958,8 +1958,9 @@
 
           <!-- T#2: leader from front arm midpoint (200,105) → label left -->
           <line x1="200" y1="105" x2="170" y2="90" stroke="#F5C500" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
-          <text x="167" y="86" text-anchor="end" fill="#F5C500" font-family="Oswald,sans-serif" font-size="10" font-weight="600">T#2</text>
-          <text x="167" y="97" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8.5">F-B legs</text>
+          <text x="167" y="82" text-anchor="end" fill="#F5C500" font-family="Oswald,sans-serif" font-size="10" font-weight="600">T#2</text>
+          <text x="167" y="92" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8.5">4-way cross fitting</text>
+          <text x="167" y="102" text-anchor="end" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="8">F-B legs · post through</text>
 
           <!-- Legend note at bottom -->
           <text x="200" y="300" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="Inter,sans-serif" font-size="8.5">T#2 sits 6″ above T#1 on the post — they overlap in this view</text>
@@ -1979,12 +1980,14 @@
           <!-- Post to ground (below T#1, dashed) -->
           <line x1="200" y1="114" x2="200" y2="155" stroke="#ffffff" stroke-width="6" stroke-dasharray="5,4" opacity="0.2"/>
 
-          <!-- T#2 fitting at y=54: F-B legs go into/out of page → shown as short stubs -->
-          <circle cx="200" cy="54" r="9" fill="#242424" stroke="#9B1B2B" stroke-width="2"/>
-          <circle cx="200" cy="54" r="4" fill="#9B1B2B"/>
-          <!-- T#2 F-B leg stubs (into/out of page — shown as short gray lines with end circles) -->
-          <line x1="148" y1="54" x2="176" y2="54" stroke="#d4d4d4" stroke-width="6" stroke-dasharray="4,3" opacity="0.55"/>
-          <line x1="224" y1="54" x2="252" y2="54" stroke="#d4d4d4" stroke-width="6" stroke-dasharray="4,3" opacity="0.55"/>
+          <!-- T#2 = 4-WAY CROSS fitting at y=54: post passes up & down; F-B legs into/out of page -->
+          <!-- Cross shape to visually indicate a 4-way fitting -->
+          <rect x="191" y="45" width="18" height="18" rx="2" fill="#242424" stroke="#9B1B2B" stroke-width="2"/>
+          <line x1="196" y1="54" x2="204" y2="54" stroke="#F5C500" stroke-width="1.5"/>
+          <line x1="200" y1="50" x2="200" y2="58" stroke="#F5C500" stroke-width="1.5"/>
+          <!-- F-B leg stubs (into/out of page — dashed) -->
+          <line x1="148" y1="54" x2="191" y2="54" stroke="#d4d4d4" stroke-width="6" stroke-dasharray="4,3" opacity="0.55"/>
+          <line x1="209" y1="54" x2="252" y2="54" stroke="#d4d4d4" stroke-width="6" stroke-dasharray="4,3" opacity="0.55"/>
 
           <!-- T#1 fitting at y=114: L-R legs visible in this side view -->
           <circle cx="200" cy="114" r="9" fill="#242424" stroke="#9B1B2B" stroke-width="2"/>
@@ -2015,9 +2018,10 @@
 
           <!-- Labels -->
           <text x="200" y="14" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Oswald,sans-serif" font-size="9" letter-spacing="2">↑ TO GATE</text>
-          <text x="95"  y="58" text-anchor="end" fill="#F5C500" font-family="Oswald,sans-serif" font-size="10" font-weight="600">T#2</text>
-          <text x="95"  y="69" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8.5">F-B legs</text>
-          <text x="88"  y="69" text-anchor="end" fill="rgba(255,255,255,0.35)" font-family="Inter,sans-serif" font-size="8">(into page)</text>
+          <text x="95"  y="52" text-anchor="end" fill="#F5C500" font-family="Oswald,sans-serif" font-size="10" font-weight="600">T#2</text>
+          <text x="95"  y="62" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8.5">4-way cross fitting</text>
+          <text x="95"  y="72" text-anchor="end" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="8">F-B legs (into page)</text>
+          <text x="95"  y="82" text-anchor="end" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="8">post passes through</text>
           <text x="95"  y="118" text-anchor="end" fill="#F5C500" font-family="Oswald,sans-serif" font-size="10" font-weight="600">T#1</text>
           <text x="95"  y="129" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8.5">L-R legs</text>
           <text x="200" y="170" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter,sans-serif" font-size="8.5">ground level</text>
@@ -2094,8 +2098,13 @@
             </tr>
             <tr>
               <td>3&frasl;4&Prime; T-fitting</td>
-              <td class="qty">3</td>
-              <td>1 gate bottom, 1 T#1 base, 1 T#2 base</td>
+              <td class="qty">2</td>
+              <td>Gate bottom + T#1 base (L-R legs &amp; post branch)</td>
+            </tr>
+            <tr>
+              <td>3&frasl;4&Prime; 4-way cross fitting</td>
+              <td class="qty">1</td>
+              <td>T#2 base — post passes through up &amp; down; F-B legs on sides</td>
             </tr>
             <tr>
               <td>3&frasl;4&Prime; end cap</td>
@@ -2169,7 +2178,7 @@
         <div class="step-card">
           <div class="step-number">05</div>
           <div class="step-title">Build the Stand</div>
-          <div class="step-body">Glue T#1 and T#2 onto the upper and lower post sections. T#1 branch faces down (base center), T#2 branch faces perpendicular to T#1's legs. Glue 2 base legs into each T. Cap all 4 ends.</div>
+          <div class="step-body">Glue T#1 (T-fitting) 6&Prime; below the cross fitting position on the lower post. T#1&apos;s branch points down and accepts the two L-R legs. The cross fitting (T#2) sits 6&Prime; above T#1 — the post passes straight through it, and the two F-B legs glue into the side openings. Cap all 4 leg ends.</div>
         </div>
 
         <div class="step-card">
