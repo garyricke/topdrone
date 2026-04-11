@@ -19,3 +19,7 @@
 !avata 2/*.webp
 !fpv-drone-obstacle-course.jpg
 !fpv-drone-obstacle-course-variable-sizes.jpg
+!training course/
+!training course/training-course-gallery/
+!training course/training-course-gallery/*.jpg
+!training course/training-course-gallery/*.webp
