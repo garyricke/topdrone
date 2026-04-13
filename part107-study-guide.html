@@ -252,6 +252,8 @@ footer .foot-links a:hover{color:var(--gold)}
 .fc-modal table th{background:#2a2a2a;color:var(--gold);font-family:'Oswald',sans-serif;letter-spacing:.06em;padding:.5rem .75rem;text-align:left;border-bottom:2px solid var(--gold)}
 .fc-modal table td{padding:.5rem .75rem;border-bottom:1px solid #333;color:rgba(255,255,255,.8)}
 .fc-modal table tr:last-child td{border-bottom:none}
+.acc-deepdive{display:inline-block;margin-top:.9rem;background:none;border:1px solid rgba(245,197,0,.35);color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
+.acc-deepdive:hover{background:rgba(245,197,0,.12);border-color:rgba(245,197,0,.6)}
 </style>
 </head>
 <body>
@@ -362,8 +364,8 @@ footer .foot-links a:hover{color:var(--gold)}
     <div class="fact-card gold"><div class="label">Max Weight</div><div class="value">&lt;<span>55</span> lbs</div><div class="note">at takeoff, including payload</div></div>
     <div class="fact-card"><div class="label">Max Altitude</div><div class="value"><span>400</span> ft AGL</div><div class="note">or 400 ft above structure within 400 ft radius</div></div>
     <div class="fact-card gold"><button class="card-info-btn" onclick="document.getElementById('modal-groundspeed').classList.add('open')" aria-label="More info">i</button><div class="label">Max Groundspeed</div><div class="value"><span>87</span> kts</div><div class="note">100 mph — groundspeed, not airspeed</div></div>
-    <div class="fact-card"><div class="label">Min Visibility</div><div class="value"><span>3</span> sm</div><div class="note">statute miles from control station</div></div>
-    <div class="fact-card gold"><div class="label">Cloud Clearance (Below)</div><div class="value"><span>500</span> ft</div><div class="note">minimum below clouds</div></div>
+    <div class="fact-card"><button class="card-info-btn" onclick="document.getElementById('modal-visibility').classList.add('open')" aria-label="More info">i</button><div class="label">Min Visibility</div><div class="value"><span>3</span> sm</div><div class="note">statute miles from control station</div></div>
+    <div class="fact-card gold"><button class="card-info-btn" onclick="document.getElementById('modal-cloudclearance').classList.add('open')" aria-label="More info">i</button><div class="label">Cloud Clearance (Below)</div><div class="value"><span>500</span> ft</div><div class="note">minimum below clouds</div></div>
     <div class="fact-card"><div class="label">Cloud Clearance (Horiz)</div><div class="value"><span>2,000</span> ft</div><div class="note">minimum horizontal from clouds</div></div>
     <div class="fact-card gold"><div class="label">Incident Reporting</div><div class="value"><span>10</span> days</div><div class="note">calendar days to report to FAA</div></div>
     <div class="fact-card"><div class="label">Property Damage Threshold</div><div class="value">&gt;<span>$500</span></div><div class="note">repair cost triggers required report</div></div>
@@ -522,6 +524,12 @@ footer .foot-links a:hover{color:var(--gold)}
         <tr><td>Cat 4</td><td>Any (&lt;55 lbs)</td><td>By design (airworthy)</td><td>Must have FAA airworthiness cert under Part 21; follow approved Flight Manual; no flight manual prohibition on overflight</td><td>YES</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="alert alert-gold" style="cursor:pointer;transition:box-shadow .15s" onclick="document.getElementById('modal-oop').classList.add('open')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('modal-oop').classList.add('open')}">
+    <strong>OOP Category Deep Dive — What Each Category Means &amp; Where the Avata 2 Sits</strong>
+    Risk-based framework explained: the kinetic energy tests, Declaration of Compliance, "sustained flight" definition, and why the Avata 2 is a "Standard sUAS" — not Category 1, 2, 3, or 4.
+    <span style="display:block;font-size:.68rem;color:var(--gold);letter-spacing:.08em;margin-top:.4rem;opacity:.75">TAP TO LEARN MORE ›</span>
   </div>
 
   <!-- WAIVERS -->
@@ -684,6 +692,7 @@ footer .foot-links a:hover{color:var(--gold)}
           <li><strong>Wind shear</strong>: sudden, drastic change in speed/direction; can occur at any altitude; most hazardous near surface; associated with fronts, thunderstorms, temperature inversions, strong upper winds (&gt;25 kts)</li>
           <li><strong>Microburst</strong>: most severe wind shear; intense downdraft; headwind losses of 30–90 knots; indicated by intense rain shaft at surface with virga at cloud base</li>
         </ul>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-microburst').classList.add('open')">Microburst Deep Dive ›</button>
       </div></div>
     </div>
 
@@ -717,6 +726,7 @@ footer .foot-links a:hover{color:var(--gold)}
           <li><strong>Upslope fog</strong>: moist air forced up terrain; most hazardous for aviation; cools as it rises until saturated</li>
           <li><strong>Ice fog</strong>: very cold conditions; water vapor freezes directly to ice crystals; severe visibility reduction</li>
         </ul>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-fog').classList.add('open')">Fog Types Deep Dive ›</button>
       </div></div>
     </div>
 
@@ -751,6 +761,7 @@ footer .foot-links a:hover{color:var(--gold)}
           </tbody>
         </table>
         </div>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-metar').classList.add('open')">METAR Decode + Sky Codes + AIRMET Types ›</button>
       </div></div>
     </div>
   </div>
@@ -864,6 +875,12 @@ footer .foot-links a:hover{color:var(--gold)}
     </table>
   </div>
 
+  <div class="alert alert-gold" style="cursor:pointer;transition:box-shadow .15s" onclick="document.getElementById('modal-airspace').classList.add('open')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('modal-airspace').classList.add('open')}">
+    <strong>Sectional Chart Color Code — How to Spot Each Airspace Class on the Map</strong>
+    Solid blue vs. dashed magenta vs. faded vignette — the exact markings examiners ask about, plus how LAANC works for instant automated authorization.
+    <span style="display:block;font-size:.68rem;color:var(--gold);letter-spacing:.08em;margin-top:.4rem;opacity:.75">TAP TO LEARN MORE ›</span>
+  </div>
+
   <div class="mnemonic">
     <div class="mnem-label">Airspace Authorization Memory Aid</div>
     <div class="mnem-text">B · C · D · E(surface) = ASK</div>
@@ -913,6 +930,7 @@ footer .foot-links a:hover{color:var(--gold)}
           <li><strong>Base</strong>: perpendicular to runway, begins descent</li>
           <li><strong>Final</strong>: aligned with runway, landing direction</li>
         </ul>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-traffic').classList.add('open')">Traffic Pattern Deep Dive ›</button>
       </div></div>
     </div>
 
@@ -924,6 +942,7 @@ footer .foot-links a:hover{color:var(--gold)}
           <li><strong>Tetrahedron</strong>: points INTO the wind (upwind); shows recommended runway direction</li>
           <li>Both are visual aids for uncontrolled airports to determine active runway</li>
         </ul>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-windindicators').classList.add('open')">Windsock vs. Tetrahedron Deep Dive ›</button>
       </div></div>
     </div>
 
@@ -938,6 +957,7 @@ footer .foot-links a:hover{color:var(--gold)}
           <li><strong>Displaced threshold</strong>: available for taxi/takeoff but not landing</li>
           <li><strong>Runway distance remaining</strong>: black background, white numbers = thousands of feet remaining</li>
         </ul>
+        <button class="acc-deepdive" onclick="document.getElementById('modal-runwaymarkings').classList.add('open')">Runway Markings Deep Dive ›</button>
       </div></div>
     </div>
   </div>
@@ -2689,6 +2709,316 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     Aviation and maritime use knots because they align with the Earth's coordinate system — one nautical mile = one minute of latitude, making long-distance navigation over a globe far simpler than using land miles.
     </div>
     <p style="margin-top:1rem;font-size:.82rem;color:rgba(255,255,255,.5)"><strong style="color:var(--gold)">Why this matters for Part 107:</strong> The FAA uses both units because drones are classified as "aircraft" (world of knots) but drone pilots often come from land backgrounds (world of mph). The hard limit is <strong>100 mph exactly</strong> — 87 knots is simply the mathematical conversion so both audiences share the same rule.</p>
+  </div>
+</div>
+
+<!-- ===== NEW DEEP-DIVE MODALS ===== -->
+
+<!-- MODAL: MIN VISIBILITY — Statute Miles -->
+<div class="fc-modal-overlay" id="modal-visibility" role="dialog" aria-modal="true" aria-label="Min Visibility — Statute Miles">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-visibility')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">PART 107 §107.51(b)</div>
+    <h3>Min Visibility — Why "Statute Miles"?</h3>
+    <p>A <strong>Statute Mile</strong> is the everyday "normal" mile — the one on your car's odometer and every US speed-limit sign. It equals exactly <strong>5,280 feet</strong>. The FAA specifies Part 107 visibility in Statute Miles because drone pilots come from land-based backgrounds, not maritime ones.</p>
+    <div class="fc-rule"><strong>The rule:</strong> You need at least <strong>3 Statute Miles</strong> of visibility from your control station. Not nautical miles — statute miles.</div>
+    <h3 style="margin-top:1.25rem">SM vs. NM — The Exam Trap</h3>
+    <p>Aviation normally runs on <em>Nautical Miles</em> (used for airspeed, long-range navigation, sectional chart distances). The FAA loves mixing them up in distractor answers:</p>
+    <table>
+      <tr><th>Feature</th><th>Statute Mile (SM)</th><th>Nautical Mile (NM)</th></tr>
+      <tr><td>Feet</td><td><strong style="color:var(--gold)">5,280 ft</strong></td><td>~6,076 ft</td></tr>
+      <tr><td>Relative size</td><td>Shorter</td><td>Longer (1 NM = 1.15 SM)</td></tr>
+      <tr><td>Used for</td><td>Driving, hiking, <strong>drone visibility</strong></td><td>Sailing, airspeed, weather wind speeds</td></tr>
+    </table>
+    <div class="fc-rule" style="margin-top:1rem;border-left-color:var(--red)"><strong>Classic exam distractor:</strong> Options will list "3 Nautical Miles" and "3 Statute Miles." They sound identical but differ by ~1,000 feet. The correct answer for Part 107 visibility is always <strong>3 Statute Miles</strong>.</div>
+    <p style="margin-top:1rem"><strong style="color:var(--gold)">Sectional chart tip:</strong> The scale bar at the bottom of a VFR Sectional Chart has two sides — one for Nautical Miles, one for Statute Miles. When estimating your 3-mile visibility radius, read from the Statute Miles side.</p>
+  </div>
+</div>
+
+<!-- MODAL: CLOUD CLEARANCE — VFR & 500/2000 Rule -->
+<div class="fc-modal-overlay" id="modal-cloudclearance" role="dialog" aria-modal="true" aria-label="Cloud Clearance — VFR Rule">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-cloudclearance')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">§107.51(d)</div>
+    <h3>Cloud Clearance &amp; VFR Explained</h3>
+    <p><strong>VFR (Visual Flight Rules)</strong> — the set of regulations requiring pilots to navigate by sight. Drone pilots are always VFR: you must see the aircraft, maintain 3 SM visibility, and stay clear of clouds. The opposite is IFR (Instrument Flight Rules), which allows flying inside clouds using cockpit instruments. Drones cannot fly IFR.</p>
+    <div class="fc-rule"><strong>The Part 107 Rule (§107.51(d)):</strong><br>
+      ✔ At least <strong>500 feet below</strong> any cloud layer.<br>
+      ✔ At least <strong>2,000 feet horizontally</strong> from any cloud.
+    </div>
+    <h3 style="margin-top:1.25rem">Drone vs. Manned Aircraft (Class G)</h3>
+    <p>Manned VFR pilots in Class G airspace below 1,200 ft AGL only need to be "clear of clouds" — no specific distance required. Drone rules are <em>stricter</em>:</p>
+    <table>
+      <tr><th>Feature</th><th>Manned VFR (Class G, day)</th><th>Part 107 Drone</th></tr>
+      <tr><td>Visibility</td><td>1 Statute Mile</td><td><strong style="color:var(--gold)">3 Statute Miles</strong></td></tr>
+      <tr><td>Cloud clearance</td><td>"Clear of clouds"</td><td><strong style="color:var(--gold)">500 ft below / 2,000 ft horizontal</strong></td></tr>
+    </table>
+    <p style="margin-top:.75rem"><em>Why stricter?</em> Drones are tiny. A manned aircraft popping out of a cloud base at 150 mph won't see your drone until it's right on top of it. The 500 ft buffer ensures enough vertical separation to react.</p>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>The Math Trap (most common exam question):</strong><br>
+      Ceiling = 700 ft AGL. What is your max altitude?<br>
+      Wrong answer: 400 ft (the "normal" limit).<br>
+      <strong>Correct answer: 200 ft AGL</strong> — because 700 − 500 = 200. The cloud buffer overrides the 400 ft ceiling whenever clouds are lower than 900 ft AGL.
+    </div>
+    <p style="margin-top:.75rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">VFR vs IFR summary:</strong> VFR = see and avoid (always drones). IFR = instruments and ATC separation (never drones under Part 107).</p>
+  </div>
+</div>
+
+<!-- MODAL: OPERATIONS OVER PEOPLE — Categories 1-4 + Avata 2 -->
+<div class="fc-modal-overlay" id="modal-oop" role="dialog" aria-modal="true" aria-label="Operations Over People Categories">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-oop')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">SUBPART D — §107.110–145</div>
+    <h3>Operations Over People — Deep Dive</h3>
+    <p>Before these rules existed, flying over anyone was generally prohibited. The FAA's "risk-based" framework now allows it — but only if the drone is engineered and certified to specific standards.</p>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">Category 1 — The Ultralight Rule</p>
+    <div class="fc-rule" style="margin-top:0">Weight ≤ 0.55 lbs (250g) at takeoff. No exposed rotating parts that could lacerate skin (prop guards required in practice). <strong>Can fly over people</strong>, but no sustained flight over open-air assemblies without Remote ID. <em>Example: DJI Mini 4 Pro.</em></div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">Category 2 — The Kinetic Energy Rule (Low Risk)</p>
+    <div class="fc-rule" style="margin-top:0">Any weight under 55 lbs. Impact energy must be ≤ 11 ft-lbs. Manufacturer must submit a <strong>Declaration of Compliance (DOC)</strong> to the FAA proving this via testing. Drone must have a "CAT 2" label permanently affixed. <strong>Can fly over people and moving vehicles</strong>; no sustained flight over crowds.</div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">Category 3 — The Restricted Site Rule</p>
+    <div class="fc-rule" style="margin-top:0">Any weight under 55 lbs. Impact energy ≤ 25 ft-lbs. DOC + "CAT 3" label required. <strong>Cannot fly over open-air assemblies at all.</strong> Can only fly over people if: (1) site is restricted-access and everyone is notified, OR (2) no sustained flight over anyone not in the operation.</div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">Category 4 — The Certified Aircraft Rule</p>
+    <div class="fc-rule" style="margin-top:0">Any weight under 55 lbs. Must have an <strong>FAA Airworthiness Certificate</strong> under Part 21 (same standard as manned aircraft). Maintained per an approved schedule. <strong>Only category allowed for sustained flight over open-air assemblies</strong> — think CNN drones or Hollywood productions.</div>
+
+    <h3 style="margin-top:1.5rem">What is "Sustained Flight"?</h3>
+    <p>Hovering over, circling, or flying back and forth above people. Briefly passing over in transit from Point A to B is generally "incidental" — <em>not</em> sustained. The line is blurry; err on the side of routing around people.</p>
+
+    <h3 style="margin-top:1.25rem">Where Does the Avata 2 Sit?</h3>
+    <p>The Avata 2 weighs ~377g (0.83 lbs) — too heavy for Category 1. DJI has not submitted a DOC for Category 2 or 3 certification. This places it in the <strong>"Standard sUAS"</strong> class — outside the category system entirely.</p>
+    <table>
+      <tr><th>Scenario</th><th>Avata 2 Status</th></tr>
+      <tr><td>Sustained flight over crowds</td><td style="color:#f87171">NO — waiver required</td></tr>
+      <tr><td>Hovering over individuals</td><td style="color:#f87171">NO — non-participants only</td></tr>
+      <tr><td>"Transit" over people (point A to B)</td><td style="color:#86efac">OK — incidental only</td></tr>
+      <tr><td>Flying over involved participants (VO, actors)</td><td style="color:#86efac">OK</td></tr>
+      <tr><td>Adding a "CAT 2" label yourself</td><td style="color:#f87171">VIOLATION — no DOC exists</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- MODAL: MICROBURST -->
+<div class="fc-modal-overlay" id="modal-microburst" role="dialog" aria-modal="true" aria-label="Microburst Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-microburst')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER — MOST SEVERE WIND SHEAR</div>
+    <h3>Microburst — The Weather Bomb</h3>
+    <p>A microburst is a localized, intensely concentrated column of sinking air (downdraft) that crashes into the ground and spreads outward. For a small drone, it's a total loss scenario — motor power cannot overcome the downward force.</p>
+    <div class="fc-rule"><strong>Sequence of events when flying into a microburst:</strong><br>
+      1. <strong>Headwind phase:</strong> Approaching the microburst, you hit a strong headwind. The drone may feel like it's gaining lift — deceptive.<br>
+      2. <strong>Downdraft core:</strong> Suddenly, air pushes straight down at speeds exceeding 6,000 ft/min. You lose altitude rapidly — motors can't compensate.<br>
+      3. <strong>Tailwind exit:</strong> As you exit the other side, wind now pushes with you — massive loss of control and groundspeed.
+    </div>
+    <h3 style="margin-top:1.25rem">Visual Warning Signs — Land Immediately if You See Both</h3>
+    <table>
+      <tr><th>Sign</th><th>What You See</th><th>What It Means</th></tr>
+      <tr><td><strong>Virga</strong></td><td>Rain "hanging" from clouds but evaporating before ground</td><td>Rapidly cooling, sinking air — a microburst is forming</td></tr>
+      <tr><td><strong>Rain shaft</strong></td><td>Dense curtain of heavy rain reaching the ground</td><td>The downdraft core is fully active</td></tr>
+      <tr><td><strong>Dust ring</strong></td><td>Circular plume of dust/debris at the surface</td><td>Outflow from the microburst hitting the ground</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Exam tip:</strong> If a question asks for the most severe weather phenomenon or the greatest hazard to aviation from wind, the answer is always <strong>Microburst</strong>. "Virga at cloud base" is the key indicator phrase to memorize.</div>
+    <p style="margin-top:.75rem"><strong style="color:var(--gold)">Knots context:</strong> "Headwind losses of 30–90 knots" sounds abstract. 90 knots = ~103 mph. If your Avata 2's top speed is ~60 mph, a 90-knot shear means you're effectively flying backward at 40+ mph against your will.</p>
+  </div>
+</div>
+
+<!-- MODAL: FOG TYPES -->
+<div class="fc-modal-overlay" id="modal-fog" role="dialog" aria-modal="true" aria-label="Fog Types Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-fog')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER — VISIBILITY HAZARDS</div>
+    <h3>Fog Types — Why Formation Matters for Drone Pilots</h3>
+    <p>Understanding <em>how</em> fog forms tells you when it will clear — which determines when you can fly legally (you need 3 SM visibility).</p>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">1. Radiation Fog — "The Ground Fog"</p>
+    <div class="fc-rule" style="margin-top:0">Forms on <strong>clear, calm nights</strong> as the ground radiates heat into space. Ground cools → chills the air touching it → air hits dew point → fog. <strong>Key rule: requires NO wind.</strong> Even 5 knots disperses it. Burns off after sunrise as ground warms. Common in valleys and flat fields.</div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">2. Advection Fog — "The Moving Fog"</p>
+    <div class="fc-rule" style="margin-top:0">Forms when warm moist air moves (advects) horizontally over a cooler surface. <strong>Key rule: REQUIRES wind</strong> — wind both causes and sustains it. Common in coastal areas (San Francisco, Great Lakes). Unlike radiation fog, sunlight doesn't burn it off because the wind keeps delivering more moist air. Can persist all day.</div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">3. Upslope Fog — "The Mountain Fog"</p>
+    <div class="fc-rule" style="margin-top:0">Wind pushes moist air up a slope. Air cools as it rises (adiabatic cooling) until it hits the dew point — fog forms, but since it's touching the terrain, we call it fog. <strong>Most hazardous for aviation</strong> — forms rapidly over a large area as wind increases, can swallow a drone in minutes at ridge altitude.</div>
+
+    <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:.75rem 0 .25rem">4. Ice Fog — "The Arctic Fog"</p>
+    <div class="fc-rule" style="margin-top:0">Forms only in extreme cold (below ~−25°F). Water vapor skips the liquid stage and freezes directly into suspended ice crystals. <strong>Danger for drones:</strong> instant icing on propellers = loss of lift = crash. Rare outside Alaska or Midwest deep winter.</div>
+
+    <table style="margin-top:1rem">
+      <tr><th>Fog Type</th><th>Wind?</th><th>Clears When…</th><th>Where Common</th></tr>
+      <tr><td>Radiation</td><td>None needed</td><td>Sun warms the ground</td><td>Valleys, flat fields</td></tr>
+      <tr><td>Advection</td><td>Required</td><td>Wind direction changes</td><td>Coasts, Great Lakes</td></tr>
+      <tr><td>Upslope</td><td>Required (uphill)</td><td>Wind stops blowing uphill</td><td>Mountain ridges</td></tr>
+      <tr><td>Ice</td><td>Not required</td><td>Temperature rises above freezing</td><td>Arctic, deep winter Midwest</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:1rem"><strong>Exam mnemonic:</strong> Radiation = <strong>R</strong>adiates (stays still, no wind). Advection = <strong>A</strong>dvection = <strong>A</strong>ction (movement, requires wind).</div>
+  </div>
+</div>
+
+<!-- MODAL: METAR DECODE + SKY CODES + AIRMET -->
+<div class="fc-modal-overlay" id="modal-metar" role="dialog" aria-modal="true" aria-label="METAR Decode Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-metar')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER — METAR / SKY CODES / AIRMET</div>
+    <h3>Decoding a METAR</h3>
+    <p>A METAR looks like gibberish — it's a strict fixed-order string. Here's a real example decoded field by field:</p>
+    <div class="fc-rule" style="font-family:monospace;font-size:.9rem;letter-spacing:.04em">METAR KORD 121852Z 19004KT 10SM BKN015 18/02 A2992</div>
+    <table style="margin-top:.5rem">
+      <tr><th>Field</th><th>Meaning</th></tr>
+      <tr><td>KORD</td><td>Chicago O'Hare airport (K = US)</td></tr>
+      <tr><td>121852Z</td><td>12th day of month at 18:52 Zulu (UTC) time</td></tr>
+      <tr><td>19004KT</td><td>Wind FROM 190° at 4 knots</td></tr>
+      <tr><td>10SM</td><td>10 Statute Miles visibility — legal for Part 107</td></tr>
+      <tr><td>BKN015</td><td>Broken clouds at 1,500 ft (15 × 100). This IS a ceiling.</td></tr>
+      <tr><td>18/02</td><td>Temperature 18°C / Dew Point 2°C</td></tr>
+      <tr><td>A2992</td><td>Altimeter setting 29.92 inHg</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:1rem"><strong>Exam math:</strong> BKN015 = ceiling 1,500 ft. Max altitude = 1,500 − 500 = 1,000 ft — but your standard limit is 400 ft, so you can fly your full 400 ft AGL. The cloud rule only bites when clouds are below 900 ft AGL.</div>
+
+    <h3 style="margin-top:1.5rem">Sky Condition Codes (Oktas)</h3>
+    <p>Each code tells you how much of the sky is covered (in eighths) and at what height (hundreds of feet).</p>
+    <table>
+      <tr><th>Code</th><th>Coverage</th><th>Is it a Ceiling?</th><th>Part 107 Impact</th></tr>
+      <tr><td>SKC / CLR</td><td>0/8 — clear</td><td>No</td><td>Perfect flying weather</td></tr>
+      <tr><td>FEW</td><td>1–2/8</td><td>No</td><td>Minor patches, easy to avoid</td></tr>
+      <tr><td>SCT</td><td>3–4/8</td><td>No</td><td>Noticeable but not a ceiling</td></tr>
+      <tr><td><strong>BKN</strong></td><td>5–7/8</td><td><strong style="color:var(--gold)">YES</strong></td><td>Apply 500 ft buffer from this layer</td></tr>
+      <tr><td><strong>OVC</strong></td><td>8/8 total</td><td><strong style="color:var(--gold)">YES</strong></td><td>Apply 500 ft buffer from this layer</td></tr>
+      <tr><td><strong>VV</strong></td><td>Obscured (fog/snow)</td><td><strong style="color:var(--gold)">YES</strong></td><td>Use VV height as ceiling — indefinite</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:.75rem"><strong>OVC004 = grounded.</strong> Overcast at 400 ft → you'd need to fly at −100 ft to maintain the 500 ft buffer. Legally impossible. Land.</div>
+    <div class="fc-rule" style="margin-top:.5rem"><strong>Ceiling rule:</strong> The ceiling is the LOWEST layer that is BKN, OVC, or VV. Ignore SCT and FEW layers above it. Example: SCT020 BKN035 = ceiling is 3,500 ft (ignore the scattered at 2,000 ft).</div>
+
+    <h3 style="margin-top:1.5rem">AIRMET Types — Sierra, Tango, Zulu</h3>
+    <p>AIRMETs are "caution" advisories affecting smaller aircraft most. There are exactly three types:</p>
+    <table>
+      <tr><th>Name</th><th>Type</th><th>Covers</th></tr>
+      <tr><td><strong>Sierra</strong></td><td><strong>S</strong>ight</td><td>IFR conditions (low ceilings &lt; 1,000 ft / vis &lt; 3 SM) and mountain obscuration</td></tr>
+      <tr><td><strong>Tango</strong></td><td><strong>T</strong>urbulence</td><td>Moderate turbulence, sustained surface winds ≥ 30 knots, or low-level wind shear</td></tr>
+      <tr><td><strong>Zulu</strong></td><td><strong>Z</strong>ero degrees</td><td>Moderate icing and freezing level altitudes</td></tr>
+    </table>
+    <p style="margin-top:.5rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">Memory trick:</strong> S = Sight issues, T = Turbulence, Z = Zero (icing/freezing). SIGMET is the "emergency" level above AIRMET — severe turbulence, severe icing, tornadoes, microbursts, volcanic ash.</p>
+  </div>
+</div>
+
+<!-- MODAL: TRAFFIC PATTERN -->
+<div class="fc-modal-overlay" id="modal-traffic" role="dialog" aria-modal="true" aria-label="Traffic Pattern Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-traffic')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">AIRPORT OPS — §91.127</div>
+    <h3>The Traffic Pattern — 5 Legs &amp; Drone Danger Zones</h3>
+    <p>The traffic pattern is the standardized rectangular flight path manned aircraft follow around an airport for takeoffs and landings. Under Part 107, you must yield right-of-way to ALL manned aircraft — knowing where they'll be is survival knowledge.</p>
+    <div class="fc-rule"><strong>Why left turns?</strong> The pilot sits in the <em>left seat</em>. Turning left keeps the runway visible out the pilot's side window. Turning right, the cockpit roof or wing blocks the view. Some airports use Right Traffic (marked <strong>RP</strong> on sectional charts) to avoid terrain or city obstacles.</div>
+    <h3 style="margin-top:1.25rem">The 5 Legs in Order</h3>
+    <table>
+      <tr><th>Leg</th><th>Direction vs. Runway</th><th>What's Happening</th></tr>
+      <tr><td>Upwind / Departure</td><td>Same direction as takeoff</td><td>Climbing straight ahead after liftoff</td></tr>
+      <tr><td>Crosswind</td><td>90° across runway end</td><td>Still climbing, turning to parallel course</td></tr>
+      <tr><td>Downwind</td><td>Opposite / parallel to runway</td><td>Level at pattern altitude; pre-landing checks</td></tr>
+      <tr><td>Base</td><td>Perpendicular to runway</td><td>Beginning descent toward centerline</td></tr>
+      <tr><td>Final</td><td>Same direction as landing</td><td>Aligned with runway, descending to land</td></tr>
+    </table>
+    <div class="fc-rule" style="margin-top:1rem"><strong>Pattern altitude:</strong> Small planes = <strong>1,000 ft AGL</strong>. Large/fast aircraft = 1,500 ft AGL. Your drone is capped at 400 ft, so you're 600 ft below "pattern belly" — but Final and Upwind legs go much lower!</div>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:.75rem"><strong>Drone danger zones:</strong>
+      <br>• <strong>Final leg</strong> — aircraft is lowest, on the runway centerline approach, pilot focused on landing. Never fly near the extended centerline.
+      <br>• <strong>Upwind leg</strong> — aircraft just took off and is climbing through your altitude range, pilot managing power and trim.
+      <br>• <strong>45° Downwind entry</strong> — aircraft descending to join the pattern. Watch for traffic approaching at an angle.
+    </div>
+    <p style="margin-top:.75rem"><strong style="color:var(--gold)">Pro tip:</strong> Apps like FlightRadar24 or a handheld aviation radio (tuned to CTAF/ATIS) let you hear pilot callouts: "Cessna 123 turning Left Base for Runway 19." Now you know exactly where they are and can react.</p>
+  </div>
+</div>
+
+<!-- MODAL: WINDSOCK vs. TETRAHEDRON -->
+<div class="fc-modal-overlay" id="modal-windindicators" role="dialog" aria-modal="true" aria-label="Wind Indicators Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-windindicators')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">AIRPORT OPS — UNCONTROLLED AIRPORTS</div>
+    <h3>Windsock vs. Tetrahedron — Opposite Directions</h3>
+    <p>These two indicators look like they do the same job but point in <em>opposite directions</em>. This is one of the FAA's favorite tricks. The key: <strong>the windsock follows the wind; the tetrahedron fights it.</strong></p>
+    <table>
+      <tr><th>Feature</th><th>Windsock</th><th>Tetrahedron</th></tr>
+      <tr><td>Points to…</td><td><strong>Downwind</strong> (where wind is going)</td><td><strong>Upwind</strong> (where wind is coming from)</td></tr>
+      <tr><td>Shows speed?</td><td>Yes — by how inflated it is</td><td>No — direction only</td></tr>
+      <tr><td>Best used for</td><td>Checking gust conditions</td><td>Checking landing direction</td></tr>
+    </table>
+    <div class="fc-rule" style="margin-top:1rem"><strong>Windsock inflation = wind speed:</strong><br>
+      • Drooping = calm / &lt; 3 knots<br>
+      • Partially extended = moderate (~6–9 knots)<br>
+      • Fully horizontal = strong (15+ knots)
+    </div>
+    <div class="fc-rule" style="margin-top:.75rem"><strong>Exam trick:</strong> If the windsock small end points East, the wind is FROM the West. The sock shows where the wind is going, not where it's coming from.</div>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:.75rem"><strong>Quick test:</strong> Windsock fully extended, pointing South. What is the wind doing?<br>
+    → Wind is blowing <strong>from the North</strong> at 15+ knots. The tetrahedron would be pointing North (toward the wind, into the landing direction).
+    </div>
+    <p style="margin-top:.75rem"><strong style="color:var(--gold)">Drone takeaway:</strong> If the tetrahedron points North, planes are landing and taking off to the North. Their lowest altitudes (below 400 ft) are directly South of the runway threshold — avoid that corridor entirely.</p>
+  </div>
+</div>
+
+<!-- MODAL: AIRSPACE SECTIONAL CHART MARKINGS -->
+<div class="fc-modal-overlay" id="modal-airspace" role="dialog" aria-modal="true" aria-label="Airspace Sectional Chart Markings">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-airspace')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">SECTIONAL CHART — AIRSPACE MARKINGS</div>
+    <h3>Reading Airspace on a Sectional Chart</h3>
+    <p>VFR Sectional Charts use a specific color and line-style system for each airspace class. Memorize these cold — the exam shows map excerpts and asks which class you're in and whether you need authorization.</p>
+    <table>
+      <tr><th>Airspace</th><th>Chart Marking</th><th>Authorization Needed?</th></tr>
+      <tr><td>Class B</td><td>Solid blue lines (inverted wedding cake)</td><td>YES — LAANC or DroneZone</td></tr>
+      <tr><td>Class C</td><td>Solid magenta lines (two concentric rings)</td><td>YES — LAANC or DroneZone</td></tr>
+      <tr><td>Class D</td><td>Dashed blue lines (~5 nm circle)</td><td>YES — LAANC or DroneZone</td></tr>
+      <tr><td>Class E (surface)</td><td><strong style="color:var(--gold)">Dashed magenta lines</strong> (the trap!)</td><td>YES — treated like controlled surface</td></tr>
+      <tr><td>Class E (700 ft AGL)</td><td>Faded magenta vignette (shaded area)</td><td>No auth needed below 400 ft AGL</td></tr>
+      <tr><td>Class G</td><td>Everywhere else (under the E floor)</td><td>No — but all Part 107 rules still apply</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>The Class E Surface Trap (most common exam trick):</strong><br>
+      Most Class E starts at 700 ft (no authorization needed). But when you see a <strong>dashed magenta line</strong> around an airport, that's Class E surface area — it goes all the way to the ground. You DO need authorization there, even though it looks similar to the faded "E at 700 ft" shading nearby.
+    </div>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:.75rem"><strong>Class D exam question:</strong> "You see a dashed blue line around an airport. What class and do you need auth?"<br>
+    → Class D. Yes, you need authorization.
+    </div>
+    <h3 style="margin-top:1.25rem">LAANC — Instant Automated Authorization</h3>
+    <p>LAANC (Low Altitude Authorization and Notification Capability) replaced the old 90-day paper waiver process. Use an app (Aloft, AirControl, DroneDeploy):</p>
+    <div class="fc-rule" style="margin-top:.5rem">1. Open the map — you'll see a grid overlay with numbers (e.g., "0," "100," "400").<br>
+    2. Those numbers are pre-approved altitude ceilings in that grid square.<br>
+    3. If you stay at or below the number, you get <strong>instant automated approval</strong>.<br>
+    4. "0" means the FAA hasn't pre-approved any altitude there — you must apply via DroneZone for a manual waiver.
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: RUNWAY MARKINGS -->
+<div class="fc-modal-overlay" id="modal-runwaymarkings" role="dialog" aria-modal="true" aria-label="Runway Markings Deep Dive">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-runwaymarkings')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">AIRPORT OPS — RUNWAY MARKINGS</div>
+    <h3>Runway Markings — The Full Breakdown</h3>
+    <p>High-contrast pavement markings tell pilots exactly where they can and can't go. As a drone pilot, these markings tell you where <em>fast-moving aircraft</em> are and why you must never fly near them.</p>
+
+    <div class="fc-rule"><strong>The Color Rule — memorize this first:</strong><br>
+      • <strong>Yellow</strong> markings = Taxiway (ground movement only — slow-moving aircraft)<br>
+      • <strong>White</strong> markings = Runway (high-speed takeoff and landing)<br>
+      • Mnemonic: <em>"White is for Flight"</em>
+    </div>
+
+    <h3 style="margin-top:1.25rem">Runway Numbers</h3>
+    <div class="fc-rule" style="margin-top:.5rem"><strong>Formula:</strong> Magnetic heading ÷ 10, rounded. Runway 27 = 270° (due West).<br>
+    <strong>Opposite end:</strong> Always differs by 18. Runway 27's opposite end = Runway 09 (090°, due East).<br>
+    Same strip of asphalt — two numbers depending on which direction you're landing.
+    </div>
+
+    <table style="margin-top:1rem">
+      <tr><th>Marking</th><th>Appearance</th><th>Meaning</th></tr>
+      <tr><td>Runway centerline</td><td>Dashed white stripe</td><td>Center of the takeoff/landing surface</td></tr>
+      <tr><td>Taxiway centerline</td><td>Solid yellow stripe</td><td>Follow this for ground movement</td></tr>
+      <tr><td>Standard threshold</td><td>White "piano keys" (rectangles)</td><td>Start of usable landing area</td></tr>
+      <tr><td>Displaced threshold</td><td>White arrows + white bar before piano keys</td><td>Can taxi &amp; take off; CANNOT land</td></tr>
+      <tr><td>Distance remaining</td><td>Black sign, white number</td><td>Thousands of feet of runway left (e.g., "3" = 3,000 ft)</td></tr>
+    </table>
+
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Displaced threshold — the exam gotcha:</strong><br>
+      If there's a displaced threshold (arrows before the piano keys), landing aircraft must touch down AFTER the piano keys. But pilots CAN use the displaced section for takeoff roll and taxiing. Common reason: trees or buildings off the end of the runway require extra obstacle clearance.
+    </div>
+
+    <p style="margin-top:.75rem"><strong style="color:var(--gold)">Drone safety rule:</strong> An aircraft aligned with a dashed white centerline is at high power and high speed. Never fly over or near a runway centerline — you're directly in the path of something that cannot stop or swerve. A plane on a yellow taxiway line is slow and at low power — still give clearance, but far less dangerous than a runway encounter.</p>
   </div>
 </div>
 
