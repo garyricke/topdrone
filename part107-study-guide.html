@@ -1803,7 +1803,7 @@ function toggleFaq(el){el.classList.toggle('open')}
       </button>
       <div class="acc-body">
         <div class="acc-content">
-          Create an account on <strong>IACRA (Integrated Airman Certification and Rating Application)</strong> to get your <strong>FAA Tracking Number (FTN)</strong>. You cannot schedule the PSI test without this number — it's the very first step, before booking anything.
+          Create an account on <strong><a href="https://iacra.faa.gov/IACRA/Default.aspx" target="_blank" rel="noopener noreferrer">IACRA (Integrated Airman Certification and Rating Application)</a></strong> to get your <strong>FAA Tracking Number (FTN)</strong>. You cannot schedule the PSI test without this number — it's the very first step, before booking anything.
         </div>
       </div>
     </div>
@@ -2416,28 +2416,28 @@ const glossaryData = [
   { abbr: 'MOA',      def: 'Military Operations Area — special use airspace where military training occurs. Drones should avoid or use caution.' },
   { abbr: 'SUA',      def: 'Special Use Airspace — airspace with defined activities that may be hazardous (Prohibited, Restricted, Warning, MOA, Alert areas).' },
   { abbr: 'TFR',      def: 'Temporary Flight Restriction — a temporary airspace restriction issued via NOTAM for events, emergencies, VIP movement, etc.' },
-  { abbr: 'TRSA',     def: 'Terminal Radar Service Area — airspace where ATC provides radar service to participating VFR aircraft.' },
-  { abbr: 'LAANC',    def: 'Low Altitude Authorization and Notification Capability — automated system for drone pilots to get near-real-time ATC authorization.' },
+  { abbr: 'TRSA',     def: 'Terminal Radar Service Area — airspace where ATC provides radar service to participating VFR aircraft.', modal: 'modal-gloss-vfr-trsa' },
+  { abbr: 'LAANC',    def: 'Low Altitude Authorization and Notification Capability — automated system for drone pilots to get near-real-time ATC authorization.', modal: 'modal-gloss-laanc' },
   // Navigation / Altitude
   { abbr: 'AGL',      def: 'Above Ground Level — altitude measured from the surface directly below the aircraft. Part 107 max altitude: 400 ft AGL.' },
   { abbr: 'MSL',      def: 'Mean Sea Level — altitude measured from average sea level. Used in aeronautical charts.' },
   { abbr: 'PA',       def: 'Pressure Altitude — altitude indicated when altimeter is set to standard sea level pressure (29.92 inHg).' },
   { abbr: 'DA',       def: 'Density Altitude — pressure altitude corrected for non-standard temperature. High DA = degraded aircraft performance.' },
   // Flight rules / conditions
-  { abbr: 'VFR',      def: 'Visual Flight Rules — flight conducted with visual reference to the ground and in VMC conditions.' },
+  { abbr: 'VFR',      def: 'Visual Flight Rules — flight conducted with visual reference to the ground and in VMC conditions.', modal: 'modal-gloss-vfr-trsa' },
   { abbr: 'IFR',      def: 'Instrument Flight Rules — flight conducted by reference to instruments only, in IMC or clouds.' },
   { abbr: 'VMC',      def: 'Visual Meteorological Conditions — weather conditions that allow VFR flight (adequate visibility and cloud clearance).' },
   { abbr: 'IMC',      def: 'Instrument Meteorological Conditions — weather below VFR minimums; clouds, fog, or low visibility.' },
   { abbr: 'VLOS',     def: 'Visual Line of Sight — requirement that the RPIC or VO can see the UAS with unaided vision at all times.' },
   { abbr: 'BVLOS',    def: 'Beyond Visual Line of Sight — drone operations outside unaided visual range; requires FAA waiver under §107.31.' },
   // Weather reports
-  { abbr: 'METAR',    def: 'Meteorological Aerodrome Report — routine weather observation at an airport (wind, visibility, clouds, temp, dew point, altimeter).' },
-  { abbr: 'TAF',      def: 'Terminal Aerodrome Forecast — weather forecast for a specific airport area, valid 24–30 hours.' },
+  { abbr: 'METAR',    def: 'Meteorological Aerodrome Report — routine weather observation at an airport (wind, visibility, clouds, temp, dew point, altimeter).', modal: 'modal-gloss-metar-taf' },
+  { abbr: 'TAF',      def: 'Terminal Aerodrome Forecast — weather forecast for a specific airport area, valid 24–30 hours.', modal: 'modal-gloss-metar-taf' },
   { abbr: 'PIREP',    def: 'Pilot Report — real-time weather conditions reported by pilots in flight (turbulence, icing, cloud tops, winds).' },
-  { abbr: 'SIGMET',   def: 'Significant Meteorological Information — advisory for severe weather hazards: severe turbulence, icing, hail, volcanic ash, microbursts.' },
+  { abbr: 'SIGMET',   def: 'Significant Meteorological Information — advisory for severe weather hazards: severe turbulence, icing, hail, volcanic ash, microbursts.', modal: 'modal-gloss-sigmet' },
   { abbr: 'AIRMET',   def: 'Airmen\'s Meteorological Information — advisory for moderate hazards: moderate turbulence/icing, mountain obscuration, strong surface winds.' },
-  { abbr: 'ASOS',     def: 'Automated Surface Observing System — automated weather station that generates METARs continuously.' },
-  { abbr: 'AWOS',     def: 'Automated Weather Observing System — similar to ASOS; automated weather observations at smaller airports.' },
+  { abbr: 'ASOS',     def: 'Automated Surface Observing System — automated weather station that generates METARs continuously.', modal: 'modal-gloss-asos-awos' },
+  { abbr: 'AWOS',     def: 'Automated Weather Observing System — similar to ASOS; automated weather observations at smaller airports.', modal: 'modal-gloss-asos-awos' },
   // Weather phenomena
   { abbr: 'OAT',      def: 'Outside Air Temperature — the ambient air temperature at a given altitude.' },
   { abbr: 'ISA',      def: 'International Standard Atmosphere — standard model where sea level temp is 15°C (59°F) and pressure is 29.92 inHg.' },
@@ -2483,7 +2483,10 @@ function renderGloss(data) {
     const defHTML = parts.length > 1
       ? `<span style="color:#fff;font-weight:500">${parts[0]}</span><span style="color:rgba(255,255,255,.45)"> — </span><span style="color:rgba(255,255,255,.65)">${parts.slice(1).join(' — ')}</span>`
       : `<span style="color:rgba(255,255,255,.65)">${item.def}</span>`;
-    card.innerHTML = `<span style="font-family:'Oswald',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;line-height:1.5">${defHTML}</span>`;
+    const btnHTML = item.modal
+      ? `<button class="acc-deepdive" style="margin-top:.5rem;font-size:.68rem" onclick="document.getElementById('${item.modal}').classList.add('open')">${item.abbr} Deep Dive ›</button>`
+      : '';
+    card.innerHTML = `<span style="font-family:'Oswald',sans-serif;font-size:1.05rem;color:var(--gold);letter-spacing:.04em">${item.abbr}</span><span style="font-size:.85rem;line-height:1.5">${defHTML}</span>${btnHTML}`;
     grid.appendChild(card);
   });
 }
@@ -3019,6 +3022,149 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     </div>
 
     <p style="margin-top:.75rem"><strong style="color:var(--gold)">Drone safety rule:</strong> An aircraft aligned with a dashed white centerline is at high power and high speed. Never fly over or near a runway centerline — you're directly in the path of something that cannot stop or swerve. A plane on a yellow taxiway line is slow and at low power — still give clearance, but far less dangerous than a runway encounter.</p>
+  </div>
+</div>
+
+<!-- MODAL: VFR + TRSA (Glossary) -->
+<div class="fc-modal-overlay" id="modal-gloss-vfr-trsa" role="dialog" aria-modal="true" aria-label="VFR and TRSA Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-gloss-vfr-trsa')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">AIRSPACE — VFR &amp; TRSA</div>
+    <h3>VFR — Visual Flight Rules</h3>
+    <p>VFR is the "see and be seen" method of flying. When a pilot flies VFR, they are primarily responsible for seeing other aircraft and avoiding obstacles by looking out the windshield — not relying solely on instruments or ATC instructions.</p>
+    <div class="fc-rule"><strong>To fly VFR, the weather must meet VMC (Visual Meteorological Conditions):</strong><br>
+    • <strong>Visibility:</strong> Minimum 3 statute miles (varies by airspace)<br>
+    • <strong>Cloud Clearance:</strong> Stay a specific distance from clouds (e.g., 500 ft below, 1,000 ft above) — so you don't fly into "the soup" or pop out in front of another plane<br>
+    • <strong>Horizon:</strong> Pilot must control the aircraft by reference to the natural horizon</div>
+    <h3 style="margin-top:1.25rem">TRSA — Terminal Radar Service Area</h3>
+    <p>A TRSA is a "middle ground" in airspace design — it sits around airports that aren't quite busy enough for Class C, but still benefit from radar sequencing. Here's what matters for VFR pilots:</p>
+    <table>
+      <tr><th>Feature</th><th>How It Works for VFR</th></tr>
+      <tr><td>Participation</td><td>Technically <strong>voluntary</strong>. A VFR pilot can legally fly through a TRSA without talking to ATC (unless entering the primary Class D airport at the center)</td></tr>
+      <tr><td>Service</td><td>If you "participate" (radio in), ATC provides radar sequencing and separation from other aircraft — just like commercial jets get</td></tr>
+      <tr><td>Separation</td><td>ATC keeps you a safe distance from other participating VFR and IFR traffic</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:1rem"><strong>VFR vs. IFR:</strong> The alternative to VFR is IFR (Instrument Flight Rules), which allows flight through clouds using instruments and strict ATC guidance — but requires an Instrument Rating, a specialized flight plan, and specific aircraft equipment. VFR is the "freedom" of flight, perfect for a clear day — but it requires you to keep your eyes peeled.</div>
+    <p style="margin-top:.75rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">Drone pilot takeaway:</strong> All Part 107 drone operations are inherently VFR — you must be able to see your aircraft. TRSA airspace is depicted on sectional charts with a solid black circle. Drone pilots still need LAANC authorization for the Class D at the center of a TRSA.</p>
+  </div>
+</div>
+
+<!-- MODAL: LAANC (Glossary) -->
+<div class="fc-modal-overlay" id="modal-gloss-laanc" role="dialog" aria-modal="true" aria-label="LAANC Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-gloss-laanc')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">AIRSPACE AUTHORIZATION</div>
+    <h3>LAANC — The 30-Second Green Light</h3>
+    <p>Before LAANC, getting drone authorization near an airport meant filing a manual request and waiting weeks or months for a human to approve it. LAANC replaced that bureaucracy with an app-based approval that takes about 30 seconds.</p>
+    <h3 style="margin-top:1.25rem">How It Works</h3>
+    <div class="fc-rule"><strong>Step 1 — The Grid:</strong> The FAA divided airspace around airports into a grid. Each square has a pre-approved altitude ceiling (e.g., 0 ft, 100 ft, 250 ft, or 400 ft).<br><br>
+    <strong>Step 2 — The Request:</strong> Open a LAANC-enabled app (Aloft, AirMap, DJI), draw your flight area, and set your altitude.<br><br>
+    <strong>Step 3 — Instant Check:</strong> If your altitude is at or below the grid limit and no TFRs overlap, you get an instant digital authorization.<br><br>
+    <strong>Step 4 — ATC Awareness:</strong> Your flight info is shared with the local Air Traffic Control tower.</div>
+    <h3 style="margin-top:1.25rem">Who Uses It</h3>
+    <table>
+      <tr><th>Pilot Type</th><th>Rule</th><th>Airspace Access</th></tr>
+      <tr><td>Part 107 (Commercial)</td><td>14 CFR Part 107</td><td>Class B, C, D, and E surface areas</td></tr>
+      <tr><td>Recreational (Hobbyist)</td><td>§44809</td><td>Required since 2019 — LAANC is the primary method</td></tr>
+    </table>
+    <h3 style="margin-top:1.25rem">What LAANC Doesn't Do</h3>
+    <ul style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.8;padding-left:1.25rem">
+      <li>It's not a license — you still need your Part 107 certificate (or TRUST test for rec flyers)</li>
+      <li>All other Part 107 rules still apply — VLOS, altitude limits, TFR avoidance, etc.</li>
+      <li>If the grid shows 0 ft, you can still request <strong>Further Coordination</strong> — a human reviews it, which takes longer</li>
+    </ul>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:1rem"><strong>Why it matters:</strong> LAANC makes it easy to follow the law, which keeps pilots "in the system" rather than flying rogue. For Batavia pilots, the Aloft app handles LAANC authorization for the airspace shelves of Aurora and DuPage airports — that park warning becomes a green light.</div>
+  </div>
+</div>
+
+<!-- MODAL: METAR + TAF (Glossary) -->
+<div class="fc-modal-overlay" id="modal-gloss-metar-taf" role="dialog" aria-modal="true" aria-label="METAR and TAF Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-gloss-metar-taf')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER REPORTS</div>
+    <h3>METAR &amp; TAF — "Now" vs. "Later"</h3>
+    <p>Think of METARs and TAFs as the two essential weather tools for any flight. The <strong>METAR</strong> tells you if it's safe right now; the <strong>TAF</strong> tells you if it'll be safe when you arrive or in an hour.</p>
+    <h3 style="margin-top:1.25rem">METAR — The Right-Now Snapshot</h3>
+    <p>A METAR is an <strong>observation</strong>, not a guess. It is updated once per hour (around :55), or sooner if weather changes suddenly (a "SPECI" special report).</p>
+    <div class="fc-rule" style="font-family:monospace;font-size:.88rem;letter-spacing:.04em">METAR KJFK 151053Z 19012G20KT 10SM BKN035 18/12 A2992</div>
+    <table style="margin-top:.5rem">
+      <tr><th>Field</th><th>Meaning</th></tr>
+      <tr><td>KJFK</td><td>Airport identifier (John F. Kennedy Intl)</td></tr>
+      <tr><td>151053Z</td><td>15th day of month at 10:53 UTC (Zulu)</td></tr>
+      <tr><td>19012G20KT</td><td>Wind from 190° at 12 knots, gusting to 20</td></tr>
+      <tr><td>10SM</td><td>10 Statute Miles visibility — legal for Part 107</td></tr>
+      <tr><td>BKN035</td><td>Broken clouds at 3,500 ft — this IS a ceiling</td></tr>
+      <tr><td>18/12</td><td>Temperature 18°C / Dew point 12°C</td></tr>
+      <tr><td>A2992</td><td>Altimeter setting 29.92 inHg (standard)</td></tr>
+    </table>
+    <h3 style="margin-top:1.25rem">TAF — The Looking-Ahead Forecast</h3>
+    <p>A TAF is produced by a human meteorologist, issued 4 times per day (every 6 hours), covering <strong>24–30 hours</strong> within 5 statute miles of the airport.</p>
+    <div class="fc-rule">Key TAF tags: <strong>FM</strong> (From — weather changes at this time) / <strong>TEMPO</strong> (Temporary change lasting &lt;1 hr) / <strong>PROB30</strong> (30% probability of the listed conditions)</div>
+    <h3 style="margin-top:1.25rem">Quick Comparison</h3>
+    <table>
+      <tr><th>Feature</th><th>METAR</th><th>TAF</th></tr>
+      <tr><td>Type</td><td>Observation (current)</td><td>Forecast (future)</td></tr>
+      <tr><td>Frequency</td><td>Hourly</td><td>Every 6 hours</td></tr>
+      <tr><td>Validity</td><td>Until the next report</td><td>24–30 hours</td></tr>
+      <tr><td>Source</td><td>Automated sensors / observers</td><td>NWS meteorologists</td></tr>
+    </table>
+    <p style="margin-top:.75rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">Drone pilot tip:</strong> If temp and dew point in the METAR are within 2°C of each other, watch for fog. If the TAF shows a TEMPO group with low visibility at your fly time, check again closer to launch — or have a backup plan.</p>
+  </div>
+</div>
+
+<!-- MODAL: SIGMET (Glossary) -->
+<div class="fc-modal-overlay" id="modal-gloss-sigmet" role="dialog" aria-modal="true" aria-label="SIGMET Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-gloss-sigmet')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER ADVISORY — SEVERE</div>
+    <h3>SIGMET — The Emergency Alert of Aviation Weather</h3>
+    <p>While METARs and TAFs are specific to an airport, a SIGMET is a "big picture" warning. Think of it as the FAA saying: <em>"Heads up — there is something out there that can actually break an airplane."</em> SIGMETs are hazardous to <strong>all aircraft</strong>, typically valid for up to 4 hours (6 hours for volcanic ash or hurricanes).</p>
+    <h3 style="margin-top:1.25rem">Two Flavors of SIGMET</h3>
+    <table>
+      <tr><th>Type</th><th>Trigger</th><th>Covers</th></tr>
+      <tr><td><strong>Convective SIGMET</strong></td><td>Thunderstorms</td><td>Severe icing, severe turbulence, hail ≥ ¾ in., surface winds ≥ 50 kts, tornadoes, microbursts</td></tr>
+      <tr><td><strong>Non-Convective SIGMET</strong></td><td>Atmosphere (non-storm)</td><td>Severe icing, severe/extreme turbulence, dust/sandstorms (&lt;3 SM vis), volcanic ash</td></tr>
+    </table>
+    <h3 style="margin-top:1.25rem">SIGMET vs. AIRMET</h3>
+    <table>
+      <tr><th>Feature</th><th>AIRMET</th><th>SIGMET</th></tr>
+      <tr><td>Severity</td><td>Moderate</td><td>Severe or Extreme</td></tr>
+      <tr><td>Primary Audience</td><td>Light / small aircraft</td><td>All aircraft including heavy jets</td></tr>
+      <tr><td>Hazards</td><td>Moderate turbulence/icing, mountain obscuration</td><td>Severe turbulence/icing, volcanic ash, severe storms</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--red);margin-top:1rem"><strong>Exam definition to lock in:</strong> "Severe Turbulence" in a SIGMET means conditions where the pilot may momentarily lose control of the aircraft — not just a rough ride. For drone pilots, any active SIGMET over your area is an automatic no-fly.</div>
+    <p style="margin-top:.75rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">Memory trick (AIRMET types):</strong> Sierra = Sight (IFR conditions) / Tango = Turbulence / Zulu = Zero degrees (icing). Everything above those thresholds = SIGMET territory.</p>
+  </div>
+</div>
+
+<!-- MODAL: ASOS + AWOS (Glossary) -->
+<div class="fc-modal-overlay" id="modal-gloss-asos-awos" role="dialog" aria-modal="true" aria-label="ASOS and AWOS Explained">
+  <div class="fc-modal">
+    <button class="fc-modal-close" onclick="closeModal('modal-gloss-asos-awos')" aria-label="Close">×</button>
+    <div class="fc-modal-badge">WEATHER STATIONS</div>
+    <h3>ASOS &amp; AWOS — The Robot Meteorologists</h3>
+    <p>ASOS and AWOS are the physical hardware that <em>creates</em> the METARs you read in weather apps. Without these systems, pilots would rely on someone looking out a window and guessing the wind speed.</p>
+    <h3 style="margin-top:1.25rem">ASOS — The Gold Standard</h3>
+    <p>ASOS is a joint program between the FAA, Department of Defense, and National Weather Service. Found at larger, busier airports (Class B/C/D).</p>
+    <div class="fc-rule">Updates every <strong>minute</strong>. Detects precipitation type (rain vs. snow) and intensity. Highly standardized — results are the same whether in Alaska or Florida.</div>
+    <h3 style="margin-top:1.25rem">AWOS — The Local Helper</h3>
+    <p>AWOS is typically operated by the FAA or a local airport authority at smaller, non-towered general aviation airports. It comes in levels based on capability:</p>
+    <table>
+      <tr><th>Level</th><th>Reports</th></tr>
+      <tr><td>AWOS-A</td><td>Altimeter only</td></tr>
+      <tr><td>AWOS-1</td><td>Altimeter, Wind, Temp, Dew Point</td></tr>
+      <tr><td>AWOS-3</td><td>All of above + Visibility &amp; Cloud Ceiling</td></tr>
+      <tr><td>AWOS-4</td><td>Full suite + Precipitation + Runway surface condition</td></tr>
+    </table>
+    <h3 style="margin-top:1.25rem">Key Differences</h3>
+    <table>
+      <tr><th>Feature</th><th>ASOS</th><th>AWOS</th></tr>
+      <tr><td>Complexity</td><td>More sensors / higher detail</td><td>Variable (depends on level)</td></tr>
+      <tr><td>Ownership</td><td>Federal (NWS / FAA / DoD)</td><td>Federal or State / Local</td></tr>
+      <tr><td>Common Location</td><td>Major commercial hubs</td><td>Small municipal airports</td></tr>
+    </table>
+    <div class="fc-rule" style="border-left-color:var(--gold);margin-top:1rem"><strong>How pilots access them:</strong> Each station broadcasts on a dedicated VHF frequency. Pilots tune their radio as they approach to hear a computer-generated voice reading current conditions in a loop. Most stations also have a <strong>telephone number</strong> you can call from the ground before you leave home.</div>
+    <p style="margin-top:.75rem;font-size:.82rem;color:rgba(255,255,255,.55)"><strong style="color:var(--gold)">Exam flag:</strong> A METAR that includes the word <strong>AUTO</strong> came directly from an ASOS or AWOS machine with no human observer verifying the data.</p>
   </div>
 </div>
 
