@@ -11,12 +11,16 @@
 !favicon-apple.png
 !avata-2.html
 !flight-log-march-9-2026.html
+!flying-guide.html
 !generated_imgs/
 !generated_imgs/*.png
 !generated_imgs/*.jpg
 !avata 2/
 !avata 2/*.jpg
 !avata 2/*.webp
+!avata 2/flying-guide/
+!avata 2/flying-guide/*.png
+!avata 2/flying-guide/*.jpg
 !fpv-drone-obstacle-course.jpg
 !fpv-drone-obstacle-course-variable-sizes.jpg
 !training course/
